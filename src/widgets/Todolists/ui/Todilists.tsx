@@ -1,5 +1,6 @@
 import {useBreadcrumbs} from '@/widgets/header/lib/useBreadcrumbs'
 import {useGetAllTodolists} from '@/entities/todolist/api/todolists.queries'
+import type {Todolist} from '@/entities/todolist/lib/types'
 
 
 
@@ -13,7 +14,7 @@ export const Todolists = () => {
     return (
         <>
             <div>
-                {todolists?.map((item) => (
+                {todolists?.map((item: Todolist) => (
                     <div key={item.id}>{item.title}</div>
                 ))}
             </div>
