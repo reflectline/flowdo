@@ -1,0 +1,156 @@
+@use '@/app/styles/variables' as *;
+
+
+.headerWelcome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: $spacing-14h;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 1000;
+
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+
+.wrapperContentWelcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: $spacing-1600;
+  padding: 0 $spacing-6;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+
+  font-size: $font-14;
+  font-weight: $medium;
+  color: var(--foreground);
+}
+
+.logo{
+  width:$spacing-6;
+  flex-shrink: 0;
+  height: auto;
+}
+
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  gap: $spacing-6;
+
+  font-size: $font-14;
+  font-weight: $medium;
+}
+
+
+
+
+.headerApp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 $spacing-10;
+  min-height: $spacing-14;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
+}
+.wrapperContentApp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: $spacing-1600;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.login {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.signUp {
+  border: 1px solid var(--border);
+  border-radius: $spacing-2;
+
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: $spacing-2 $spacing-4;
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--accent);
+  }
+}
+
+.logout {
+  border: 1px solid var(--border);
+  border-radius: $spacing-2;
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: $spacing-2 $spacing-4;
+
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+.toggleThemeBth{
+  border: none;
+  background-color: transparent;
+}
+
+.pathWrapper{
+  display: flex;
+  align-items: center;
+  color: var(--muted);
+  gap:$spacing-2;
+}
+
+.hintWrapper{
+  display: flex;
+  align-items: center;
+  color: var(--crumbs);
+  gap:$spacing-2;
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+}
+
+.link {
+  color: var(--crumbs);
+  text-decoration: none;
+
+  &:visited {
+    color: var(--crumbs);
+  }
+}
+
+.last {
+  color: var(--foreground);
+  text-decoration: none;
+  &:visited {
+    color: var(--foreground);
+  }
+}
+.ico{
+  background-color: var(--crumbs);
+}

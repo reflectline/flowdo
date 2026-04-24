@@ -1,0 +1,60 @@
+@use './variables.scss';
+@use './themes.scss';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: black;
+  font-family:'Geist', system-ui, sans-serif;
+  //background-color: var(--background);
+  background-color: #000000;
+  min-height: 100vh;
+  margin: 0;
+}
+.hidden {
+  display: none !important;
+}
+
+
+html, body {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+html::-webkit-scrollbar {
+  width: 6px;
+}
+html::-webkit-scrollbar-track {
+  background: #000000;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 9999px;
+  backdrop-filter: blur(2px);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+//@media (min-width: 2000px) {
+//  html {
+//    font-size: 20px; /* все rem увеличатся пропорционально */
+//  }
+//}
+//@media (min-width: 3000px) {
+//  html {
+//    font-size: 28px; /* все rem увеличатся пропорционально */
+//  }
+//}

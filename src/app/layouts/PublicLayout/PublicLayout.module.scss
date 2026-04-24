@@ -1,0 +1,22 @@
+@use '@/app/styles/variables' as *;
+
+.page{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #000000;
+  padding-top: $spacing-14h;
+  min-height: calc(100vh - $spacing-14h); // контент без хедера
+  overflow-y: auto;
+
+
+  //height: calc(100vh - $spacing-14h);
+  //overflow-y: auto;
+  //scrollbar-width: none;
+  //-ms-overflow-style: none;
+  //&::-webkit-scrollbar {
+  //  display: none;
+  //}
+
+}
+
