@@ -31,8 +31,10 @@
 }
 
 
-
-.logo { width: $spacing-38; height: auto; }
+.logo {
+  width: $spacing-38;
+  height: auto;
+}
 
 .wrapperInputs{
   display: flex;
@@ -75,7 +77,7 @@
 
 
 .inputWrapper .input {
-  padding-right: 40px;
+  padding-right: $spacing-10;
 }
 .inputWrapper {
   position: relative;
@@ -83,27 +85,10 @@
   align-items: center;
 }
 
-.input {
-  outline: none;
-  font-size: $font-14;
-  width: 100%;
-  height: $spacing-9h;
-  padding: 0 16px;
-  color: var(--foreground);
-  background-color: var(--input);
-  border: 1px solid var(--border);
-  border-radius: $spacing-border;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-  &:focus-visible {
-    box-shadow: 0 0 0 1px rgba(107, 33, 215, 0.55);
-  }
-}
-
 
 .showPassword {
   position: absolute;
-  right: 12px;
+  right: $spacing-3;
   top: 50%;
   transform: translateY(-50%);
   display: flex;

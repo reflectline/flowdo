@@ -73,7 +73,7 @@
 
   font-size: $font-14;
   text-decoration: none;
-  color: inherit;
+  color: var(--card);
 }
 .getStartedBtn:hover {
   background-color: #eaeaea;

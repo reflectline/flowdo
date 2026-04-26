@@ -1,6 +1,9 @@
 import { useBreadcrumbs } from '@/widgets/header/lib/useBreadcrumbs'
 import { ErrorPage } from '@/pages/error/ErrorPage'
-import {Todolists} from '@/widgets/Todolists/ui/Todilists'
+import { CreateTodolistForm } from '@/features/create-todolist/CreateTodolistForm'
+import { Todolists } from '@/widgets/todolists/ui/Todolists'
+
+
 
 
 export const DashboardPage = () => {
@@ -11,8 +14,8 @@ export const DashboardPage = () => {
   }
 
   return (
-    <section style={{ backgroundColor: 'beige' }}>
-      {/*<CreateTodoForm/>*/}
+    <section>
+      <CreateTodolistForm />
       <Todolists />
     </section>
   )

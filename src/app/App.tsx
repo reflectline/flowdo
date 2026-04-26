@@ -6,8 +6,6 @@ import {ToastContainer} from 'react-toastify'
 
 export const App = () => {
 
-
-
   return (
         <ThemeProvider>
             <RouterProvider router={router} />

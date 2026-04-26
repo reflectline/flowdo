@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import { todolistsApi } from '@/entities/todolist/api/todolists.api'
+import {todolistApi} from '@/entities/todolist/api/todolist.api.ts'
+
+
 
 
 
@@ -8,7 +10,7 @@ export const useGetAllTodolists = () => {
   return useQuery({
     queryKey: ['todolists'],
     queryFn: async () => {
-      const { data } = await todolistsApi.getTodolists()
+      const { data } = await todolistApi.getTodolists()
       return data
     },
     retry: false,

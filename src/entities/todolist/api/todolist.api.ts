@@ -1,8 +1,9 @@
 import { instance } from '@/shared/api/instance'
 import type { BaseResponse } from '@/shared/api/types'
-import type {Todolist} from '@/entities/todolist/lib/types'
+import type {Todolist} from '@/entities/todo/lib/types'
 
-export const todolistsApi = {
+
+export const todolistApi = {
 
     getTodolists() {
         return instance.get<Todolist[]>('/todo-lists')

@@ -1,0 +1,25 @@
+@use '@/app/styles/variables' as *;
+
+.wrapperCreateForm {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+}
+
+.hint {
+  color: var(--card-foreground);
+  font-size: $font-14;
+
+}
+
+.wrapperInput {
+
+}
+
+.input {
+
+}
+
+.button {
+
+}

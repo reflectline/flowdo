@@ -1,0 +1,56 @@
+@use '@/app/styles/variables' as *;
+
+
+
+.button{
+  width: 10%;
+  height: $spacing-9h;
+  border-radius: $spacing-border;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+.sm {
+  height: $spacing-8h;
+}
+.md {
+  height: $spacing-9h;
+}
+
+.default{
+  color: var(--foreground);
+  background-color: transparent;
+  border: none;
+}
+
+.primary{
+  color: var(--primary-foreground);
+  background-color: var(--primary);
+  border: 1px transparent;
+  &:hover{
+    background-color: var(--primary-hover);
+  }
+}
+
+.secondary {
+  color: var(--foreground);
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: $spacing-2;
+  &:hover{
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+.solid{
+  color: var(--foreground);
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  border-radius: $spacing-2;
+  &:hover{
+    background-color: var(--input-hover);
+    color: var(--accent-foreground);
+  }
+}

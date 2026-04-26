@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { fadeDownHeader } from '@/shared/animation/variants'
 import s from '@/widgets/header/Header.module.scss'
 import logoLight from '@/shared/assets/icons/logoLight.svg'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { path } from '@/app/providers/router/path'
 import { Motion } from '@/shared/ui/motion/Motion'
 
@@ -17,12 +17,12 @@ export const HeaderWelcome = () => {
                     </div>
 
                     <div className={s.btnWrapper}>
-                        <NavLink className={s.login} to={path.login}>
+                        <Link className={s.login} to={path.login}>
                             Log in
-                        </NavLink>
-                        <NavLink className={s.signUp} to={path.login}>
+                        </Link>
+                        <Link className={s.signUp} to={path.login}>
                             Sign up
-                        </NavLink>
+                        </Link>
                     </div>
                 </div>
             </motion.header>

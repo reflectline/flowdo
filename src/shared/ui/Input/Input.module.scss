@@ -1,0 +1,26 @@
+@use '@/app/styles/variables' as *;
+
+.input {
+  outline: none;
+  font-size: $font-14;
+  width: 100%;
+  height: $spacing-9h;
+  padding: 0 $spacing-4;
+  color: var(--foreground);
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  border-radius: $spacing-border;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 1px rgba(107, 33, 215, 0.55);
+  }
+}
+
+
+.sm {
+  height: $spacing-8h;
+}
+.md {
+  height: $spacing-9h;
+}
