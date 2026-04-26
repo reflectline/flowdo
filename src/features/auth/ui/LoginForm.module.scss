@@ -117,17 +117,9 @@
 }
 
 .loginBtn{
-  width: 100%;
-  height: $spacing-9h;
-  color: var(--foreground);
-  background-color: var(--chart-4);
-  border: 1px transparent;
   border-radius: $spacing-border;
-  cursor: pointer;
 }
-.loginBtn:hover {
-  background-color: var( --chart-4);
-}
+
 .hintBtn{
   color: var(--muted-foreground);
   display: flex;

@@ -16,7 +16,7 @@ export const HeaderWelcome = () => {
                         <span>Flowdo</span>
                     </div>
 
-                    <div className={s.btnWrapper}>
+                    <div className={s.linkWrapper}>
                         <Link className={s.login} to={path.login}>
                             Log in
                         </Link>

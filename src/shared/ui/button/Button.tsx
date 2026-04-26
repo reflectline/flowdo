@@ -2,10 +2,9 @@ import { cn } from '@/shared/lib/utils'
 import s from '@/shared/ui/button/Button.module.scss'
 import type { ButtonHTMLAttributes } from 'react'
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &{
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: 'sm' | 'md'
-  variant?: 'none' | 'primary' | 'secondary' | 'solid'
-  borderStyle?: 'none' | 'solid' | 'dashed'
+  variant?: 'none' | 'primary' | 'secondary' | 'solid' | 'dashed'
 }
 
 export const Button = (props: ButtonProps) => {
@@ -13,16 +12,9 @@ export const Button = (props: ButtonProps) => {
     className,
     size = 'md',
     variant = 'none',
-    borderStyle = 'none',
+
     ...rest
   } = props
 
-  return <button
-    className={cn(
-      s.button,
-      s[size],
-      s[variant],
-      s[borderStyle],
-      className)} {...rest}
-  />
+  return <button className={cn(s.button, s[size], s[variant], className)} {...rest} />
 }

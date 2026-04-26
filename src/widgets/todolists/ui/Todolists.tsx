@@ -19,24 +19,25 @@ export const Todolists = () => {
 
     return (
         <>
-            {/*<div>*/}
-            {/*    {todolists?.map((item: Todolist) => (*/}
-            {/*        <div key={item.id}>{item.title}</div>*/}
-            {/*    ))}*/}
-            {/*</div>*/}
-          ---------------
-          <Button variant='none'>hello</Button>
-          <Button variant='primary'>hello</Button>
-          <Button variant='secondary'>hello</Button>
-          <Button variant='solid'>hello</Button>
-          <Button variant='solid' borderStyle='none'>hello</Button>
+            <div>
+                {todolists?.map((item: Todolist) => (
+                    <div key={item.id}>{item.title}</div>
+                ))}
+            </div>
 
-          ---------------
+
           <button style={{
             padding: '10px 16px',
             marginBottom: '12px',
           }} onClick={()=>refetch()}></button>
             <h1>Dashboard: {currentBreadcrumb.label}</h1>
+
+          <Button variant='none'>hello</Button>
+          <Button variant='primary'>hello</Button>
+          <Button variant='secondary'>hello</Button>
+          <Button variant='solid'>hello</Button>
+          <Button variant='dashed'>hello</Button>
+
         </>
     )
 }
