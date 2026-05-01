@@ -22,7 +22,7 @@ export const LoginInputs = (props: LoginInputsProps) => {
       <div className={s.field}>
         <span className={errors.email ? s.errorMessage : s.label}>{errors.email?.message || 'Email'}</span>
 
-        <Input className={s.input} placeholder="m@example.com" {...register('email')} />
+        <Input className={s.input} textSize={'sm'} placeholder="m@example.com" {...register('email')} />
       </div>
 
       <div className={s.field}>
@@ -34,7 +34,7 @@ export const LoginInputs = (props: LoginInputsProps) => {
         </div>
 
         <div className={s.inputWrapper}>
-          <Input className={s.input} type={showPassword ? 'text' : 'password'} {...register('password')} />
+          <Input className={s.input} textSize={'sm'} type={showPassword ? 'text' : 'password'} {...register('password')} />
 
           <button className={s.showPassword} type="button" onClick={() => setShowPassword((prev) => !prev)}>
             {showPassword ? <EyeFollow size={20} /> : <EyeClosed size={20} />}

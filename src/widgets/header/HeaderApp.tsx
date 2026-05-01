@@ -23,7 +23,7 @@ export const HeaderApp = () => {
         <div className={s.pathWrapper}>
           <div className={s.hintWrapper}>
             <p>Dashboard</p>
-            <ChevronRight className={s.icon} />
+            <ChevronRight className={s.ico} />
           </div>
           {breadcrumbs.map((item, index) => {
             const isLast = index === breadcrumbs.length - 1
@@ -37,14 +37,14 @@ export const HeaderApp = () => {
                   </NavLink>
                 )}
 
-                {!isLast && <ChevronRight className={s.icon} />}
+                {!isLast && <ChevronRight className={s.ico} />}
               </div>
             )
           })}
         </div>
 
         <div className={s.btnWrapper}>
-          <Button variant="secondary" onClick={handleLogout}>
+          <Button className={s.button} variant="secondary"  onClick={handleLogout}>
             Log out
           </Button>
           <ThemeToggle className={s.toggleThemeBth} />

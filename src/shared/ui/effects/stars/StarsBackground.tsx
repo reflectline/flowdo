@@ -1,12 +1,9 @@
-
-
-
-import * as React from 'react';
+import { useEffect, useState } from 'react'
 import {motion, type MotionValue, useMotionValueEvent, useSpring} from 'framer-motion';
-import { showIn} from "@/shared/animation/variants.ts";
+import { showIn} from '@/shared/animation/variants';
 import s from './StarsBackground.module.scss';
 import { cn } from '@/shared/lib/utils';
-import {Motion} from "@/shared/ui/motion/Motion.tsx";
+import { Motion } from '@/shared/ui/motion/Motion'
 
 
 type Star = {
@@ -26,9 +23,9 @@ type StarLayerProps = {
 };
 
 function StarLayer({ count, size, factor, offsetX, offsetY, starColor }: StarLayerProps) {
-    const [stars, setStars] = React.useState<Star[]>([]);
+    const [stars, setStars] = useState<Star[]>([]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const newStars: Star[] = [];
         for (let i = 0; i < count; i++) {
             const x = Math.random() * window.innerWidth;
@@ -40,7 +37,7 @@ function StarLayer({ count, size, factor, offsetX, offsetY, starColor }: StarLay
         setStars(newStars);
     }, [count]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         let frame: number;
 
         const moveStars = () => {
@@ -95,11 +92,11 @@ export function StarsBackground({ offsetX,offsetY, className, starColor = '#fff'
     const springX = useSpring(offsetX, { stiffness: 50, damping: 20 });
     const springY = useSpring(offsetY, { stiffness: 50, damping: 20 });
 
-    const [ox, setOx] = React.useState(0);
-    const [oy, setOy] = React.useState(0);
+    const [ox, setOx] = useState(0);
+    const [oy, setOy] = useState(0);
 
-    useMotionValueEvent(springX, "change", setOx);
-    useMotionValueEvent(springY, "change", setOy);
+    useMotionValueEvent(springX, 'change', setOx);
+    useMotionValueEvent(springY, 'change', setOy);
 
     return (
         <Motion>

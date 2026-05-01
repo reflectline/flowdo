@@ -7,6 +7,6 @@ export const path = {
     dashboard: {
         root: '/dashboard',
         filter: (f: DashboardFilter) => `/dashboard/${f}`,
-        todo: (f: DashboardFilter, id: string) => `/dashboard/${f}/${id}`,
+        todo: (f: DashboardFilter, title: string) => `/dashboard/${f}/${title}`,
     },
 } as const

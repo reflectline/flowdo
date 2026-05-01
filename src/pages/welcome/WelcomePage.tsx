@@ -1,4 +1,4 @@
-import * as React from 'react'
+import type { MouseEvent } from 'react'
 import s from '@/pages/welcome/WelcomePage.module.scss'
 import { Link } from 'react-router-dom'
 import { path } from '@/app/providers/router/path'
@@ -14,7 +14,7 @@ export const WelcomePage = () => {
     const offsetX = useMotionValue(0)
     const offsetY = useMotionValue(0)
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
         const centerX = window.innerWidth / 2
         const centerY = window.innerHeight / 2
         offsetX.set((e.clientX - centerX) / centerX)

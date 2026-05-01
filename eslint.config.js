@@ -24,6 +24,8 @@ export default defineConfig([
         ],
         rules: {
             quotes: ['error', 'single', { avoidEscape: true }],
+            'react-hooks/set-state-in-effect': 'off',
+
             'no-multi-spaces': 'off',
             'no-multiple-empty-lines': 'off',
             'react/jsx-tag-spacing': 'off',

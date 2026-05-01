@@ -1,0 +1,20 @@
+@use '@/app/styles/variables' as *;
+
+
+
+.todolistsWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.path{
+  font-size: $font-24;
+}
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($card-width, 1fr));
+  gap: $spacing-4;
+
+}
+

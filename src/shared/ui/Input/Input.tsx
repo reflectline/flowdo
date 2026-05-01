@@ -1,19 +1,24 @@
 import { cn } from '@/shared/lib/utils'
 import s from '@/shared/ui/Input/Input.module.scss'
-import * as React from 'react'
+import type { InputHTMLAttributes } from 'react'
 
-// type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
-//   size?: 'sm' | 'md' | 'lg'
-// }
-
-type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> & {
+type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   size?: 'sm' | 'md'
+  textSize?: 'sm' | 'md'
+  border?: boolean
+  autoFocus?: boolean
 }
 
 export const Input = (props: InputProps) => {
-  const { size = 'md', className, ...rest } = props
-
-  return <input className={cn(s.input, s[size], className)} {...rest} />
+  const {size = 'md', textSize = 'md', border = true, className, ...rest} = props
+  return (
+    <input
+      className={cn(s.input, s[size], s[`text${textSize}`], !border && s.noBorder, className)}
+      {...rest}
+    />
+  )
 }
+
+Input.displayName = 'Input'
 
 

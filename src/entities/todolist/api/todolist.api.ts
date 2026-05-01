@@ -1,6 +1,7 @@
 import { instance } from '@/shared/api/instance'
 import type { BaseResponse } from '@/shared/api/types'
-import type {Todolist} from '@/entities/todo/lib/types'
+import type {Todolist} from '@/entities/todolist/lib/types'
+
 
 
 export const todolistApi = {
@@ -17,11 +18,11 @@ export const todolistApi = {
         return instance.delete<BaseResponse>(`/todo-lists/${id}`)
     },
 
-    changeTodolistTitle(id: string, title: string) {
+    updateTodolistTitle(id: string, title: string) {
         return instance.put<BaseResponse>(`/todo-lists/${id}`, { title })
     },
 
-    changeTodolistPosition(id: string, putAfterItemId: string | null) {
+    updateTodolistPosition(id: string, putAfterItemId: string | null) {
         return instance.put<BaseResponse>( `/todo-lists/${id}/reorder`, {putAfterItemId})
     },
 }

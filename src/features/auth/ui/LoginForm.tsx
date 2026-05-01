@@ -24,7 +24,6 @@ export const LoginForm = () => {
     const onSubmit: SubmitHandler<LoginInputsType> = (data) => {
         login(data, {onSuccess: () => form.reset(),})
         console.log(data)
-        form.reset()
     }
 
     return (

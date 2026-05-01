@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
+import { type ReactNode, useEffect } from 'react'
 import {useAppSelector} from '@/app/models/hooks'
 import {selectThemeMode} from '@/app/models/appSlice'
-import * as React from 'react'
 
 
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const theme = useAppSelector(selectThemeMode)
 
     useEffect(() => {

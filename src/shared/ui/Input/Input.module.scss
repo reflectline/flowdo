@@ -9,18 +9,25 @@
   color: var(--foreground);
   background-color: var(--input);
   border: 1px solid var(--border);
-  border-radius: $spacing-border;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  border-radius: $input-radius;
+
 
   &:focus-visible {
-    box-shadow: 0 0 0 1px rgba(107, 33, 215, 0.55);
+    box-shadow: 0 0 0 2px var(--sidebar-border);
   }
 }
 
 
-.sm {
-  height: $spacing-8h;
-}
-.md {
-  height: $spacing-9h;
+.sm {height: $spacing-8h;}
+.md {height: $spacing-9h;}
+
+.textsm{font-size: $font-14;}
+.textmd{font-size: $font-16;}
+
+.noBorder {
+  border: none;
+  &:focus-visible {
+    box-shadow: 0 0 0 2px transparent;
+    background-color: transparent;
+  }
 }

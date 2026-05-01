@@ -25,7 +25,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: $spacing-1600;
+  max-width: $headerWelcome-content-width;
   padding: 0 $spacing-6;
 }
 
@@ -34,7 +34,7 @@
   align-items: center;
   gap: $spacing-2;
 
-  font-size: $font-14;
+  font-size: $font-16;
   font-weight: $medium;
   color: var(--foreground);
 }
@@ -45,7 +45,7 @@
   height: auto;
 }
 
-.linkWrapper {
+.btnWrapper {
   display: flex;
   align-items: center;
   gap: $spacing-6;
@@ -54,6 +54,9 @@
   font-weight: $medium;
 }
 
+.button{
+  font-size: $font-14;
+}
 
 
 
@@ -71,9 +74,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: $spacing-1600;
+  max-width: $headerWelcome-content-width;
   margin: 0 auto;
   width: 100%;
+  font-size: $font-16;
 }
 
 .login {
@@ -95,20 +99,6 @@
   }
 }
 
-//.logout {
-//  border: 1px solid var(--border);
-//  border-radius: $spacing-2;
-//  background-color: var(--background);
-//  color: var(--foreground);
-//  padding: $spacing-2 $spacing-4;
-//
-//  text-decoration: none;
-//
-//  &:hover {
-//    background-color: var(--accent);
-//    color: var(--accent-foreground);
-//  }
-//}
 
 .toggleThemeBth{
   border: none;
@@ -152,5 +142,7 @@
   }
 }
 .ico{
-  background-color: var(--crumbs);
+  width: $spacing-5;
+  height: auto;
+  flex-shrink: 0;
 }

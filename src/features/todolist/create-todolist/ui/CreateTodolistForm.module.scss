@@ -4,22 +4,20 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-2;
+  width: 100%;
 }
-
-.hint {
-  color: var(--card-foreground);
+.hint{
   font-size: $font-14;
-
 }
 
-.wrapperInput {
-
+.wrapperInteractive {
+  display: flex;
+  gap: $spacing-4;
 }
 
 .input {
-
+  flex: 1;
+  min-width: 0;
+  max-width: $input-width;
 }
 
-.button {
-
-}

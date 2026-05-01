@@ -1,0 +1,61 @@
+@use '@/app/styles/variables' as *;
+
+.sm{
+  font-size: $font-14;
+}
+.md{
+  font-size: $font-16;
+}
+
+.input{
+  max-width: 80%;
+  outline: none;
+  width: 100%;
+  height: auto;
+  padding: 0 ;
+  color: var(--primary-foreground);
+  background-color: var(--card);
+  &:focus{
+    color: var(--chart-1);
+  }
+}
+
+
+.spanWrapper{
+  position: relative;
+  display: block;
+
+  max-width: 80%;
+  padding-right: $spacing-5;
+}
+
+.span {
+  display: block;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover{
+    color: var(--chart-1);
+  }
+}
+
+.pencilIcon {
+  width: $spacing-4;
+  height: auto;
+  flex-shrink: 0;
+  color: var(--chart-1);
+
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.spanWrapper:hover .pencilIcon {
+  opacity: 1;
+}
