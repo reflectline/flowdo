@@ -1,5 +1,5 @@
 import { Input } from '@/shared/ui/Input/Input'
-import s from '@/features/todolist/create-todolist/ui/CreateTodolistForm.module.scss'
+import s from '@/features/todolist/create-todolist/ui/CreateTodolist.module.scss'
 import { Button } from '@/shared/ui/button/Button'
 import circlePlus from '@/shared/assets/icons/circlePlus.svg'
 import { type SubmitHandler, useForm } from 'react-hook-form'
@@ -9,7 +9,7 @@ import type { CreateTodolistInputType } from '@/features/todolist/create-todolis
 
 import { useCreateTodolist } from '@/entities/todolist/api/todolist.queries'
 
-export const CreateTodolistForm = () => {
+export const CreateTodolist = () => {
   const { mutate: createTodolist } = useCreateTodolist()
 
   const form = useForm<CreateTodolistInputType>({

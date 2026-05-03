@@ -9,10 +9,10 @@ type TodolistsTitleProps = {
 
 export const UpdateTodolistTitle = (props: TodolistsTitleProps) => {
   const { id, title } = props
-  const { mutate } = useUpdateTodolistTitle()
+  const { mutate: updateTodolistTitle } = useUpdateTodolistTitle()
 
   const handleSubmit = (newTitle: string)=> {
-    mutate({ id, title: newTitle })
+    updateTodolistTitle({ id, title: newTitle })
     console.log(newTitle)
   }
   return (

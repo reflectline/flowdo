@@ -35,27 +35,40 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.1s ease;
   &:hover{
     color: var(--chart-1);
   }
 }
 
-.pencilIcon {
-  width: $spacing-4;
-  height: auto;
-  flex-shrink: 0;
+.iconButton {
   color: var(--chart-1);
-
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-
   opacity: 0;
-  transition: opacity 0.1s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.spanWrapper:hover .pencilIcon {
+.spanWrapper:hover .iconButton {
   opacity: 1;
+  color: var(--chart-1);
+  pointer-events: auto;
 }
+
+
+
+.error {
+  color: var(--destructive);
+  animation: shake 0.3s ease;
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+

@@ -1,7 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { todolistApi } from '@/entities/todolist/api/todolist.api'
-import type {Todolist} from '@/entities/todolist/lib/types.ts';
-import {queryClient} from "@/app/providers/query-client/query-client.ts";
+import type {Todolist} from '@/entities/todolist/lib/types';
 
 
 
@@ -25,74 +24,67 @@ export const useCreateTodolist = () => {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn:({title}: { title: string })=>  todolistApi.createTodolist(title),
-    onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: ['todolists'] })
-    }
+    mutationFn: ({ title }: { title: string }) => todolistApi.createTodolist(title),
+
+    onSuccess: (res) => {
+      const newTodolist = res.data.data.item
+      queryClient.setQueryData<Todolist[]>(['todolists'], (old) =>
+        old ? [newTodolist, ...old] : [newTodolist]
+      )
+    },
   })
 }
+// export const useCreateTodolist = () => {
+//   const queryClient = useQueryClient()
+//
+//   return useMutation({
+//     mutationFn:({title}: { title: string })=>  todolistApi.createTodolist(title),
+//     onSuccess: () => {
+//       void queryClient.invalidateQueries({ queryKey: ['todolists'] })
+//     }
+//   })
+// }
 
 export const useUpdateTodolistTitle = () => {
   const queryClient = useQueryClient()
 
   return useMutation({
     mutationFn: ({id, title}: { id: string; title: string })=> todolistApi.updateTodolistTitle(id, title),
-
-    onMutate: async (variables) => {
+    onMutate: async ({ id, title }) => {
       await queryClient.cancelQueries({ queryKey: ['todolists'] })
-      const prevTodolists = queryClient.getQueryData<Todolist[]>(['todolists'])
-
-      // оптимистично меняем
-      queryClient.setQueryData<Todolist[]>(['todolists'], (old) => {
-        if (!old) return old
-
-        return old.map((t) =>
-          t.id === variables.id
-            ? { ...t, title: variables.title }
-            : t
-        )
-      })
-
-      return { prevTodolists }
+      const prev = queryClient.getQueryData<Todolist[]>(['todolists'])
+      queryClient.setQueryData<Todolist[]>(['todolists'], (old) =>
+        old?.map(todolist => todolist.id === id ? { ...todolist, title } : todolist)
+      )
+      return { prev }
     },
 
-    // ❌ 2. rollback если ошибка
-    onError: (_err, _variables, context) => {
-      if (context?.prevTodolists) {
-        queryClient.setQueryData(['todolists'], context.prevTodolists)
+    onError: (_error, _variables, context) => {
+      if (context?.prev) {
+        queryClient.setQueryData(['todolists'], context.prev)
       }
     },
-
-    onSuccess: (_, variables) => {
-      queryClient.setQueryData(['todolists'], (old: Todolist[] | undefined) => {
-        if (!old) return old
-
-        return old.map(t =>
-          t.id === variables.id
-            ? { ...t, title: variables.title }
-            : t
-        )
-      })
-    }
-
-
-
   })
-
-
 }
 
-// onSettled: () => {
-//   queryClient.invalidateQueries({ queryKey: ['todolists'] })
-// },
+export const useDeleteTodolist = () => {
+  const queryClient = useQueryClient()
 
+  return useMutation({
+    mutationFn: ({id}: { id: string })=> todolistApi.deleteTodolist(id),
+    onMutate: async ({ id }) => {
+      await queryClient.cancelQueries({ queryKey: ['todolists'] })
+      const prev = queryClient.getQueryData<Todolist[]>(['todolists'])
+      queryClient.setQueryData<Todolist[]>(['todolists'], (old) =>
+        old?.filter(todolist => todolist.id !== id)
+      )
+      return { prev }
+    },
 
-
-// onSuccess: (_, variables) => {
-//   queryClient.setQueryData(['todolists'], (old: Todolist[] | undefined) => {
-//     if (!old) return old
-//     return old.map(todolist => todolist.id === variables.id
-//       ? { ...todolist, title: variables.title }
-//       : todolist)
-//   })
-// },
+    onError: (_error, _variables, context) => {
+      if (context?.prev) {
+        queryClient.setQueryData(['todolists'], context.prev)
+      }
+    },
+  })
+}

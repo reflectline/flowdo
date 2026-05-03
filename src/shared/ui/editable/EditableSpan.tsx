@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { PencilLine } from 'lucide-react'
 import { cn } from '@/shared/lib/utils'
 import { Input } from '@/shared/ui/Input/Input'
 import s from '@/shared/ui/editable/EditableSpan.module.scss'
+import {validateTitleSchema} from '@/shared/lib/validation/string.schema'
+import {useErrorAnimation} from '@/shared/lib/hooks/useErrorAnimation'
+import {IconButton} from '@/shared/ui/icon-button/IconButton'
 
 
 type EditableSpanType = {
@@ -14,8 +17,11 @@ type EditableSpanType = {
 
 export const EditableSpan = (props: EditableSpanType) => {
   const { title, size = 'md', onSubmit } = props
+  const { error, startShowError, stopShowError } = useErrorAnimation()
   const [isEditing, setIsEditing] = useState(false)
   const [value, setValue] = useState(title ?? '')
+
+
 
 
   const startEditing = () => {
@@ -24,12 +30,16 @@ export const EditableSpan = (props: EditableSpanType) => {
   }
 
   const handleSubmit = () => {
-    const newTitle = value.trim()
-    if (!newTitle) {
+    const validateTitle = validateTitleSchema.safeParse(value)
+
+    if (!validateTitle.success) {
+      startShowError()
       setValue(title ?? '')
       setIsEditing(false)
       return
     }
+
+    const newTitle = validateTitle.data
     if (newTitle === title) {
       setIsEditing(false)
       return
@@ -52,7 +62,6 @@ export const EditableSpan = (props: EditableSpanType) => {
   if (isEditing) {
     return (
       <Input
-
         className={s.input}
         textSize={'md'}
         border={false}
@@ -67,10 +76,14 @@ export const EditableSpan = (props: EditableSpanType) => {
 
   return (
     <div className={s.spanWrapper}>
-      <span className={cn(s.span, s[size])} onClick={startEditing}>
+      <span className={cn(s.span, s[size], error && s.error)}
+            onClick={startEditing}
+            onAnimationEnd={stopShowError}
+      >
         {value}
       </span>
-      <PencilLine className={s.pencilIcon} />
+      <IconButton icon={<PencilLine />} className={s.iconButton} onClick={startEditing}/>
+      {/*<PencilLine className={s.pencilIcon} />*/}
     </div>
   )
 }

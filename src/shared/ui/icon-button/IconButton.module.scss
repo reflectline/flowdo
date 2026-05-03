@@ -1,0 +1,19 @@
+@use '@/app/styles/variables' as *;
+
+.iconButton{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--foreground);
+
+  transition: opacity 0.2s ease, color 0.2s ease;
+  &:hover{
+    color: var(--destructive);
+  }
+}
+
+.md{
+  width: $spacing-4;
+  height:$spacing-4;
+  flex-shrink: 0;
+}

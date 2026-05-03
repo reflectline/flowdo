@@ -1,8 +1,5 @@
 @use '@/app/styles/variables' as *;
 
-
-$card-height: clamp(10rem, 8.333vw, 20rem);
-
 .card{
   position: relative;
   width: 100%;
@@ -15,16 +12,20 @@ $card-height: clamp(10rem, 8.333vw, 20rem);
   border: 1px solid var(--border);
   border-radius: $spacing-3;
 
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   &:hover{
-    color: var(--primary-foreground);
-    background-color: var(--primary-hover);
+
+    //background-color: var(--primary-hover);
+    //box-shadow: 0 0 0 1px var(--primary-hover)
+    background-color: var(--card-hover);
   }
-  &:has(input:focus) {
-    color: var(--primary-foreground);
-    background-color: var(--primary-hover);
-  }
+
 }
+
+//&:has(input:focus) {
+//  color: var(--primary-foreground);
+//  background-color: var(--primary-hover);
+//}
 
 .content{
   position: relative;
@@ -35,12 +36,7 @@ $card-height: clamp(10rem, 8.333vw, 20rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
-.nameWrapper svg {
-  flex-shrink: 0;
-}
-
 
 .linkArea{
   margin-top: $spacing-10;
