@@ -1,26 +1,29 @@
 import { useBreadcrumbs } from '@/widgets/header/lib/useBreadcrumbs'
 import type { Todolist } from '@/entities/todolist/lib/types'
-import { useGetAllTodolists } from '@/entities/todolist/api/todolist.queries'
 import s from '@/widgets/todolists/ui/Todolists.module.scss'
 import { TodolistItem } from '@/entities/todolist/ui/TodolistItem'
+import { filterTodolists } from '@/features/todolist/filter-todolists/filterTodolists'
+import { useTodolistsTasksStats } from '@/widgets/todolists/model/useTodolistsTasksStats'
+import {useRouteState} from '@/shared/lib/route/useRouteState';
 
 export const Todolists = () => {
+  const { todolists, isLoading } = useTodolistsTasksStats()
   const { currentBreadcrumb } = useBreadcrumbs()
-  const { data: todolists } = useGetAllTodolists()
-  // const { data: tasks } = useGetAllTasks()
+  const { activeFilter } = useRouteState()
+
+  if (isLoading) return <div>Loading...</div>
+  if (!todolists?.length) return <div>No todolists</div>
+
+  const filtered = filterTodolists(todolists, activeFilter)
 
   return (
     <div className={s.todolistsWrapper}>
-
       <h2 className={s.path}>{currentBreadcrumb.label}</h2>
       <div className={s.grid}>
-        {todolists?.map((item: Todolist) => (
-          <TodolistItem key={item.id} todolist={item}/>
+        {filtered?.map((item: Todolist) => (
+          <TodolistItem key={item.id} todolist={item} />
         ))}
       </div>
-
-
-
 
       {/*<Button variant="none">hello</Button>*/}
       {/*<Button variant="primary">hello</Button>*/}

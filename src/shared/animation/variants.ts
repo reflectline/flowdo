@@ -1,4 +1,4 @@
-import { type Variants } from "framer-motion";
+import { type Variants } from 'framer-motion'
 
 export const container: Variants = {
     hidden: {},
@@ -19,7 +19,7 @@ export const fadeUp: Variants = {
         transition: {
             delay: 1,
             duration:  0.7,
-            ease: "easeOut",
+            ease: 'easeOut',
         },
     },
 };
@@ -32,7 +32,7 @@ export const fadeDown: Variants = {
         y: 0,
         transition: {
             duration: 0.7,
-            ease: "easeOut",
+            ease: 'easeOut',
         },
     },
 };
@@ -45,7 +45,7 @@ export const fadeDownHeader: Variants = {
         transition: {
             delay: 1,
             duration: 0.7,
-            ease: "easeOut",
+            ease: 'easeOut',
         },
     },
 };
@@ -57,7 +57,7 @@ export const showIn: Variants = {
         y: 0,
         transition: {
             duration: 0.5,
-            ease: "easeIn",
+            ease: 'easeIn',
         },
     },
 };

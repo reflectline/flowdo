@@ -1,0 +1,30 @@
+import type { Todolist } from '@/entities/todolist/lib/types'
+import type { TaskStats } from '@/entities/task/lib/types'
+import { isToday } from 'date-fns'
+import {parseUtcDate} from '@/shared/lib/dates/parseUtcDate'
+
+type TodolistWithStats = Todolist & {
+  stats: TaskStats
+}
+
+export const filterTodolists = (todolists: TodolistWithStats[], filter: string| null) => {
+  switch (filter) {
+    case 'today':
+      return todolists.filter(
+        (t) => t.addedDate && isToday(parseUtcDate(t.addedDate)),
+      )
+
+    case 'in-process':
+      return todolists.filter(
+        (t) => t.stats.completed > 0 && t.stats.completed < t.stats.total
+      )
+
+    case 'done':
+      return todolists.filter(
+        (t) => t.stats.total > 0 && t.stats.percent === 100
+      )
+
+    default:
+      return todolists
+  }
+}

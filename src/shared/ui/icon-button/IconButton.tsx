@@ -4,7 +4,7 @@ import s from '@/shared/ui/icon-button/IconButton.module.scss'
 
 type IconButtonType ={
   icon?: ReactNode
-  size?: 'md'| 'sm'
+  size?: 'sm'| 'md' | 'lg'
   className?: string
   onClick?: () => void
 }

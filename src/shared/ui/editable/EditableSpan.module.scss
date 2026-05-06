@@ -1,13 +1,16 @@
 @use '@/app/styles/variables' as *;
 
 .sm{
+  font-weight: $medium;
   font-size: $font-14;
 }
 .md{
+  font-weight: $medium;
   font-size: $font-16;
 }
 
 .input{
+  font-weight: $medium;
   max-width: 80%;
   outline: none;
   width: 100%;

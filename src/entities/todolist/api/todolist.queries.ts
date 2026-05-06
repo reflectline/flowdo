@@ -9,7 +9,7 @@ import type {Todolist} from '@/entities/todolist/lib/types';
 
 
 
-export const useGetAllTodolists = () => {
+export const useGetTodolists = () => {
   return useQuery({
     queryKey: ['todolists'],
     queryFn: async () => {
@@ -17,6 +17,9 @@ export const useGetAllTodolists = () => {
       return data
     },
     retry: false,
+    refetchOnWindowFocus: true,
+    refetchOnMount: true,
+    staleTime: 0,
   })
 }
 
@@ -34,16 +37,6 @@ export const useCreateTodolist = () => {
     },
   })
 }
-// export const useCreateTodolist = () => {
-//   const queryClient = useQueryClient()
-//
-//   return useMutation({
-//     mutationFn:({title}: { title: string })=>  todolistApi.createTodolist(title),
-//     onSuccess: () => {
-//       void queryClient.invalidateQueries({ queryKey: ['todolists'] })
-//     }
-//   })
-// }
 
 export const useUpdateTodolistTitle = () => {
   const queryClient = useQueryClient()

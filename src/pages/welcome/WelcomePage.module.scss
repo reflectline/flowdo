@@ -149,7 +149,7 @@
 .beam {
   position: absolute;
   width: $beam-radius;
-  height: $beam-radius;
+  height: $beam-radius-height;
   background: linear-gradient(
                   to right,
                   transparent 5%,

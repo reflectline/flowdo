@@ -16,10 +16,14 @@ $spacing-12: clamp(48px, 2.5vw, 96px);    // 48px
 $spacing-13: clamp(52px, 2.708vw, 104px); // 52px
 $spacing-14: clamp(56px, 2.917vw, 112px); // 56px
 
-$spacing-5h:  clamp(20px, 1.851vw, 40px);  // 20px
+$spacing-2h:  clamp(8px, 0.740vh, 16px);   // 8px h
+$spacing-4h:  clamp(16px, 1.481vh, 32px);  // 16px
+
+$spacing-5h:  clamp(20px, 1.851vh, 40px);  // 20px h
 $spacing-8h: clamp(32px, 2.962vh, 64px);  // 32px h
 $spacing-9h: clamp(36px, 3.333vh, 72px);  // 36px h
 $spacing-14h: clamp(56px, 5.185vh, 112px); // 56px h
+$spacing-8h:  clamp(32px, 2.962vh, 64px);  // 32px h
 
 
 /* FONT SCALE */
@@ -28,8 +32,8 @@ $font-14: clamp(14px, 0.729vw, 28px); // 14px
 $font-16: clamp(16px, 0.833vw, 32px); // 16px
 $font-24: clamp(24px, 1.25vw, 48px); // 24px
 $font-36: clamp(36px, 1.875vw, 72px); // 36px
-$font-hero: clamp(98px, 5.104vw, 196px);
-$font-intro: clamp(20px, 1.041vw, 40px);
+$font-hero: clamp(98px, 5.104vw, 196px); // 98px
+$font-intro: clamp(20px, 1.041vw, 40px); // 20px
 
 /* WEIGHTS */
 $regular: 400;
@@ -38,14 +42,16 @@ $bold: 700;
 
 /* SEMANTIC */
 $card-pencil-padding: clamp(22px, 1.145vw, 44px);
-$card-height: clamp(10rem, 8.333vw, 20rem);
+$card-height: clamp(160px, 14.814vh, 320px);
+$card-bar-height:  clamp(6px, 0.555vh, 12px);
+$card-name-margin:  clamp(18px, 0.937vw, 36px);
 
 $sidebar-width: clamp(256px, 13.333vw, 512px);
 $input-width: clamp(384px, 20vw, 768px);
 $welcome-preview-width: clamp(1216px, 63.333vw, 2432px);
 $welcome-content-width: clamp(1280px, 66.666vw, 2560px);
 $headerWelcome-content-width: clamp(1600px, 83.333vw, 3200px);
-$welcome-gradient-height: clamp(600px, 31.25vw, 1200px);
+$welcome-gradient-height: clamp(600px, 55.555vh, 1200px);
 $input-radius: clamp(6px, 0.312vw, 12px);
 $welcome-offset: clamp(144px, 7.5vw, 288px);
 $welcome-gap: clamp(72px, 3.75vw, 144px);
@@ -54,6 +60,7 @@ $icon-size-38:  clamp(38px, 1.979vw, 76px);
 $filter-gap: clamp(10px, 0.520vw, 20px);
 $card-width: clamp(19rem, 15.833vw, 38rem);
 $beam-radius:  clamp(200px, 10.416vw, 400px);
+$beam-radius-height:  clamp(200px, 18.518vh, 400px);
 
 
 

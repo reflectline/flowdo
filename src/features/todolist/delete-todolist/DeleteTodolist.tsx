@@ -16,6 +16,6 @@ export const DeleteTodolist = (props: DeleteTodolistType)=> {
   }
 
   return(
-    <IconButton icon={<Trash />} size={'md'} onClick={handleSubmit}/>
+    <IconButton icon={<Trash />} size={'lg'} onClick={handleSubmit}/>
   )
 }

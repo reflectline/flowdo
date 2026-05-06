@@ -16,4 +16,3 @@ export type ApiError = {
     message: string
 }
 
-export type RequestStatus = 'idle' | 'loading' | 'succeeded' | 'failed'

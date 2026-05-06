@@ -14,33 +14,85 @@
 
   transition: background-color 0.2s ease, color 0.2s ease;
   &:hover{
-
-    //background-color: var(--primary-hover);
-    //box-shadow: 0 0 0 1px var(--primary-hover)
     background-color: var(--card-hover);
+    .progressBar {
+      background-color: var(--progress-hover);
+    }
   }
-
 }
 
-//&:has(input:focus) {
-//  color: var(--primary-foreground);
-//  background-color: var(--primary-hover);
-//}
 
 .content{
   position: relative;
   z-index: 2;
-
+  pointer-events: none;
 }
 .nameWrapper{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: $card-name-margin;
+  pointer-events: auto;
+}
+
+.infoWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-11;
+  font-size: $font-12;
+  font-weight: $medium;
+}
+
+.textLastUpdate{
+  color: var(--muted-foreground);
+}
+
+.statsWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+}
+.statsContent{
+ display: flex;
+  justify-content: space-between;
+}
+.splitWrapper{
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-4;
+}
+.splitItem{
+  display: inline-flex;
+  align-items: center;
+
+  &:not(:last-child)::after {
+    content: '';
+    width: 1px;
+    height: $spacing-2h;
+    background-color: var(--border);
+    margin-left: $spacing-4;
+  }
+}
+
+.progressBar{
+  width: 100%;
+  height: $card-bar-height;
+  background-color: var(--progress);
+  border-radius: $spacing-2;
+  overflow: hidden;
+  transition: background-color 0.2s ease;
+
+}
+.progressFill{
+  height: 100%;
+  border-radius: $spacing-1;
+  background-color: var(--complated);
+  transition: width 1s ease;
 }
 
 .linkArea{
-  margin-top: $spacing-10;
   position: absolute;
+  margin-top: $spacing-10;
   inset: 0;
   z-index: 1;
 }

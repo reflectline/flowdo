@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { PencilLine } from 'lucide-react'
 import { cn } from '@/shared/lib/utils'
 import { Input } from '@/shared/ui/Input/Input'
 import s from '@/shared/ui/editable/EditableSpan.module.scss'
-import {validateTitleSchema} from '@/shared/lib/validation/string.schema'
-import {useErrorAnimation} from '@/shared/lib/hooks/useErrorAnimation'
-import {IconButton} from '@/shared/ui/icon-button/IconButton'
-
+import { validateTitleSchema } from '@/shared/lib/validation/string.schema'
+import { useErrorAnimation } from '@/shared/lib/hooks/useErrorAnimation'
+import { IconButton } from '@/shared/ui/icon-button/IconButton'
 
 type EditableSpanType = {
   title?: string
@@ -20,9 +19,6 @@ export const EditableSpan = (props: EditableSpanType) => {
   const { error, startShowError, stopShowError } = useErrorAnimation()
   const [isEditing, setIsEditing] = useState(false)
   const [value, setValue] = useState(title ?? '')
-
-
-
 
   const startEditing = () => {
     setValue(title ?? '')
@@ -54,7 +50,7 @@ export const EditableSpan = (props: EditableSpanType) => {
       handleSubmit()
     }
     if (e.key === 'Escape') {
-      setValue(title ?? '');
+      setValue(title ?? '')
       setIsEditing(false)
     }
   }
@@ -76,13 +72,10 @@ export const EditableSpan = (props: EditableSpanType) => {
 
   return (
     <div className={s.spanWrapper}>
-      <span className={cn(s.span, s[size], error && s.error)}
-            onClick={startEditing}
-            onAnimationEnd={stopShowError}
-      >
+      <span className={cn(s.span, s[size], error && s.error)} onClick={startEditing} onAnimationEnd={stopShowError}>
         {value}
       </span>
-      <IconButton icon={<PencilLine />} className={s.iconButton} onClick={startEditing}/>
+      <IconButton icon={<PencilLine />} className={s.iconButton} onClick={startEditing} />
       {/*<PencilLine className={s.pencilIcon} />*/}
     </div>
   )

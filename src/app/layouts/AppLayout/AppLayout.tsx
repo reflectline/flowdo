@@ -3,12 +3,7 @@ import { Header } from '@/widgets/header/Header'
 import s from '@/app/layouts/AppLayout/AppLayout.module.scss'
 import { Sidebar } from '@/widgets/sidebar/Sidebar'
 
-
-
-
 export const AppLayout = () => {
-
-
 
     return (
         <div className={s.page}>
