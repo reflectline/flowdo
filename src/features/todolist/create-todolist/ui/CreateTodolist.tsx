@@ -7,26 +7,32 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { createTodolistSchema } from '@/features/todolist/create-todolist/lib/create-todolist.schema'
 import type { CreateTodolistInputType } from '@/features/todolist/create-todolist/lib/create-todolist.schema'
 import { useCreateTodolist } from '@/entities/todolist/api/todolist.queries'
-import { useNavigate, useParams } from 'react-router-dom'
-import {path} from '@/app/providers/router/path'
-import {useRouteState} from "@/shared/lib/route/useRouteState.ts";
+import { useNavigate } from 'react-router-dom'
+import { path } from '@/app/providers/router/path'
+import { useRouteState } from '@/shared/lib/route/useRouteState'
 
 export const CreateTodolist = () => {
   const { mutate: createTodolist } = useCreateTodolist()
   const navigate = useNavigate()
   const { activeFilter } = useRouteState()
+
   const form = useForm<CreateTodolistInputType>({
     resolver: zodResolver(createTodolistSchema),
     mode: 'onBlur',
   })
 
-
   const onSubmit: SubmitHandler<CreateTodolistInputType> = (data) => {
-    createTodolist({title: data.title}, { onSuccess: () => {
-      form.reset()
-      if (activeFilter !== 'all-lists') {navigate(path.dashboard.filter('all-lists'))}
-
-    } })
+    createTodolist(
+      { title: data.title },
+      {
+        onSuccess: () => {
+          form.reset()
+          if (activeFilter !== 'all-lists') {
+            navigate(path.dashboard.filter('all-lists'))
+          }
+        },
+      },
+    )
   }
 
   return (

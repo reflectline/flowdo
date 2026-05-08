@@ -11,6 +11,7 @@ import { TodolistLastUpdate } from '@/entities/todolist/ui/TodolistLastUpdate'
 import { TodolistStats } from '@/entities/todolist/ui/TodolistStats'
 import { TodolistProgress } from '@/entities/todolist/ui/TodolistProgress'
 import { useRouteState } from '@/shared/lib/route/useRouteState'
+import {ErrorPage} from "@/pages/error/ErrorPage";
 
 type TodolistPropsType = {
   todolist: Todolist
@@ -21,8 +22,10 @@ export const TodolistItem = (props: TodolistPropsType) => {
   const { activeFilter } = useRouteState()
   const { data } = useGetTasks(id)
 
-  if (!activeFilter) return null
+  if (!activeFilter) return <ErrorPage />
   if (!data) return <>loading...</>
+
+
 
   return (
     <motion.div className={s.card} transition={cards} layout>

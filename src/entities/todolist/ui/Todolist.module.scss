@@ -53,7 +53,7 @@
   gap: $spacing-2;
 }
 .statsContent{
- display: flex;
+  display: flex;
   justify-content: space-between;
 }
 .splitWrapper{
@@ -68,7 +68,7 @@
   &:not(:last-child)::after {
     content: '';
     width: 1px;
-    height: $spacing-2h;
+    height: $spacing-2;
     background-color: var(--border);
     margin-left: $spacing-4;
   }

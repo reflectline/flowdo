@@ -20,16 +20,17 @@ export const router = createBrowserRouter([
     children: [{ path: 'login', element: <LoginPage /> }],
   },
   {
-    element: <ProtectedRoute />, // isAuth Outlet или LOGIN
+    element: <ProtectedRoute />,
     children: [
       {
         path: 'dashboard',
         element: <AppLayout />,
+        errorElement: <ErrorPage />,
 
         children: [
           { index: true, element: <Navigate to="all-lists" replace /> },
           { path: ':filter', element: <DashboardPage /> },
-          { path: ':filter/:todoName/:todoId', element: <TodolistPage /> },
+          { path: ':filter/:todoName/:todoId', element: <TodolistPage />},
         ],
       },
     ],

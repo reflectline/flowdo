@@ -37,5 +37,5 @@ export const useBreadcrumbs = () => {
 
 
 
-    return {breadcrumbs, currentBreadcrumb}
+    return {breadcrumbs, currentBreadcrumb, activeFilter}
 }

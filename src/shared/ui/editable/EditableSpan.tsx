@@ -4,7 +4,7 @@ import { PencilLine } from 'lucide-react'
 import { cn } from '@/shared/lib/utils'
 import { Input } from '@/shared/ui/Input/Input'
 import s from '@/shared/ui/editable/EditableSpan.module.scss'
-import { validateTitleSchema } from '@/shared/lib/validation/string.schema'
+import { validateTitleSchema } from '@/shared/lib/validation/todolist-title.schema'
 import { useErrorAnimation } from '@/shared/lib/hooks/useErrorAnimation'
 import { IconButton } from '@/shared/ui/icon-button/IconButton'
 
@@ -76,7 +76,6 @@ export const EditableSpan = (props: EditableSpanType) => {
         {value}
       </span>
       <IconButton icon={<PencilLine />} className={s.iconButton} onClick={startEditing} />
-      {/*<PencilLine className={s.pencilIcon} />*/}
     </div>
   )
 }

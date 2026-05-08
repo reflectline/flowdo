@@ -1,33 +1,26 @@
 import { useGetTasks } from '@/entities/task/api/task.queries'
-import type {Task, TaskStats} from '@/entities/task/lib/types'
-import {useRouteState} from '@/shared/lib/route/useRouteState';
-import {ErrorPage} from '@/pages/error/ErrorPage';
+import { TasksStats } from '@/entities/task/ui/TasksStats'
+import { ErrorPage } from '@/pages/error/ErrorPage'
+import { useRouteStateStrict } from '@/shared/lib/route/useRouteStateStrict'
+import s from '@/entities/task/ui/Tasks.module.scss'
 
 export const TodolistPage = () => {
-  const { activeFilter, todoName, todoId } = useRouteState()
-  const { data } = useGetTasks(todoId)
+  const { activeFilter, todoName, todoId } = useRouteStateStrict()
+  const { data, isLoading } = useGetTasks(todoId)
 
-
-
-  if (!activeFilter) {
+  if (!activeFilter || !todoName || !todoId || !data) {
     return <ErrorPage />
   }
+  if (isLoading) return <div>Loading...</div>
 
-  const tasks = data?.tasks as Task[]
-  const stats = data?.stats as TaskStats
 
+  // const tasks = data?.tasks
+  const stats = data?.stats
 
   return (
-    <div>
-      <div>
-        {tasks?.map((task: Task) =>
-          <div key={task.id}>{task.title}</div>
-
-        )}
-      </div>
-      <h2>{todoName}</h2>
-      <p>Filter: {activeFilter}</p>
-      {/* отрисовка задач этого тудулиста */}
-    </div>
+    <section className={s.page}>
+      <TasksStats todoName={todoName} stats={stats} />
+      {/*<Tasks tasks={tasks}/>*/}
+    </section>
   )
 }

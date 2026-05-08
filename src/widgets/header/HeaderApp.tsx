@@ -12,15 +12,16 @@ export const HeaderApp = () => {
   const navigate = useNavigate()
   const { breadcrumbs } = useBreadcrumbs()
   const { activeFilter } = useRouteState()
-  const { mutateAsync: logout } = useLogout()
-
-
+  const { mutate: logout } = useLogout()
 
   const disableLink = activeFilter === 'all-lists'
 
   const handleLogout = async () => {
-    await logout()
-    navigate(path.login)
+    logout(undefined, {
+      onSuccess: () => {
+        navigate(path.login)
+      },
+    })
   }
 
   return (

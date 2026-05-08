@@ -1,8 +1,7 @@
-import {AUTH_TOKEN} from '@/shared/config/constants'
+import { AUTH_TOKEN } from '@/shared/config/auth'
 
-export const tokenStorage  = {
-    get: () => localStorage.getItem(AUTH_TOKEN),
-    set: (token: string) => localStorage.setItem(AUTH_TOKEN, token),
-    remove: () => localStorage.removeItem(AUTH_TOKEN),
+export const tokenStorage = {
+  get: () => localStorage.getItem(AUTH_TOKEN),
+  set: (token: string) => localStorage.setItem(AUTH_TOKEN, token),
+  remove: () => localStorage.removeItem(AUTH_TOKEN),
 }
-

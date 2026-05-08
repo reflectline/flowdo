@@ -9,19 +9,12 @@ export const useGetTasks = (todolistId: string) => {
     queryKey: ['tasks', todolistId],
     enabled: !!todolistId,
     queryFn: async () => {
-      if (!todolistId) {
-        throw new Error('todolistId is required')
-      }
       const { data } = await taskApi.getTasks(todolistId)
       return data.items
     },
     select: (tasks) => {
       const stats = getTaskStats(tasks)
-
-      return {
-        tasks,
-        stats
-      }
+      return { tasks, stats }
     },
     retry: 1,
   })

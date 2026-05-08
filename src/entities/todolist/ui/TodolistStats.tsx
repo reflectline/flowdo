@@ -25,8 +25,6 @@ export const TodolistStats = (props: TodolistStatsType) => {
         ))}
       </div>
       <p>{interest}</p>
-      {/*{sum} | {done} | {days} | {interest}*/}
-      {/*<>6 tasks | 9 done | 9 d.  50%</>*/}
     </div>
   )
 }

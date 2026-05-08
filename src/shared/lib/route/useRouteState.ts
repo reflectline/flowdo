@@ -8,9 +8,9 @@ export const useRouteState = () => {
     todoId?: string
   }>()
 
-  const activeFilter = parseDashboardFilter(filter)
+
   return {
-    activeFilter,
+    activeFilter: parseDashboardFilter(filter),
     todoName: todoName ? decodeURIComponent(todoName) : null,
     todoId: todoId ?? null,
   }

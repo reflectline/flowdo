@@ -16,7 +16,6 @@ $spacing-12: clamp(48px, 2.5vw, 96px);    // 48px
 $spacing-13: clamp(52px, 2.708vw, 104px); // 52px
 $spacing-14: clamp(56px, 2.917vw, 112px); // 56px
 
-$spacing-2h:  clamp(8px, 0.740vh, 16px);   // 8px h
 $spacing-4h:  clamp(16px, 1.481vh, 32px);  // 16px
 
 $spacing-5h:  clamp(20px, 1.851vh, 40px);  // 20px h
@@ -41,6 +40,8 @@ $medium: 500;
 $bold: 700;
 
 /* SEMANTIC */
+$task-stats-dot: clamp(6px, 0.312vw, 12px);
+
 $card-pencil-padding: clamp(22px, 1.145vw, 44px);
 $card-height: clamp(160px, 14.814vh, 320px);
 $card-bar-height:  clamp(6px, 0.555vh, 12px);
