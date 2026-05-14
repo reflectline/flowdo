@@ -1,0 +1,21 @@
+@use '@/app/styles/variables' as *;
+
+
+.page{
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.resizable{
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-9;
+
+  resize: horizontal;
+  overflow: hidden;
+
+  width: $task-list-min-width;
+  min-width: $task-list-min-width;
+  max-width: 100%;
+}

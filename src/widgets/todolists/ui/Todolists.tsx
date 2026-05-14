@@ -5,8 +5,7 @@ import { TodolistItem } from '@/entities/todolist/ui/TodolistItem'
 import { filterTodolists } from '@/features/todolist/filter-todolists/filterTodolists'
 import { useTodolistsTasksStats } from '@/widgets/todolists/model/useTodolistsTasksStats'
 import { emptyTodolistsMessages } from '@/shared/config/todolistsMessages'
-import {ErrorPage} from '@/pages/error/ErrorPage'
-
+import { ErrorPage } from '@/pages/error/ErrorPage'
 
 export const Todolists = () => {
   const { todolists, isLoading } = useTodolistsTasksStats()
@@ -18,7 +17,7 @@ export const Todolists = () => {
   const filtered = filterTodolists(todolists, activeFilter)
 
   return (
-    <div className={s.todolistsWrapper}>
+    <section className={s.todolistsWrapper}>
       <h2 className={s.path}>{currentBreadcrumb.label}</h2>
 
       <div className={s.grid}>
@@ -26,18 +25,8 @@ export const Todolists = () => {
           <TodolistItem key={item.id} todolist={item} />
         ))}
       </div>
+      {filtered.length === 0 && <p className={s.empty}>{emptyTodolistsMessages[activeFilter]}</p>}
 
-      {filtered.length === 0 && (
-        <p className={s.empty}>
-          {emptyTodolistsMessages[activeFilter]}
-        </p>
-      )}
-
-      {/*<Button variant="none">hello</Button>*/}
-      {/*<Button variant="primary">hello</Button>*/}
-      {/*<Button variant="secondary">hello</Button>*/}
-      {/*<Button variant="solid">hello</Button>*/}
-      {/*<Button variant="dashed">hello</Button>*/}
-    </div>
+    </section>
   )
 }

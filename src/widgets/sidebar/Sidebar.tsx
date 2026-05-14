@@ -1,5 +1,6 @@
 import logoLight from '@/shared/assets/icons/logoLight.svg'
 import s from '@/widgets/sidebar/Sidebar.module.scss'
+import icon from '@/shared/styles/icons.module.scss'
 import logoDark from '@/shared/assets/icons/logoDark.svg'
 import { useAppSelector } from '@/app/models/hooks'
 import { selectThemeMode } from '@/app/models/appSlice'
@@ -16,7 +17,7 @@ export const Sidebar = () => {
         <div className={s.logoWrapper}>
           <Link to={path.welcome}>
             <div className={s.logoContent}>
-              <img className={s.logo} src={themeMod === 'dark' ? logoLight : logoDark} alt="logo" />
+              <img className={icon.icon20} src={themeMod === 'dark' ? logoLight : logoDark} alt="logo" />
               <span>FlowDo</span>
             </div>
           </Link>

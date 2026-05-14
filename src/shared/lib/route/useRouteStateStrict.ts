@@ -1,20 +1,19 @@
 import {useRouteState} from '@/shared/lib/route/useRouteState';
-import {validateTodolistId} from "@/shared/lib/validation/todolist-id.schema.ts";
+import {validateTodolistId} from '@/shared/lib/validation/todolist-id.schema'
 
 
 export const useRouteStateStrict = () => {
-  const { activeFilter, todoName, todoId, } = useRouteState()
+  const { activeFilter, todolistId, } = useRouteState()
 
-  const parsedTodoId = validateTodolistId.safeParse(todoId)
+  const parsedTodoId = validateTodolistId.safeParse(todolistId)
 
 
-  if (!activeFilter || !todoId || !todoName) {
+  if (!activeFilter || !todolistId ) {
     throw new Error('Invalid todolist route')
   }
 
   return {
     activeFilter,
-    todoName,
-    todoId: parsedTodoId.data,
+    todolistId: parsedTodoId.data,
   }
 }

@@ -1,26 +1,31 @@
+import { useRouteStateStrict } from '@/shared/lib/route/useRouteStateStrict'
 import { useGetTasks } from '@/entities/task/api/task.queries'
+import { useGetTodolist } from '@/entities/todolist/api/todolist.queries'
 import { TasksStats } from '@/entities/task/ui/TasksStats'
 import { ErrorPage } from '@/pages/error/ErrorPage'
-import { useRouteStateStrict } from '@/shared/lib/route/useRouteStateStrict'
-import s from '@/entities/task/ui/Tasks.module.scss'
+import s from '@/pages/todolist/TodolistPage.module.scss'
+import { Tasks } from '@/widgets/tasks/ui/Tasks'
+import { useFilteredTasks } from '@/entities/task/lib/useFilteredTasks'
 
 export const TodolistPage = () => {
-  const { activeFilter, todoName, todoId } = useRouteStateStrict()
-  const { data, isLoading } = useGetTasks(todoId)
+  const { activeFilter, todolistId } = useRouteStateStrict()
+  const { data, isLoading: isLoadingTasks } = useGetTasks(todolistId)
+  const { data: todolist, isLoading: isLoadingTodolists } = useGetTodolist(todolistId)
+  const filteredTasks = useFilteredTasks(data?.tasks)
 
-  if (!activeFilter || !todoName || !todoId || !data) {
+  if (isLoadingTasks || isLoadingTodolists) return <div>Loading...</div>
+  if (!todolist || !todolistId || !activeFilter || !data?.stats) {
     return <ErrorPage />
   }
-  if (isLoading) return <div>Loading...</div>
 
-
-  // const tasks = data?.tasks
-  const stats = data?.stats
+  const stats = data.stats
 
   return (
     <section className={s.page}>
-      <TasksStats todoName={todoName} stats={stats} />
-      {/*<Tasks tasks={tasks}/>*/}
+      <div className={s.resizable}>
+        <TasksStats todoName={todolist.title} stats={stats} />
+        <Tasks todolistId={todolist.id} tasks={filteredTasks} />
+      </div>
     </section>
   )
 }

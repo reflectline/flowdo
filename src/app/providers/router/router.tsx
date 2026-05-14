@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <Navigate to="all-lists" replace /> },
           { path: ':filter', element: <DashboardPage /> },
-          { path: ':filter/:todoName/:todoId', element: <TodolistPage />},
+          { path: ':filter/:todolistId', element: <TodolistPage />},
         ],
       },
     ],

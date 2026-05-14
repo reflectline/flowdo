@@ -7,11 +7,11 @@ import { DeleteTodolist } from '@/features/todolist/delete-todolist/DeleteTodoli
 import { motion } from 'framer-motion'
 import { cards } from '@/shared/animation/transitions'
 import { useGetTasks } from '@/entities/task/api/task.queries'
-import { TodolistLastUpdate } from '@/entities/todolist/ui/TodolistLastUpdate'
+import { LastUpdate } from '@/shared/ui/statistics/last-update/LastUpdate'
 import { TodolistStats } from '@/entities/todolist/ui/TodolistStats'
-import { TodolistProgress } from '@/entities/todolist/ui/TodolistProgress'
 import { useRouteState } from '@/shared/lib/route/useRouteState'
-import {ErrorPage} from "@/pages/error/ErrorPage";
+import {ErrorPage} from '@/pages/error/ErrorPage'
+import {ProgressBar} from '@/shared/ui/statistics/progress-bar/ProgressBar'
 
 type TodolistPropsType = {
   todolist: Todolist
@@ -28,24 +28,24 @@ export const TodolistItem = (props: TodolistPropsType) => {
 
 
   return (
-    <motion.div className={s.card} transition={cards} layout>
+    <motion.div className={s.card} transition={cards} layout data-card>
       <div className={s.content}>
-        <div className={s.nameWrapper}>
+        <div className={s.nameWrapper} >
           <UpdateTodolistTitle id={id} title={title} />
           <DeleteTodolist id={id} />
         </div>
 
         <div className={s.infoWrapper}>
-          <TodolistLastUpdate latestDate={data.stats.latestDate} />
+          <LastUpdate latestDate={data.stats.latestDate} />
 
           <div className={s.statsWrapper}>
             <TodolistStats stats={data.stats} />
-            <TodolistProgress percent={data.stats.percent} />
+            <ProgressBar percent={data.stats.percent} />
           </div>
         </div>
       </div>
 
-      <Link className={s.linkArea} to={path.dashboard.todo(activeFilter, title, id)} />
+      <Link className={s.linkArea} to={path.dashboard.todo(activeFilter, id)} />
     </motion.div>
   )
 }

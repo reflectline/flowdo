@@ -1,5 +1,6 @@
 import { Input } from '@/shared/ui/Input/Input'
 import s from '@/features/todolist/create-todolist/ui/CreateTodolist.module.scss'
+import icon from '@/shared/styles/icons.module.scss'
 import { Button } from '@/shared/ui/button/Button'
 import circlePlus from '@/shared/assets/icons/circlePlus.svg'
 import { type SubmitHandler, useForm } from 'react-hook-form'
@@ -11,7 +12,7 @@ import { useNavigate } from 'react-router-dom'
 import { path } from '@/app/providers/router/path'
 import { useRouteState } from '@/shared/lib/route/useRouteState'
 
-export const CreateTodolist = () => {
+export const CreateTodolistForm = () => {
   const { mutate: createTodolist } = useCreateTodolist()
   const navigate = useNavigate()
   const { activeFilter } = useRouteState()
@@ -22,8 +23,7 @@ export const CreateTodolist = () => {
   })
 
   const onSubmit: SubmitHandler<CreateTodolistInputType> = (data) => {
-    createTodolist(
-      { title: data.title },
+    createTodolist({ title: data.title },
       {
         onSuccess: () => {
           form.reset()
@@ -42,7 +42,7 @@ export const CreateTodolist = () => {
       <div className={s.wrapperInteractive}>
         <Input className={s.input} placeholder="Want to by..." {...form.register('title')} />
         <Button variant="primary" type="submit">
-          <img src={circlePlus} alt="circlePlus" />
+          <img className={icon.icon14} src={circlePlus} alt="circlePlus" />
           Add List
         </Button>
       </div>

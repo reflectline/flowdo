@@ -13,6 +13,9 @@ export const Input = (props: InputProps) => {
   const {size = 'md', textSize = 'md', border = true, className, ...rest} = props
   return (
     <input
+      id="title"
+      name="title"
+      type="text"
       className={cn(s.input, s[size], s[`text${textSize}`], !border && s.noBorder, className)}
       {...rest}
     />

@@ -28,7 +28,7 @@ export const queryClient = new QueryClient({
       staleTime: 1000 * 60, // 1 мин — данные считаются свежими
       gcTime: 1000 * 60 * 10, // 10 мин — хранение в кеше (v5 вместо cacheTime)
       retry: 1, // 1 повтор при ошибке
-      refetchOnWindowFocus: false, // не дергать API при фокусе окна false
+      refetchOnWindowFocus: true, // не дергать API при фокусе окна false
       refetchOnReconnect: true,
     },
 

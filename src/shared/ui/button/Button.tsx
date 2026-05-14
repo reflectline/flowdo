@@ -4,7 +4,9 @@ import type { ButtonHTMLAttributes } from 'react'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: 'sm' | 'md'
-  variant?: 'none' | 'primary' | 'secondary' | 'solid' | 'dashed'
+  variant?: 'none' | 'primary' | 'secondary' | 'solid' | 'dashed' | 'task' | 'view' | 'sort'
+  textSize?: 'sm' | 'md'
+
 }
 
 export const Button = (props: ButtonProps) => {
@@ -12,9 +14,9 @@ export const Button = (props: ButtonProps) => {
     className,
     size = 'md',
     variant = 'none',
-
+    textSize = 'md',
     ...rest
   } = props
 
-  return <button className={cn(s.button, s[size], s[variant], className)} {...rest} />
+  return <button className={cn(s.button, s[size], s[`text${textSize}`], s[variant], className)} {...rest} />
 }

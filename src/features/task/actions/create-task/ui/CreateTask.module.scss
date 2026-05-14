@@ -1,0 +1,14 @@
+@use '@/app/styles/variables' as *;
+
+
+.form{
+  display: flex;
+  align-items: center;
+
+}
+
+.input{
+ width: $task-input-width;
+  height: 100%;
+}
+

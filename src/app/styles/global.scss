@@ -81,3 +81,15 @@ input:-webkit-autofill:focus {
 //    font-size: 28px; /* все rem увеличатся пропорционально */
 //  }
 //}
+
+:where(
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  [role='button']):focus-visible {
+  outline: 2px solid var(--crumbs);
+  outline-offset: 2px;
+  border-radius: 8px;
+}

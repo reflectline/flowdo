@@ -15,9 +15,6 @@
   transition: background-color 0.2s ease, color 0.2s ease;
   &:hover{
     background-color: var(--card-hover);
-    .progressBar {
-      background-color: var(--progress-hover);
-    }
   }
 }
 
@@ -43,9 +40,7 @@
   font-weight: $medium;
 }
 
-.textLastUpdate{
-  color: var(--muted-foreground);
-}
+
 
 .statsWrapper{
   display: flex;
@@ -72,22 +67,6 @@
     background-color: var(--border);
     margin-left: $spacing-4;
   }
-}
-
-.progressBar{
-  width: 100%;
-  height: $card-bar-height;
-  background-color: var(--progress);
-  border-radius: $spacing-2;
-  overflow: hidden;
-  transition: background-color 0.2s ease;
-
-}
-.progressFill{
-  height: 100%;
-  border-radius: $spacing-1;
-  background-color: var(--complated);
-  transition: width 1s ease;
 }
 
 .linkArea{

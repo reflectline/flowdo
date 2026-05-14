@@ -1,0 +1,215 @@
+@use '@/app/styles/variables' as *;
+
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* скрытый input */
+.input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* общий control (без лишней логики) */
+.control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:  background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* icon */
+.icon {
+  opacity: 0;
+  transform: scale(0.8);
+  color: var(--primary-foreground);
+  transition:  opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* =======================
+   FILTER VARIANT
+======================= */
+
+.filter .control {
+  border: 1px solid var(--border-checkbox);
+  border-radius: $spacing-1;
+  background: transparent;
+}
+
+.filter .input:checked + .control {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* hover */
+.filter:hover .control {
+  border-color: var(--muted-foreground);
+}
+
+/* =======================
+   VIEW VARIANT
+======================= */
+
+.view .control  {
+  border: none;
+  background: transparent;
+}
+
+
+/* =======================
+   ICON STATE
+======================= */
+
+.input:checked + .control .icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* focus */
+.input:focus-visible + .control {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* disabled */
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.input:disabled + .control {
+  opacity: 0.5;
+}
+
+/* =======================
+   SIZES
+======================= */
+
+.sm {
+  width: $spacing-3;
+  height: $spacing-3;
+  .icon {
+    width: $spacing-3;
+    height: $spacing-3;
+  }
+}
+.md {
+  width: $spacing-4;
+  height: $spacing-4;
+  .icon {
+    width: $spacing-4;
+    height: $spacing-4;
+  }
+}
+
+
+
+
+
+//@use '@/app/styles/variables' as *;
+//
+//.root {
+//  position: relative;
+//  display: inline-flex;
+//  align-items: center;
+//  justify-content: center;
+//  flex-shrink: 0;
+//}
+///* hover */
+//.root:hover .control {
+//  border-color: var(--muted-foreground);
+//}
+//
+///* hidden input */
+//.input {
+//  position: absolute;
+//  inset: 0;
+//  margin: 0;
+//  opacity: 0;
+//  cursor: pointer;
+//}
+//
+///* visual checkbox */
+//.control {
+//  display: inline-flex;
+//  align-items: center;
+//  justify-content: center;
+//  border: 1px solid var(--border-checkbox);
+//  border-radius: $spacing-1;
+//  background-color: transparent;
+//  transition: background-color 0.2s ease, border-color 0.2s ease;
+//}
+//
+///* icon */
+//.icon {
+//  opacity: 0;
+//  transform: scale(0.8);
+//  color: var(--primary-foreground);
+//  transition: opacity 0.2s ease, transform 0.2s ease;
+//}
+//
+///* checked */
+//.input:checked + .control {
+//  background-color: var(--primary);
+//  border-color: var(--primary);
+//}
+//.input:checked + .control .icon {
+//  opacity: 1;
+//  transform: scale(1);
+//}
+//
+///* focus */
+//.input:focus-visible + .control {
+//  outline: 2px solid var(--primary);
+//  outline-offset: 2px;
+//}
+//
+///* disabled */
+//.input:disabled + .control {
+//  opacity: 0.5;
+//}
+//
+//.input:disabled {
+//  cursor: not-allowed;
+//}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+///* sizes */
+//.sm {
+//  width: $spacing-3;
+//  height: $spacing-3;
+//  .icon {
+//    width: $spacing-3;
+//    height: $spacing-3;
+//  }
+//}
+//.md {
+//  width: $spacing-4;
+//  height: $spacing-4;
+//  .icon {
+//    width: $spacing-4;
+//    height: $spacing-4;
+//  }
+//}
+
+
+
+
+
+
+
+
+
+
+

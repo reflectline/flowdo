@@ -75,7 +75,7 @@ export const EditableSpan = (props: EditableSpanType) => {
       <span className={cn(s.span, s[size], error && s.error)} onClick={startEditing} onAnimationEnd={stopShowError}>
         {value}
       </span>
-      <IconButton icon={<PencilLine />} className={s.iconButton} onClick={startEditing} />
+      <IconButton icon={<PencilLine />} className={s.iconButton} onClick={startEditing} data-name/>
     </div>
   )
 }

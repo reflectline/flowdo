@@ -1,0 +1,24 @@
+@use '@/app/styles/variables' as *;
+
+.icon14 {
+  width: $icon-size-14;
+  height: $icon-size-14;
+  flex-shrink: 0;
+}
+
+.icon16 {
+  width: $spacing-4;
+  height: $spacing-4;
+  flex-shrink: 0;
+}
+.icon20{
+  width: $spacing-5;
+  height: $spacing-5;
+  flex-shrink: 0;
+}
+.icon38 {
+  width: $icon-size-38;
+  height: $icon-size-38;
+  flex-shrink: 0;
+}
+

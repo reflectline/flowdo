@@ -1,0 +1,31 @@
+@use '@/app/styles/variables' as *;
+
+:global([data-card]:hover) .progressBar {
+  background-color: var(--progress-hover);
+}
+
+.progressBarWrapper{
+  width: 100%;
+  position: relative;
+}
+.progressBar {
+  height: $card-bar-height;
+  background-color: var(--progress);
+  border-radius: $spacing-2;
+  overflow: hidden;
+  transition: background-color 0.2s ease;
+}
+.percent{
+  color: var(--muted-hint);
+  position: absolute;
+  right: 0;
+  bottom: $spacing-3;
+  font-size: $font-16 ;
+}
+
+.progressFill{
+  height: 100%;
+  border-radius: $spacing-1;
+  background-color: var(--complated);
+  transition: width 1s ease;
+}

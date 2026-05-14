@@ -16,10 +16,26 @@ export const useGetTodolists = () => {
       const { data } = await todolistApi.getTodolists()
       return data
     },
+
     retry: false,
     refetchOnWindowFocus: true,
-    refetchOnMount: true,
-    staleTime: 0,
+    gcTime: 1000 * 60 * 30,
+  })
+}
+
+export const useGetTodolist = (todolistId?: string) => {
+  return useQuery({
+    queryKey: ['todolists'],
+    queryFn: async () => {
+      const { data } = await todolistApi.getTodolists()
+      return data
+    },
+
+    select: (todolists: Todolist[]) => {
+      return todolists.find(t => t.id === todolistId)
+    },
+
+    enabled: !!todolistId,
   })
 }
 
