@@ -66,10 +66,12 @@ $sidebar-width: clamp(256px, 13.333vw, 512px);
 $todolist-input-width: clamp(384px, 20vw, 768px);
 $todolist-main-padding: clamp(38px, 1.979vw, 76px);
 
-$task-list-min-width:  clamp(1406px, 73.229vw, 2812px);
+$task-list-min-width:  clamp(1053px, 54.843vw, 2106px);
 $task-number-width:  clamp(155px, 8.072vw, 310px);
-$task-title-width:  clamp(878px, 45.729vw, 1756px);
-
+$task-title-width:  clamp(530px, 27.604vw, 1060px);
+$task-date-width:  clamp(206px, 10.729vw, 412px);
+$task-status-width:  clamp(162px, 8.437vw, 324px);
+$task-priority-width:  clamp(192px, 10vw, 384px);
 
 $input-radius: clamp(6px, 0.312vw, 12px);
 $icon-size-14: clamp(14px, 0.728vw, 28px);

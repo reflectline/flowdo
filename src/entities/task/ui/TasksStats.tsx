@@ -1,4 +1,4 @@
-import type { TaskStats } from '@/entities/task/lib/types'
+import type { TaskStats } from '@/entities/task/lib/task.types'
 import s from '@/entities/task/ui/Task.module.scss'
 import { LastUpdate } from '@/shared/ui/statistics/last-update/LastUpdate'
 import { ProgressBar } from '@/shared/ui/statistics/progress-bar/ProgressBar'
@@ -31,7 +31,6 @@ export const TasksStats = (props: TasksStatsType) => {
         </div>
         <LastUpdate className={s.lastUpdate} latestDate={stats.latestDate} />
       </div>
-
 
       <ProgressBar variant='secondary' percent={percent} />
     </section>

@@ -1,7 +1,7 @@
 
 export type SortOrder = 'asc' | 'desc' | 'hide'
 
-export type SortKey = | 'titleSort' | 'statusSort' | 'prioritySort'
+export type SortKey = | 'titleSort' | 'dateSort' | 'statusSort' | 'prioritySort'
 
 
 export type SortOption = {

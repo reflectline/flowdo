@@ -1,12 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { todolistApi } from '@/entities/todolist/api/todolist.api'
-import type {Todolist} from '@/entities/todolist/lib/types';
-
-
-
-
-
-
+import type {Todolist} from '@/entities/todolist/lib/todolist.types'
 
 
 export const useGetTodolists = () => {
@@ -16,7 +10,6 @@ export const useGetTodolists = () => {
       const { data } = await todolistApi.getTodolists()
       return data
     },
-
     retry: false,
     refetchOnWindowFocus: true,
     gcTime: 1000 * 60 * 30,
@@ -30,11 +23,9 @@ export const useGetTodolist = (todolistId?: string) => {
       const { data } = await todolistApi.getTodolists()
       return data
     },
-
     select: (todolists: Todolist[]) => {
       return todolists.find(t => t.id === todolistId)
     },
-
     enabled: !!todolistId,
   })
 }

@@ -1,13 +1,13 @@
 import {EditableSpan} from '@/shared/ui/editable/EditableSpan'
 import {useUpdateTodolistTitle} from '@/entities/todolist/api/todolist.queries';
 
-type TodolistsTitleProps = {
+type TodolistTitleType = {
   id: string,
   title?: string
   className?: string
 }
 
-export const UpdateTodolistTitle = (props: TodolistsTitleProps) => {
+export const TodolistTitle = (props: TodolistTitleType) => {
   const { id, title } = props
   const { mutate: updateTodolistTitle } = useUpdateTodolistTitle()
 

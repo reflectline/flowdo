@@ -1,9 +1,9 @@
-import type { Todolist } from '@/entities/todolist/lib/types'
-import type { TaskStats } from '@/entities/task/lib/types'
+import type { Todolist } from '@/entities/todolist/lib/todolist.types'
+import type { TaskStats } from '@/entities/task/lib/task.types'
 import { isToday } from 'date-fns'
 import {parseUtcDate} from '@/shared/lib/dates/parseUtcDate'
 
-type TodolistWithStats = Todolist & {
+export  type TodolistWithStats = Todolist & {
   stats: TaskStats
 }
 

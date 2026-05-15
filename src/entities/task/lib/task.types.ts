@@ -27,7 +27,14 @@ export type TaskStats = {
   latestDate: string | null
 }
 
+export type GetTasksParams = {
+  page?: number
+  count?: number
+}
+
 export type TasksQueryResult = {
   tasks: Task[]
   stats: TaskStats
+  totalCount: number
 }
+

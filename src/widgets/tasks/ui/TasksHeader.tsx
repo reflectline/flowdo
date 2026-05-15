@@ -1,16 +1,16 @@
 import s from '@/widgets/tasks/ui/Tasks.module.scss'
 import icon from '@/shared/styles/icons.module.scss'
-import { NotebookText } from 'lucide-react'
-import {TitleSort} from '@/features/task/controls/sorts/TitleSort'
-
+import {  Layers } from 'lucide-react'
+import { TitleSort } from '@/features/task/controls/sorts/TitleSort'
+import { StatusSort } from '@/features/task/controls/sorts/StatusSort'
+import { PrioritySort } from '@/features/task/controls/sorts/PrioritySort'
+import { DateSort } from '@/features/task/controls/sorts/DateSort'
 
 export const TasksHeader = () => {
-
   return (
     <div className={s.tasksHeaderWrapper}>
-
       <div className={s.numberWrapper}>
-        <NotebookText className={icon.icon16} />
+        <Layers className={icon.icon14} />
         <p>Task</p>
       </div>
 
@@ -18,7 +18,17 @@ export const TasksHeader = () => {
         <TitleSort />
       </div>
 
+      <div className={s.dateWrapper}>
+        <DateSort />
+      </div>
 
+      <div className={s.dateWrapper}>
+        <StatusSort />
+      </div>
+
+      <div className={s.priorityWrapper}>
+        <PrioritySort />
+      </div>
     </div>
   )
 }

@@ -6,12 +6,14 @@ import { ErrorPage } from '@/pages/error/ErrorPage'
 import s from '@/pages/todolist/TodolistPage.module.scss'
 import { Tasks } from '@/widgets/tasks/ui/Tasks'
 import { useFilteredTasks } from '@/entities/task/lib/useFilteredTasks'
+import {useState} from 'react'
 
 export const TodolistPage = () => {
   const { activeFilter, todolistId } = useRouteStateStrict()
-  const { data, isLoading: isLoadingTasks } = useGetTasks(todolistId)
+  const { data, isLoading: isLoadingTasks } = useGetTasks({ todolistId })
   const { data: todolist, isLoading: isLoadingTodolists } = useGetTodolist(todolistId)
   const filteredTasks = useFilteredTasks(data?.tasks)
+  const [page, setPage] = useState(1)
 
   if (isLoadingTasks || isLoadingTodolists) return <div>Loading...</div>
   if (!todolist || !todolistId || !activeFilter || !data?.stats) {
@@ -24,8 +26,10 @@ export const TodolistPage = () => {
     <section className={s.page}>
       <div className={s.resizable}>
         <TasksStats todoName={todolist.title} stats={stats} />
-        <Tasks todolistId={todolist.id} tasks={filteredTasks} />
+        <Tasks todolistId={todolist.id} tasks={filteredTasks} page={page} onPageChange={setPage}/>
       </div>
     </section>
   )
 }
+
+

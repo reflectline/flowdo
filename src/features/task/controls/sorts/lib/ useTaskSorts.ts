@@ -1,8 +1,6 @@
 import { useSearchParams } from 'react-router'
-import type {
-  SortKey,
-  SortOrder,
-} from '@/features/task/sorts/lib/sort.types'
+import type { SortKey, SortOrder } from '@/features/task/controls/sorts/lib/sort.types'
+
 
 
 export const useTaskSorts = () => {
@@ -31,8 +29,10 @@ export const useTaskSorts = () => {
     selectedTitleSort: getSort('titleSort'),
     selectedStatusSort: getSort('statusSort'),
     selectedPrioritySort: getSort('prioritySort'),
+    selectedDateSort: getSort('dateSort'),
 
     setTitleSort: (value: SortOrder) => setSort('titleSort', value),
+    setDateSort: (value: SortOrder) => setSort('dateSort', value),
     setStatusSort: (value: SortOrder) => setSort('statusSort', value),
     setPrioritySort: (value: SortOrder) => setSort('prioritySort', value),
   }

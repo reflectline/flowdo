@@ -18,11 +18,11 @@
 }
 
 
-.sm {height: $spacing-8h;}
-.md {height: $spacing-9h;}
+.sm {height: $spacing-8h; font-weight: $regular;}
+.md {height: $spacing-9h; font-weight: $medium;}
 
-.textsm{font-size: $font-14;}
-.textmd{font-size: $font-16;}
+.textsm{font-size: $font-14;font-weight: $regular;}
+.textmd{font-size: $font-16;font-weight: $medium;}
 
 .noBorder {
   border: none;

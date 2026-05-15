@@ -1,10 +1,9 @@
 import { useBreadcrumbs } from '@/widgets/header/lib/useBreadcrumbs'
-import type { Todolist } from '@/entities/todolist/lib/types'
 import s from '@/widgets/todolists/ui/Todolists.module.scss'
 import { TodolistItem } from '@/entities/todolist/ui/TodolistItem'
-import { filterTodolists } from '@/features/todolist/filter-todolists/filterTodolists'
+import { filterTodolists, type TodolistWithStats } from '@/features/todolist/filter-todolists/filterTodolists'
 import { useTodolistsTasksStats } from '@/widgets/todolists/model/useTodolistsTasksStats'
-import { emptyTodolistsMessages } from '@/shared/config/todolistsMessages'
+import { emptyTodolistsMessages } from '@/shared/config/messages'
 import { ErrorPage } from '@/pages/error/ErrorPage'
 
 export const Todolists = () => {
@@ -21,7 +20,7 @@ export const Todolists = () => {
       <h2 className={s.path}>{currentBreadcrumb.label}</h2>
 
       <div className={s.grid}>
-        {filtered?.map((item: Todolist) => (
+        {filtered?.map((item: TodolistWithStats) => (
           <TodolistItem key={item.id} todolist={item} />
         ))}
       </div>

@@ -1,5 +1,5 @@
 import { TaskStatus } from '@/shared/api/enums'
-import type { Task, TaskStats } from '@/entities/task/lib/types'
+import type { Task, TaskStats } from '@/entities/task/lib/task.types'
 
 
 

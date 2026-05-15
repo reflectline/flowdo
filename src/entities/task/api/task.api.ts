@@ -1,14 +1,14 @@
 
 import { instance } from '@/shared/api/instance'
-import type { GetTasksResponse, Task } from '@/entities/task/lib/types'
+import type { GetTasksParams, GetTasksResponse, Task } from '@/entities/task/lib/task.types'
 import type { BaseResponse } from '@/shared/api/types'
 
 
 
 export const taskApi = {
 
-  getTasks(todolistId?: string) {
-    return instance.get<GetTasksResponse<Task[]>>(`/todo-lists/${todolistId}/tasks`)
+  getTasks(todolistId?: string, params?: GetTasksParams) {
+    return instance.get<GetTasksResponse<Task[]>>(`/todo-lists/${todolistId}/tasks`,{ params })
   },
 
   createTask(todolistId: string, title: string) {

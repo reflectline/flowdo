@@ -59,7 +59,7 @@ export const EditableSpan = (props: EditableSpanType) => {
     return (
       <Input
         className={s.input}
-        textSize={'md'}
+        textSize={size}
         border={false}
         autoFocus
         value={value}

@@ -1,27 +1,37 @@
-import type {Task} from '@/entities/task/lib/types'
-import {TasksItem} from '@/entities/task/ui/TasksItem'
+import type { Task } from '@/entities/task/lib/task.types'
+import { TaskItem } from '@/entities/task/ui/TaskItem'
 import s from '@/widgets/tasks/ui/Tasks.module.scss'
-import {TasksHeader} from '@/widgets/tasks/ui/TasksHeader';
-
+import { TasksHeader } from '@/widgets/tasks/ui/TasksHeader'
+import { emptyTasksMessages } from '@/shared/config/messages'
+import {TASKS_PER_PAGE} from '@/entities/task/config/task.constants'
 
 type TasksTableType = {
   tasks: Task[]
+  page: number
 }
 
-
 export const TasksList = (props: TasksTableType) => {
-  const {tasks} = props;
+  const { tasks, page } = props
+
+  const start = (page - 1) * TASKS_PER_PAGE
+  const end = start + TASKS_PER_PAGE
+  const visibleTasks = tasks.slice(start, end)
+
+
 
   return (
     <div className={s.tasksListWrapper}>
-      <TasksHeader/>
+      <TasksHeader />
       <div>
-        {tasks?.map((task: Task) => (
-          <TasksItem key={task.id}  task={task}/>
+        {visibleTasks?.map((task: Task, index: number) => (
+          <TaskItem
+            key={task.id}
+            task={task}
+            number={start + index + 1}
+          />
         ))}
-        {/*{filtered.length === 0 && <p className={s.empty}>{emptyTodolistsMessages[activeFilter]}</p>}*/}
+        {tasks.length === 0 && <p className={s.empty}>{emptyTasksMessages['no-tasks']}</p>}
       </div>
     </div>
-
   )
 }
