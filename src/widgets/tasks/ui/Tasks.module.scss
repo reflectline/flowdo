@@ -33,6 +33,7 @@
   overflow: auto;
   border: 1px solid var(--border);
   border-radius: $spacing-3;
+  background-color: var(--list-background);
 }
 .empty{
   display: flex;
@@ -66,17 +67,18 @@
 
 }
 
-.dateWrapper{
-  display: flex;
-  align-items: center;
-  flex: 0 0 $task-date-width;
-}
 
 .titleWrapper{
   display: flex;
   align-items: center;
   flex: 1 1 auto;
   min-width:0;
+}
+
+.dateWrapper{
+  display: flex;
+  align-items: center;
+  flex: 0 0 $task-date-width;
 }
 
 .statusWrapper{

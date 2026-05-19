@@ -8,12 +8,13 @@
 }
 
 .resizable{
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: $spacing-9;
 
   resize: horizontal;
-  overflow: hidden;
+  overflow: auto;
 
   width: 100%;
   min-width: $task-list-min-width;

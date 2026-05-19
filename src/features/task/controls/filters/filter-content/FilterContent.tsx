@@ -7,7 +7,7 @@ import type {FilterContentType} from '@/features/task/controls/lib/types'
 
 
 const icons = {
-  'in-progress': Timer,
+  'in-process': Timer,
   'done': CircleCheck,
   'medium': ArrowDown,
   'low': ArrowRight,

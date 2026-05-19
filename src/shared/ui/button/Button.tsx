@@ -4,7 +4,7 @@ import type { ButtonHTMLAttributes } from 'react'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: 'sm' | 'md'
-  variant?: 'none' | 'primary' | 'secondary' | 'solid' | 'dashed' | 'task' | 'view' | 'sort'
+  variant?: 'none' | 'primary' | 'secondary' | 'solid' | 'dashed' | 'addTask' | 'view' | 'sort'
   textSize?: 'sm' | 'md'
 
 }

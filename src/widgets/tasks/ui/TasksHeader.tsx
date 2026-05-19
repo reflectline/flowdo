@@ -22,7 +22,7 @@ export const TasksHeader = () => {
         <DateSort />
       </div>
 
-      <div className={s.dateWrapper}>
+      <div className={s.statusWrapper}>
         <StatusSort />
       </div>
 

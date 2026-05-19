@@ -2,22 +2,13 @@
 
 
 .popover {
-  width: $popover-width-view;
+  min-width: $popover-width-sort;
   margin-top: $spacing-1;
   background-color: var(--input);
-  border: solid 1px var(--border);
+  border: 1px solid var(--border);
   border-radius: $spacing-2;
 }
 
-
-.columns {
-  font-size: $font-14;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: $spacing-3  0 $spacing-3 0;
-  border-bottom: 1px solid var(--border);
-}
 
 .list {
   display: flex;
@@ -25,12 +16,18 @@
   padding: $spacing-1;
   font-size: $font-14;
 }
-
-
 .li{
   list-style-type: none;
 }
+.left {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+}
+
 .item {
+  width: 100%;
+  color: var(--foreground);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,9 +44,5 @@
   }
 }
 
-.left {
-  display: flex;
-  align-items: center;
-  gap: $spacing-2;
-}
+
 

@@ -13,12 +13,11 @@ type TasksType = {
 export const Tasks = (props: TasksType) => {
   const { todolistId, tasks, page } = props
 
-
-
   return (
     <section className={s.tasksWrapper}>
       <TasksToolbar todolistId={todolistId} />
-      <TasksList tasks={tasks} page={page} />
+      <TasksList todolistId={todolistId} tasks={tasks} page={page} />
     </section>
   )
 }
+

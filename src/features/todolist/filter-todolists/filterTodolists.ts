@@ -16,7 +16,7 @@ export const filterTodolists = (todolists: TodolistWithStats[], filter: string| 
 
     case 'in-process':
       return todolists.filter(
-        (t) => t.stats.completed > 0 && t.stats.completed < t.stats.total
+        (t) => t.stats.status > 0 && t.stats.status < t.stats.total
       )
 
     case 'done':

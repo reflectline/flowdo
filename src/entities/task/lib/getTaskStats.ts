@@ -7,7 +7,7 @@ import type { Task, TaskStats } from '@/entities/task/lib/task.types'
 export const getTaskStats = (tasks: Task[]): TaskStats => {
   if (!tasks.length) return {
       total: 0,
-      completed: 0,
+      status: 0,
       percent: 0,
       oldestDate: null,
       latestDate: null,
@@ -30,7 +30,7 @@ export const getTaskStats = (tasks: Task[]): TaskStats => {
 
   return {
     total,
-    completed,
+    status: completed,
     percent,
     oldestDate,
     latestDate,

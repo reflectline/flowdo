@@ -1,6 +1,8 @@
 // variables.scss
 
 /* SCALE */
+$spacing-0:  clamp(2px, 0.104vw, 4px);    // 4px
+
 $spacing-1:  clamp(4px, 0.208vw, 8px);    // 4px
 $spacing-2:  clamp(8px, 0.417vw, 16px);   // 8px
 $spacing-3:  clamp(12px, 0.625vw, 24px);  // 12px
@@ -74,6 +76,8 @@ $task-status-width:  clamp(162px, 8.437vw, 324px);
 $task-priority-width:  clamp(192px, 10vw, 384px);
 
 $input-radius: clamp(6px, 0.312vw, 12px);
+$icon-size-11: clamp(11px, 0.572vw, 22px);
+$icon-size-12: clamp(12px, 0.625vw, 24px);
 $icon-size-14: clamp(14px, 0.728vw, 28px);
 $icon-size-38:  clamp(38px, 1.979vw, 76px);
 $filter-gap: clamp(10px, 0.520vw, 20px);

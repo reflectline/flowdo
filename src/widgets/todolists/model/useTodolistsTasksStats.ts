@@ -9,8 +9,8 @@ export const useTodolistsTasksStats = () => {
 
   const tasksQueries = useQueries({
     queries: todolists.map((todolist) => ({
-      todolistId: todolist.id,
-      queryKey: ['tasks', todolist.id, DEFAULT_TASKS_PAGE, DEFAULT_TASKS_COUNT],
+
+      queryKey: ['todolist-tasks-stats', todolist.id],
       queryFn: async () => {
         const { data } = await taskApi.getTasks(todolist.id, { page: DEFAULT_TASKS_PAGE, count: DEFAULT_TASKS_COUNT })
         return data.items

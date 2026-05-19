@@ -5,7 +5,7 @@ type TaskItemNumberType = {
   number: number
 }
 
-export const TaskNumber = (props: TaskItemNumberType) => {
+export const TaskItemNumber = (props: TaskItemNumberType) => {
   const { number } = props
 
   const formatTaskNumber = (n: number) => {

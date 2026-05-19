@@ -9,7 +9,7 @@ export const StatusFilter = () => {
   const { selectedStatuses, toggleStatus } = useTasksFilters()
 
   const statusFilterOptions = [
-    { value: 'in-progress', label: 'In Progress' },
+    { value: 'in-process', label: 'In Process' },
     { value: 'done', label: 'Done' },
   ]
 

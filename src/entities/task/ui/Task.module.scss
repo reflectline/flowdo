@@ -74,9 +74,54 @@
 .taskItemTitle{
   flex: 1 1 auto;
   min-width:0;
-  padding-left: $spacing-3;
+  padding-left: $task-btn-padding-width;
   display: flex;
   align-items: center;
   font-size: $font-14;
-  gap: $spacing-3;
+}
+
+.taskItemDate{
+  flex: 0 0 $task-date-width;
+  display: flex;
+  align-items: center;
+  padding-left: $spacing-3;
+  gap: $spacing-2;
+
+  font-size: $font-14;             // new
+  //font-size: $font-14;
+}
+.taskDateContent{
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  svg{
+    color: var(--muted-hint);
+  }
+
+}
+.taskDate{
+  display: flex;
+  align-items: center;
+  gap: $spacing-1;
+}
+
+
+.taskItemStatus{
+  flex: 0 0 $task-status-width;
+  display: flex;
+  align-items: center;
+  padding-left: $task-btn-padding-width;
+  gap: $spacing-2;
+
+  font-size: $font-12;
+}
+
+.taskItemPriority{
+  flex: 0 0 $task-priority-width;
+  display: flex;
+  align-items: center;
+  padding-left: $task-btn-padding-width;
+  gap: $spacing-2;
+
+  font-size: $font-12;
 }

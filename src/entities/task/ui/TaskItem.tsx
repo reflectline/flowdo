@@ -1,25 +1,43 @@
 import type { Task } from '@/entities/task/lib/task.types'
 import s from '@/entities/task/ui/Task.module.scss'
-import { TaskNumber } from '@/entities/task/ui/TaskNumber'
-import { TaskTitle } from '@/features/task/actions/title-task/TaskTitle'
+import { TaskItemNumber } from '@/entities/task/ui/TaskItemNumber'
+import { TaskItemTitle } from '@/features/task/actions/title-task/TaskItemTitle'
+import { TaskItemDate } from '@/entities/task/ui/TaskItemDate';
+import {ChangeTaskStatus} from '@/features/task/actions/status-task/ChangeTaskStatus'
+import {ChangeTaskPriority} from '@/features/task/actions/priority-task/ChangeTaskPriority'
 
 type TasksType = {
+  todolistId: string,
   task: Task
   number: number
 }
 
 export const TaskItem = (props: TasksType) => {
-  const { task, number } = props
+  const { todolistId, task, number } = props
+
+
   return (
     <div className={s.tasksItemWrapper}>
       <div className={s.item}>
 
         <div className={s.taskItemNumber}>
-          <TaskNumber number={number} />
+          <TaskItemNumber number={number} />
         </div>
 
         <div className={s.taskItemTitle}>
-          <TaskTitle title={task.title} />
+          <TaskItemTitle todolistId={todolistId} task={task} />
+        </div>
+
+        <div className={s.taskItemDate}>
+          <TaskItemDate date={task.addedDate} />
+        </div>
+
+        <div className={s.taskItemStatus}>
+          <ChangeTaskStatus todolistId={todolistId} task={task} />
+        </div>
+
+        <div className={s.taskItemPriority}>
+          <ChangeTaskPriority todolistId={todolistId} task={task} />
         </div>
 
 

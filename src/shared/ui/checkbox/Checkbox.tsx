@@ -4,7 +4,7 @@ import s from '@/shared/ui/checkbox/Checkbox.module.scss'
 import {Check} from 'lucide-react'
 
 type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> & {
-  variant?: 'filter' | 'view'
+  variant?: 'filter' | 'view' | 'radio'
   size?: 'sm' | 'md'
 }
 

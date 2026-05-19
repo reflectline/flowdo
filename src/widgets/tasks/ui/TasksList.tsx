@@ -6,12 +6,15 @@ import { emptyTasksMessages } from '@/shared/config/messages'
 import {TASKS_PER_PAGE} from '@/entities/task/config/task.constants'
 
 type TasksTableType = {
+  todolistId: string
   tasks: Task[]
   page: number
 }
 
 export const TasksList = (props: TasksTableType) => {
-  const { tasks, page } = props
+  const { todolistId, tasks, page } = props
+
+
 
   const start = (page - 1) * TASKS_PER_PAGE
   const end = start + TASKS_PER_PAGE
@@ -26,6 +29,7 @@ export const TasksList = (props: TasksTableType) => {
         {visibleTasks?.map((task: Task, index: number) => (
           <TaskItem
             key={task.id}
+            todolistId={todolistId}
             task={task}
             number={start + index + 1}
           />

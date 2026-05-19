@@ -1,20 +1,15 @@
-import {
-  type ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
-
+import {type ReactNode, useEffect, useRef, useState,} from 'react'
 import s from '@/shared/ui/popover/Popover.module.scss'
 
-type Props = {
+type PopoverType = {
+  disabled?: boolean
   trigger: ReactNode
   children: ReactNode
 }
 
-export const Popover = ({ trigger, children }: Props) => {
+export const Popover = (props: PopoverType) => {
+  const{ trigger, children, disabled = false } = props
   const [open, setOpen] = useState(false)
-
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -23,17 +18,20 @@ export const Popover = ({ trigger, children }: Props) => {
         setOpen(false)
       }
     }
-
     document.addEventListener('mousedown', handleOutsideClick)
-
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick)
     }
   }, [])
 
+  const handleToggle = () => {
+    if (disabled) return
+    setOpen(prev => !prev)
+  }
+
   return (
     <div className={s.popover} ref={ref}>
-      <div onClick={() => setOpen(prev => !prev)}>
+      <div onClick={handleToggle}>
         {trigger}
       </div>
 

@@ -1,5 +1,11 @@
 @use '@/app/styles/variables' as *;
 
+.icon12 {
+  width: $icon-size-12;
+  height: $icon-size-12;
+  flex-shrink: 0;
+}
+
 .icon14 {
   width: $icon-size-14;
   height: $icon-size-14;
@@ -21,4 +27,3 @@
   height: $icon-size-38;
   flex-shrink: 0;
 }
-

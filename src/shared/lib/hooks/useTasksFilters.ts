@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router'
-import type { FilterKey, FilterValue } from '@/features/task/lib/types'
+import type { FilterKey, FilterValue } from '@/features/task/controls/lib/types'
 
 
 export const useTasksFilters = () => {

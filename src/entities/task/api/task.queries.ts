@@ -1,33 +1,17 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { taskApi } from '@/entities/task/api/task.api'
 import { getTaskStats } from '@/entities/task/lib/getTaskStats'
-import type { GetTasksResponse, Task, TasksQueryResult } from '@/entities/task/lib/task.types'
+import type { GetTasksResponse, Task, UpdateTaskModel } from '@/entities/task/lib/task.types'
 import { DEFAULT_TASKS_COUNT, DEFAULT_TASKS_PAGE } from '@/entities/task/config/task.constants'
 
-// export const useGetTasks = (todolistId?: string) => {
-//   return useQuery<Task[], Error, TasksQueryResult>({
-//     queryKey: ['tasks', todolistId],
-//     enabled: !!todolistId,
-//     queryFn: async () => {
-//       const { data } = await taskApi.getTasks(todolistId)
-//       return data.items
-//     },
-//     select: (tasks) => {
-//       const stats = getTaskStats(tasks)
-//       return { tasks, stats }
-//     },
-//     retry: 1,
-//   })
-// }
-
-type UseGetTasksParams = {
+type UseGetTasksType = {
   todolistId?: string
-  page?: number
-  count?: number
+  page: number
+  count: number
 }
-export const useGetTasks = ({todolistId, page = DEFAULT_TASKS_PAGE, count = DEFAULT_TASKS_COUNT,}: UseGetTasksParams) => {
-  return useQuery<GetTasksResponse<Task[]>, Error, TasksQueryResult>({
-    queryKey: ['tasks', todolistId,],
+export const useGetTasks = ({todolistId, page = DEFAULT_TASKS_PAGE, count = DEFAULT_TASKS_COUNT,}: UseGetTasksType) => {
+  return useQuery({
+    queryKey: ['tasks', todolistId],
     enabled: !!todolistId,
 
     queryFn: async () => {
@@ -58,5 +42,35 @@ export const useCreateTask = () => {
         return { ...old, totalCount: old.totalCount + 1, items: [newTasks, ...old.items] }
       })
     },
+  })
+}
+
+export const useUpdateTask = () => {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: ({todolistId, taskId, model}: {todolistId: string, taskId: string, model: UpdateTaskModel}) =>
+      taskApi.updateTask(todolistId, taskId, model),
+
+    onMutate: async ({ todolistId, taskId, model }) => {
+      await queryClient.cancelQueries({queryKey: ['tasks', todolistId]})
+      const previousData = queryClient.getQueryData<GetTasksResponse<Task[]>>(['tasks', todolistId])
+
+      queryClient.setQueryData<GetTasksResponse<Task[]>>(['tasks', todolistId], (old) => {
+        if (!old) return old
+        return {
+          ...old, items: (old.items ?? []).map((task: Task) => task.id === taskId ? { ...task, ...model } : task),
+        }
+      })
+
+      return { previousData, todolistId }
+    },
+
+    onError: (_error, _variables, context) => {
+      if (context?.previousData) {
+        queryClient.setQueryData(['tasks', context.todolistId], context.previousData)
+      }
+    },
+
   })
 }

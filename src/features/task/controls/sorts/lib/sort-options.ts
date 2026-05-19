@@ -1,5 +1,6 @@
-import type { SortOption } from '@/features/task/sorts/lib/sort.types'
+
 import { ArrowDown, ArrowUp, EyeOff } from 'lucide-react'
+import type {SortOption} from '@/features/task/controls/sorts/lib/sort.types'
 
 
 
