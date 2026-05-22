@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  min-height: $spacing-14h;
+  min-height: $fluid-14h;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,13 +26,13 @@
   align-items: center;
   width: 100%;
   max-width: $headerWelcome-content-width;
-  padding: 0 $spacing-6;
+  padding: 0 $fluid-6;
 }
 
 .logoWrapper {
   display: flex;
   align-items: center;
-  gap: $spacing-2;
+  gap: $fluid-2;
 
   font-size: $font-16;
   font-weight: $medium;
@@ -40,7 +40,7 @@
 }
 
 .logo{
-  width:$spacing-6;
+  width: $fluid-6;
   flex-shrink: 0;
   height: auto;
 }
@@ -48,7 +48,7 @@
 .btnWrapper {
   display: flex;
   align-items: center;
-  gap: $spacing-6;
+  gap: $fluid-6;
 
   font-size: $font-14;
   font-weight: $medium;
@@ -65,8 +65,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0 $spacing-10;
-  min-height: $spacing-14h;
+  padding: 0 $fluid-10;
+  min-height: $fluid-14h;
   border-bottom: 1px solid var(--border);
   background-color: var(--background);
 }
@@ -87,11 +87,11 @@
 
 .signUp {
   border: 1px solid var(--border);
-  border-radius: $spacing-2;
+  border-radius: $fluid-2;
 
   background-color: var(--background);
   color: var(--foreground);
-  padding: $spacing-2 $spacing-4;
+  padding: $fluid-2 $fluid-4;
   text-decoration: none;
 
   &:hover {
@@ -111,14 +111,14 @@
   display: flex;
   align-items: center;
   color: var(--muted);
-  gap:$spacing-2;
+  gap: $fluid-2;
 }
 
 .hintWrapper{
   display: flex;
   align-items: center;
   color: var(--crumbs);
-  gap:$spacing-2;
+  gap: $fluid-2;
   pointer-events: auto;
 }
 
@@ -129,7 +129,7 @@
 .crumb {
   display: flex;
   align-items: center;
-  gap: $spacing-2;
+  gap: $fluid-2;
 }
 
 .link {
@@ -149,7 +149,7 @@
   }
 }
 .ico{
-  width: $spacing-5;
+  width: $fluid-5;
   height: auto;
   flex-shrink: 0;
 }

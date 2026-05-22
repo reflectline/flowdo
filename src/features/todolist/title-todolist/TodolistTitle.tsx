@@ -16,6 +16,6 @@ export const TodolistTitle = (props: TodolistTitleType) => {
     console.log(newTitle)
   }
   return (
-      <EditableSpan title={title} onSubmit={handleSubmit}/>
+      <EditableSpan  title={title} onSubmit={handleSubmit}/>
   )
 }

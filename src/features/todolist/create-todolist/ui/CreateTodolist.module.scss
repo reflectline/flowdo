@@ -3,7 +3,7 @@
 .wrapperCreateForm {
   display: flex;
   flex-direction: column;
-  gap: $spacing-2;
+  gap: $fluid-2;
   width: 100%;
 }
 .hint{
@@ -12,7 +12,7 @@
 
 .wrapperInteractive {
   display: flex;
-  gap: $spacing-4;
+  gap: $fluid-4;
 }
 
 .input {

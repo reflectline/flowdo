@@ -19,5 +19,5 @@ export const TaskItemTitle = (props: TaskItemTitleType) => {
     })
   }
 
-  return <EditableSpan size={'sm'} title={task.title} onSubmit={handleSubmit} />
+  return <EditableSpan variant={'task'} size={'sm'} title={task.title} onSubmit={handleSubmit} />
 }

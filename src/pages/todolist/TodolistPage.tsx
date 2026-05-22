@@ -6,10 +6,9 @@ import { ErrorPage } from '@/pages/error/ErrorPage'
 import s from '@/pages/todolist/TodolistPage.module.scss'
 import { Tasks } from '@/widgets/tasks/ui/Tasks'
 import { useFilteredTasks } from '@/entities/task/lib/useFilteredTasks'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { DEFAULT_TASKS_PAGE, TASKS_PER_PAGE } from '@/entities/task/config/task.constants'
-import {locales} from "zod";
-import {percent} from "framer-motion";
+
 
 export const TodolistPage = () => {
   const { activeFilter, todolistId } = useRouteStateStrict()

@@ -5,7 +5,7 @@
 .todolistsWrapper{
   display: flex;
   flex-direction: column;
-  gap: $spacing-4;
+  gap: $fluid-4;
 }
 
 .path{
@@ -14,11 +14,11 @@
 .grid{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($card-width, 1fr));
-  gap: $spacing-4;
+  gap: $fluid-4;
 }
 
 .empty{
-  padding-top: $spacing-6;
+  padding-top: $fluid-6;
   text-align: center;
 }
 

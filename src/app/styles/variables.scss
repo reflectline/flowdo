@@ -1,27 +1,26 @@
 // variables.scss
 
 /* SCALE */
-$spacing-0:  clamp(2px, 0.104vw, 4px);    // 4px
+$fluid-0:  clamp(2px, 0.104vw, 4px);    // 4px
+$fluid-1:  clamp(4px, 0.208vw, 8px);    // 4px
+$fluid-2:  clamp(8px, 0.417vw, 16px);   // 8px
+$fluid-3:  clamp(12px, 0.625vw, 24px);  // 12px
+$fluid-4:  clamp(16px, 0.833vw, 32px);  // 16px
+$fluid-5:  clamp(20px, 1.041vw, 40px);  // 20px
+$fluid-6:  clamp(24px, 1.25vw, 48px);   // 24px
+$fluid-7:  clamp(28px, 1.458vw, 56px);  // 28px
+$fluid-8:  clamp(32px, 1.667vw, 64px);  // 32px
+$fluid-9:  clamp(36px, 1.875vw, 72px);  // 36px
+$fluid-10: clamp(40px, 2.083vw, 80px);  // 40px
+$fluid-11: clamp(44px, 2.292vw, 88px);  // 44px
+$fluid-12: clamp(48px, 2.5vw, 96px);    // 48px
+$fluid-13: clamp(52px, 2.708vw, 104px); // 52px
+$fluid-14: clamp(56px, 2.917vw, 112px); // 56px
+$fluid-15: clamp(60px, 3.125vw, 120px); // 60px
 
-$spacing-1:  clamp(4px, 0.208vw, 8px);    // 4px
-$spacing-2:  clamp(8px, 0.417vw, 16px);   // 8px
-$spacing-3:  clamp(12px, 0.625vw, 24px);  // 12px
-$spacing-4:  clamp(16px, 0.833vw, 32px);  // 16px
-$spacing-5:  clamp(20px, 1.041vw, 40px);  // 20px
-$spacing-6:  clamp(24px, 1.25vw, 48px);   // 24px
-$spacing-7:  clamp(28px, 1.458vw, 56px);  // 28px
-$spacing-8:  clamp(32px, 1.667vw, 64px);  // 32px
-$spacing-9:  clamp(36px, 1.875vw, 72px);  // 36px
-$spacing-10: clamp(40px, 2.083vw, 80px);  // 40px
-$spacing-11: clamp(44px, 2.292vw, 88px);  // 44px
-$spacing-12: clamp(48px, 2.5vw, 96px);    // 48px
-$spacing-13: clamp(52px, 2.708vw, 104px); // 52px
-$spacing-14: clamp(56px, 2.917vw, 112px); // 56px
-
-
-$spacing-8h: clamp(32px, 2.962vh, 64px);  // 32px h
-$spacing-9h: clamp(36px, 3.333vh, 72px);  // 36px h
-$spacing-14h: clamp(56px, 5.185vh, 112px); // 56px h
+$fluid-8h: clamp(32px, 2.962vh, 64px);  // 32px h
+$fluid-9h: clamp(36px, 3.333vh, 72px);  // 36px h
+$fluid-14h: clamp(56px, 5.185vh, 112px); // 56px h
 
 
 /* FONT SCALE */
@@ -48,9 +47,9 @@ $welcome-gap: clamp(72px, 3.75vw, 144px);
 $beam-radius:  clamp(200px, 10.416vw, 400px);
 $beam-radius-height:  clamp(200px, 18.518vh, 400px);
 
-$task-stats-dot: clamp(6px, 0.312vw, 12px);
+$sem-fluid-5:  clamp(5px, 0.260vw, 10px);
+$sem-fluid-6: clamp(6px, 0.312vw, 12px);
 $task-input-width: clamp(250px, 13vw, 500px);
-$button-gap-5:  clamp(5px, 0.260vw, 10px);
 
 $task-btn-padding-width: clamp(11px, 0.572vw, 22px);
 
@@ -72,8 +71,11 @@ $task-list-min-width:  clamp(1053px, 54.843vw, 2106px);
 $task-number-width:  clamp(155px, 8.072vw, 310px);
 $task-title-width:  clamp(530px, 27.604vw, 1060px);
 $task-date-width:  clamp(206px, 10.729vw, 412px);
-$task-status-width:  clamp(162px, 8.437vw, 324px);
-$task-priority-width:  clamp(192px, 10vw, 384px);
+$task-status-width:  clamp(161px, 8.385vw, 322px);
+$task-status-space:  clamp(89px, 4.635vw, 178px);
+$task-priority-width:  clamp(188px, 9.791vw, 376px);
+$task-priority-space:  clamp(140px, 7.291vw, 280px);
+
 
 $input-radius: clamp(6px, 0.312vw, 12px);
 $icon-size-11: clamp(11px, 0.572vw, 22px);

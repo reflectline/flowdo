@@ -3,11 +3,10 @@ import { Loader } from 'lucide-react'
 import circleCheck from '@/shared/assets/icons/circleCheck.svg'
 import { Popover } from '@/shared/ui/popover/Popover'
 import { TaskStatus } from '@/shared/api/enums'
-import { ActionContent } from '@/features/task/actions/action-content/ActionContent'
-import { StatusBadge } from '@/shared/ui/status-badge/StatusBadge'
-
+import { PriorityContent } from '@/features/task/actions/priority-task/priority-content/PriorityContent'
 import { useUpdateTask } from '@/entities/task/api/task.queries'
 import { createTaskModel } from '@/features/task/actions/lib/createTaskModel'
+import {StatusBadge} from '@/shared/ui/badges/StatusBadge'
 
 type ChangeTaskStatusType = {
   todolistId: string
@@ -40,7 +39,7 @@ export const ChangeTaskStatus = (props: ChangeTaskStatusType) => {
         </StatusBadge>
       }
     >
-      <ActionContent />
+      <PriorityContent />
     </Popover>
   )
 }

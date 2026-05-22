@@ -1,14 +1,17 @@
 import {type ReactNode, useEffect, useRef, useState,} from 'react'
 import s from '@/shared/ui/popover/Popover.module.scss'
+import {cn} from '@/shared/lib/utils'
 
 type PopoverType = {
   disabled?: boolean
+  position?: 'relative'|'absolute'
+  align?: 'right' | 'left'
   trigger: ReactNode
   children: ReactNode
 }
 
 export const Popover = (props: PopoverType) => {
-  const{ trigger, children, disabled = false } = props
+  const{ trigger, position='relative', align = 'right',  children, disabled = false } = props
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -30,7 +33,7 @@ export const Popover = (props: PopoverType) => {
   }
 
   return (
-    <div className={s.popover} ref={ref}>
+    <div ref={ref} className={cn(s.popover, s[position],  s[align])}>
       <div onClick={handleToggle}>
         {trigger}
       </div>

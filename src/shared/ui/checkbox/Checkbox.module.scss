@@ -37,7 +37,7 @@
 
 .filter .control {
   border: 1px solid var(--border-checkbox);
-  border-radius: $spacing-1;
+  border-radius: $fluid-1;
   background: transparent;
 }
 
@@ -90,19 +90,19 @@
 ======================= */
 
 .sm {
-  width: $spacing-3;
-  height: $spacing-3;
+  width: $fluid-3;
+  height: $fluid-3;
   .icon {
-    width: $spacing-3;
-    height: $spacing-3;
+    width: $fluid-3;
+    height: $fluid-3;
   }
 }
 .md {
-  width: $spacing-4;
-  height: $spacing-4;
+  width: $fluid-4;
+  height: $fluid-4;
   .icon {
-    width: $spacing-4;
-    height: $spacing-4;
+    width: $fluid-4;
+    height: $fluid-4;
   }
 }
 

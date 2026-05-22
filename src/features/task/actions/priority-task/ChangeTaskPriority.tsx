@@ -2,10 +2,10 @@ import type { Task } from '@/entities/task/lib/task.types'
 import { Dot } from 'lucide-react'
 import { Popover } from '@/shared/ui/popover/Popover'
 import { TaskPriority } from '@/shared/api/enums'
-import { ActionContent } from '@/features/task/actions/action-content/ActionContent'
-import { StatusBadge } from '@/shared/ui/status-badge/StatusBadge'
+import { PriorityContent } from '@/features/task/actions/priority-task/priority-content/PriorityContent'
 import { useUpdateTask } from '@/entities/task/api/task.queries'
 import { createTaskModel } from '@/features/task/actions/lib/createTaskModel'
+import { PriorityBadge } from '@/shared/ui/badges/PriorityBadge'
 
 type ChangeTaskStatusType = {
   todolistId: string
@@ -43,13 +43,13 @@ export const ChangeTaskPriority = (props: ChangeTaskStatusType) => {
   return (
     <Popover
       trigger={
-        <StatusBadge variant={currentPriority.variant}>
+        <PriorityBadge variant={currentPriority.variant}>
           <Dot style={{ transform: 'scale(3)' }} />
           {currentPriority.label}
-        </StatusBadge>
+        </PriorityBadge>
       }
     >
-      <ActionContent options={priorityOptions} selected={currentPriority.value} onToggle={changeTaskStatusHandler} />
+      <PriorityContent options={priorityOptions} selected={currentPriority.value} onToggle={changeTaskStatusHandler} />
     </Popover>
   )
 }

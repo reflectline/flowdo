@@ -11,7 +11,7 @@
 .progressBar {
   height: $card-bar-height;
   background-color: var(--progress);
-  border-radius: $spacing-2;
+  border-radius: $fluid-2;
   overflow: hidden;
   transition: background-color 0.2s ease;
 }
@@ -19,13 +19,13 @@
   color: var(--muted-hint);
   position: absolute;
   right: 0;
-  bottom: $spacing-3;
+  bottom: $fluid-3;
   font-size: $font-16 ;
 }
 
 .progressFill{
   height: 100%;
-  border-radius: $spacing-1;
+  border-radius: $fluid-1;
   background-color: var(--complated);
   transition: width 1s ease;
 }

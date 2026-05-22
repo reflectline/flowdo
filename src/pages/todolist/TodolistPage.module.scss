@@ -4,14 +4,14 @@
 .page{
   display: flex;
   flex-direction: column;
-  gap: $spacing-6;
+  gap: $fluid-6;
 }
 
 .resizable{
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: $spacing-9;
+  gap: $fluid-9;
 
   resize: horizontal;
   overflow: auto;

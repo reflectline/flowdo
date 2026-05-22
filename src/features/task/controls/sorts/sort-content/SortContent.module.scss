@@ -3,16 +3,16 @@
 .popover {
   position: absolute;
   width: $popover-width-sort;
-  margin-top: $spacing-1;
+  margin-top: $fluid-1;
   background-color: var(--input);
   border: 1px solid var(--border);
-  border-radius: $spacing-2;
+  border-radius: $fluid-2;
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  padding: $spacing-1;
+  padding: $fluid-1;
   font-size: $font-14;
 }
 
@@ -22,18 +22,18 @@
 
 .divider {
   height: 1px;
-  margin:  $spacing-1 calc($spacing-1 * -1);
+  margin:  $fluid-1 calc($fluid-1 * -1);
   background-color: var(--border);
 }
 
 .item {
   display: flex;
   align-items: center;
-  gap: $spacing-2;
+  gap: $fluid-2;
   width: 100%;
-  height: $spacing-8h;
-  padding-inline: $spacing-2;
-  border-radius: $spacing-2;
+  height: $fluid-8h;
+  padding-inline: $fluid-2;
+  border-radius: $sem-fluid-6;
   color: var(--foreground);
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -43,8 +43,8 @@
 }
 
 .ico {
-  width: $spacing-4;
-  height: $spacing-4;
+  width: $fluid-4;
+  height: $fluid-4;
   flex-shrink: 0;
   color: var(--muted-foreground);
 }

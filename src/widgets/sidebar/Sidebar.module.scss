@@ -18,24 +18,24 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: $spacing-14h;
+  height: $fluid-14h;
   font-size: $font-16;
   font-weight: $medium;
   border-bottom: 1px solid var(--border);
-  padding: $spacing-4;
+  padding: $fluid-4;
 }
 .logoContent{
-  padding-left: $spacing-3;
+  padding-left: $fluid-3;
   display: flex;
   align-items: center;
-  gap: $spacing-2;
+  gap: $fluid-2;
 }
 
 .linksWrapper{
   display: flex;
   flex-direction: column;
-  gap: $spacing-6;
-  padding: $spacing-4;
+  gap: $fluid-6;
+  padding: $fluid-4;
 
 }
 
@@ -44,18 +44,18 @@
 .hint{
   font-size: $font-14;
   color: var(--muted-foreground);
-  padding-left: $spacing-2;
-  padding-bottom: $spacing-2;
+  padding-left: $fluid-2;
+  padding-bottom: $fluid-2;
 }
 .ico{
-  width: $spacing-4;
+  width: $fluid-4;
   height: auto;
 }
 
 .btnWrapper{
   display: flex;
   flex-direction: column;
-  gap: $spacing-1;
+  gap: $fluid-1;
 }
 
 
@@ -63,8 +63,8 @@
   display: flex;
   align-items: center;
   padding-left: $filter-gap;
-  height: $spacing-8h;
-  gap: $spacing-2;
+  height: $fluid-8h;
+  gap: $fluid-2;
 
   color: var(--foreground);
   font-size: $font-14;
@@ -72,7 +72,7 @@
 
   background-color: transparent;
   border: none;
-  border-radius: $spacing-2;
+  border-radius: $fluid-2;
 
   cursor: pointer;
 

@@ -74,3 +74,35 @@ export const useUpdateTask = () => {
 
   })
 }
+
+
+
+export const useDeleteTask = () => {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: ({ todolistId, taskId }: { todolistId: string; taskId: string }) =>
+      taskApi.deleteTask(todolistId, taskId),
+
+    onMutate: async ({ todolistId, taskId }) => {
+      await queryClient.cancelQueries({ queryKey: ['tasks', todolistId] })
+      const previousData = queryClient.getQueryData<GetTasksResponse<Task[]>>(['tasks', todolistId])
+
+      queryClient.setQueryData<GetTasksResponse<Task[]>>(['tasks', todolistId], (old) => {
+        if (!old) return old
+        return {
+          ...old,
+          items: old.items.filter((task: Task) => (task.id !== taskId)),
+        }
+      })
+
+      return { previousData, todolistId }
+    },
+
+    onError: (_error, _variables, context) => {
+      if (context?.previousData) {
+        queryClient.setQueryData(['tasks', context.todolistId], context.previousData)
+      }
+    },
+
+  })
+}

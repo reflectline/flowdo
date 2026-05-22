@@ -24,16 +24,47 @@
   }
 }
 
+.textareaTask {
+  width: 100%;
+  max-width: 80%;
+
+  min-height: $fluid-12;
+  max-height: calc($fluid-15 + $fluid-15);
+
+  resize: none;
+  overflow: hidden;
+
+  padding: $fluid-2 $fluid-3;
+
+  border: 1px solid var(--border);
+  border-radius: $fluid-3;
+
+  outline: none;
+
+  color: var(--chart-1);
+  background: var(--input-hover);
+
+  font-size: $font-14;
+  font-weight: $regular;
+  line-height: 1.5;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  transition: border-color 0.2s ease, background-color 0.2s ease, min-height 0.15s ease;;
+}
 
 .spanWrapper{
   position: relative;
   display: block;
   max-width: 80%;
-  padding-right: $spacing-5;
+  padding-right: $fluid-5;
 }
 .spanWrapper:has(.iconButton:hover) .span {
   color: var(--chart-1);
 }
+
+
 
 .span {
   display: block;

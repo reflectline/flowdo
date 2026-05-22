@@ -1,10 +1,10 @@
 import { cn } from '@/shared/lib/utils'
-import s from '@/shared/ui/status-badge/StatusBadge.module.scss'
+import s from '@/shared/ui/badges/Badges.module.scss'
 import type { ReactNode } from 'react'
 
 type StatusBadgeProps = {
   children?: ReactNode
-  variant?: 'process' | 'done' | 'high' |  'medium' | 'low' | 'urgently' | 'later'
+  variant?: 'process' | 'done'
   onClick?: () => void
 }
 

@@ -3,14 +3,14 @@
 .card{
   position: relative;
   width: 100%;
-  height: $card-height;
-  gap: $spacing-4;
-  padding: $spacing-4;
+  min-height: $card-height;
+  gap: $fluid-4;
+  padding: $fluid-4;
 
   color: var(--foreground);
   background-color: var(--card);
   border: 1px solid var(--border);
-  border-radius: $spacing-3;
+  border-radius: $fluid-3;
 
   transition: background-color 0.2s ease, color 0.2s ease;
   &:hover{
@@ -35,7 +35,7 @@
 .infoWrapper{
   display: flex;
   flex-direction: column;
-  gap: $spacing-11;
+  gap: $fluid-11;
   font-size: $font-12;
   font-weight: $medium;
 }
@@ -45,7 +45,7 @@
 .statsWrapper{
   display: flex;
   flex-direction: column;
-  gap: $spacing-2;
+  gap: $fluid-2;
 }
 .statsContent{
   display: flex;
@@ -54,7 +54,7 @@
 .splitWrapper{
   display: inline-flex;
   align-items: center;
-  gap: $spacing-4;
+  gap: $fluid-4;
 }
 .splitItem{
   display: inline-flex;
@@ -63,15 +63,15 @@
   &:not(:last-child)::after {
     content: '';
     width: 1px;
-    height: $spacing-2;
+    height: $fluid-2;
     background-color: var(--border);
-    margin-left: $spacing-4;
+    margin-left: $fluid-4;
   }
 }
 
 .linkArea{
   position: absolute;
-  margin-top: $spacing-10;
+  margin-top: $fluid-10;
   inset: 0;
   z-index: 1;
 }

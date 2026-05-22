@@ -1,0 +1,95 @@
+@use '@/app/styles/variables' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $fluid-0 $sem-fluid-6;
+  gap: $fluid-1;
+  overflow: hidden;
+
+  font-size: $font-12;
+  font-weight: $medium;
+
+  background: transparent;
+  color: var(--muted-foreground);
+
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, width 0.1s ease;
+  &:hover {background: var(--accent)}
+}
+.menu{
+  display: inline-flex;
+  align-items: center;
+
+  padding: $fluid-2;
+  border-radius: $fluid-2;
+
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  &:hover {background: var(--accent)}
+}
+
+.process,
+.done{
+  border: 1px solid var(--border);
+  border-radius: $fluid-6;
+}
+.process {
+  width: $task-status-space;
+  svg, img {
+    width: $icon-size-12;
+    height: $icon-size-12;
+    flex-shrink: 0;
+    animation: rotate 1s ease;
+  }
+}
+.done {
+
+  width: calc(#{$fluid-14} + (#{$fluid-0}));
+  svg, img {
+    width: $icon-size-11;
+    height: $icon-size-11;
+    flex-shrink: 0;
+    animation: doneAppear 0.35s ease;
+  }
+}
+
+
+
+.high,.medium,.low,.urgently,.later{
+  border: 1px solid var(--border);
+  border-radius: $fluid-6;
+  svg, img {
+    width: $icon-size-12;
+    height: $icon-size-12;
+    flex-shrink: 0;
+  }
+}
+.high svg {color: var(--destructive);}
+.medium svg {color: var(--primary);}
+.low svg {color: var(--complated);}
+.urgently svg {color: var(--urgently);}
+.later svg {color: var(--primary-foreground);}
+
+
+
+
+
+
+
+
+@keyframes rotate {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
+
+@keyframes doneAppear {
+  0% {opacity: 0;transform: scale(0.7);}
+  70% {transform: scale(1.08);}
+  100% {opacity: 1;transform: scale(1);}
+}
+
+
+

@@ -1,10 +1,22 @@
 @use '@/app/styles/variables' as *;
 
-.popover {
+
+.popover.relative{
   position: relative;
+}
+.popover.absolute{
+  position: absolute;
 }
 
 .content {
   position: absolute;
   z-index: 10;
+}
+
+.left .content {
+  right: 0;
+}
+
+.right .content {
+  left: 0;
 }

@@ -3,36 +3,36 @@
 .tasksWrapper {
   display: flex;
   flex-direction: column;
-  gap: $spacing-4;
+  gap: $fluid-4;
 }
 
 .toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: $spacing-8;
+  min-height: $fluid-8;
 }
 
 .left {
   display: flex;
-  gap: $spacing-2;
+  gap: $fluid-2;
 }
 
 .filterWrapper {
   display: flex;
-  gap: $spacing-2;
+  gap: $fluid-2;
 }
 
 .right {
   display: flex;
-  gap: $spacing-2;
+  gap: $fluid-2;
   margin-left: auto;
 }
 
 .tasksListWrapper {
   overflow: auto;
   border: 1px solid var(--border);
-  border-radius: $spacing-3;
+  border-radius: $fluid-3;
   background-color: var(--list-background);
 }
 .empty{
@@ -45,8 +45,8 @@
 .tasksHeaderWrapper{
   display: flex;
   align-items: center;
-  padding: $spacing-2 $spacing-4;
-  height: $spacing-10;
+  padding: $fluid-2 $fluid-4;
+  height: $fluid-10;
 
   font-size: $font-14;
 
@@ -63,7 +63,7 @@
   font-size: $font-14;
   font-weight: $medium;
   flex: 0 0 $task-number-width;
-  gap: $spacing-4;
+  gap: $fluid-4;
 
 }
 

@@ -3,12 +3,12 @@
 .statsContent{
   display: flex;
   flex-direction: column;
-  gap: $spacing-4;
+  gap: $fluid-4;
 }
 .introWrapper{
   display: flex;
   flex-direction: column;
-  gap: $spacing-2;
+  gap: $fluid-2;
 }
 .title{
   font-size: $font-24;
@@ -18,7 +18,7 @@
   display: inline-flex;
   align-items: center;
   font-size: $font-14;
-  gap: $spacing-4;
+  gap: $fluid-4;
 }
 
 .splitItem{
@@ -28,11 +28,11 @@
 
   &:not(:last-child)::after {
     content: '';
-    width: $task-stats-dot;
-    height: $task-stats-dot;
-    border-radius: $task-stats-dot;
+    width: $sem-fluid-6;
+    height: $sem-fluid-6;
+    border-radius: $sem-fluid-6;
     background-color: var(--border);
-    margin-left: $spacing-4;
+    margin-left: $fluid-4;
   }
 }
 
@@ -54,8 +54,8 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: $spacing-12;
-  padding: 0 $spacing-4;
+  height: calc($fluid-13 - $fluid-0);
+  padding: $fluid-2 $fluid-4;
   border-bottom: 1px solid var(--border);
   transition: background-color 0.2s ease;
   &:hover{
@@ -68,7 +68,7 @@
   display: flex;
   align-items: center;
   font-size: $font-14;
-  gap: $spacing-3;
+  gap: $fluid-3;
 }
 
 .taskItemTitle{
@@ -84,16 +84,14 @@
   flex: 0 0 $task-date-width;
   display: flex;
   align-items: center;
-  padding-left: $spacing-3;
-  gap: $spacing-2;
-
-  font-size: $font-14;             // new
-  //font-size: $font-14;
+  padding-left: $fluid-2;
+  gap: $fluid-2;
+  font-size: $font-14;
 }
 .taskDateContent{
   display: flex;
   align-items: center;
-  gap: $spacing-2;
+  gap: $fluid-2;
   svg{
     color: var(--muted-hint);
   }
@@ -102,7 +100,7 @@
 .taskDate{
   display: flex;
   align-items: center;
-  gap: $spacing-1;
+  gap: $fluid-1;
 }
 
 
@@ -110,18 +108,29 @@
   flex: 0 0 $task-status-width;
   display: flex;
   align-items: center;
-  padding-left: $task-btn-padding-width;
-  gap: $spacing-2;
+  padding-left: $fluid-2;
+  gap: $fluid-2;
 
   font-size: $font-12;
 }
 
 .taskItemPriority{
-  flex: 0 0 $task-priority-width;
+  flex: 0 0 $task-priority-space;
   display: flex;
   align-items: center;
-  padding-left: $task-btn-padding-width;
-  gap: $spacing-2;
+  padding-left: $fluid-2;
+  gap: $fluid-2;
 
   font-size: $font-12;
+}
+
+.taskItemDelete{
+  flex: 0 0 $fluid-11;
+  display: flex;
+  align-items: center;
+}
+.taskItemDeleteIco{
+  width: $fluid-4;
+  height: $fluid-4;
+  color: var(--foreground);
 }
