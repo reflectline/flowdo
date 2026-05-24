@@ -55,8 +55,8 @@ $task-btn-padding-width: clamp(11px, 0.572vw, 22px);
 
 $card-width: clamp(19rem, 15.833vw, 38rem);
 $card-height: clamp(160px, 14.814vh, 320px);
-$card-bar-height:  clamp(6px, 0.555vh, 12px);
-$card-name-margin:  clamp(18px, 0.937vw, 36px);
+$card-bar-height: clamp(6px, 0.555vh, 12px);
+$card-name-margin: clamp(18px, 0.937vw, 36px);
 $card-pencil-padding: clamp(22px, 1.145vw, 44px);
 
 $popover-width-filter: clamp(200px, 10.416vw, 400px);
@@ -67,21 +67,21 @@ $sidebar-width: clamp(256px, 13.333vw, 512px);
 $todolist-input-width: clamp(384px, 20vw, 768px);
 $todolist-main-padding: clamp(38px, 1.979vw, 76px);
 
-$task-list-min-width:  clamp(1053px, 54.843vw, 2106px);
-$task-number-width:  clamp(155px, 8.072vw, 310px);
-$task-title-width:  clamp(530px, 27.604vw, 1060px);
-$task-date-width:  clamp(206px, 10.729vw, 412px);
-$task-status-width:  clamp(161px, 8.385vw, 322px);
-$task-status-space:  clamp(89px, 4.635vw, 178px);
-$task-priority-width:  clamp(188px, 9.791vw, 376px);
-$task-priority-space:  clamp(140px, 7.291vw, 280px);
+$tasks-list-min-height: clamp(540px, 28.125vw, 1080px);
+$task-list-min-width: clamp(1053px, 54.843vw, 2106px);
+$task-number-width: clamp(155px, 8.072vw, 310px);
+$task-title-width: clamp(530px, 27.604vw, 1060px);
+$task-date-width: clamp(206px, 10.729vw, 412px);
+$task-status-width: clamp(161px, 8.385vw, 322px);
+$task-status-space: clamp(89px, 4.635vw, 178px);
+$task-priority-width: clamp(140px, 7.291vw, 280px);
 
 
 $input-radius: clamp(6px, 0.312vw, 12px);
 $icon-size-11: clamp(11px, 0.572vw, 22px);
 $icon-size-12: clamp(12px, 0.625vw, 24px);
 $icon-size-14: clamp(14px, 0.728vw, 28px);
-$icon-size-38:  clamp(38px, 1.979vw, 76px);
+$icon-size-38: clamp(38px, 1.979vw, 76px);
 $filter-gap: clamp(10px, 0.520vw, 20px);
 
 

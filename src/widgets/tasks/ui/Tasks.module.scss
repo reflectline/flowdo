@@ -30,15 +30,36 @@
 }
 
 .tasksListWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: $tasks-list-min-height;
   overflow: auto;
   border: 1px solid var(--border);
   border-radius: $fluid-3;
   background-color: var(--list-background);
 }
-.empty{
+
+.list{
+  flex: 1;
   display: flex;
+  flex-direction: column;
+}
+
+//.pagination {
+//  display: flex;
+//  justify-content: flex-end;
+//  padding: $fluid-4;
+//  border-top: 1px solid var(--border);
+//  background: var(--background);
+//}
+
+
+.empty{
+  flex: 1;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding: $sidebar-width;
+
 }
 
 
@@ -64,9 +85,7 @@
   font-weight: $medium;
   flex: 0 0 $task-number-width;
   gap: $fluid-4;
-
 }
-
 
 .titleWrapper{
   display: flex;
@@ -90,4 +109,11 @@
   display: flex;
   align-items: center;
   flex: 0 0 $task-priority-width;
+}
+
+.empty{
+  display: flex;
+  align-items: center;
+  flex: 0 0 $fluid-11;
+
 }

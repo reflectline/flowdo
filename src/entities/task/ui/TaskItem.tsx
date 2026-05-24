@@ -6,38 +6,52 @@ import { TaskItemDate } from '@/entities/task/ui/TaskItemDate'
 import { ChangeTaskStatus } from '@/features/task/actions/status-task/ChangeTaskStatus'
 import { ChangeTaskPriority } from '@/features/task/actions/priority-task/ChangeTaskPriority'
 import { MenuTask } from '@/features/task/actions/menu-task/MenuTask'
+import type { SelectedView } from '@/features/task/controls/lib/types'
+import { getVisibleColumns } from '@/features/task/controls/lib/getVisibleColumns'
 
 type TasksType = {
   todolistId: string
   task: Task
   number: number
+  selectedViews: SelectedView[]
+  isLast: boolean
+  isOnly: boolean
 }
 
 export const TaskItem = (props: TasksType) => {
-  const { todolistId, task, number } = props
+  const { todolistId, task, number, selectedViews, isLast, isOnly } = props
+  const visibleColumns = getVisibleColumns(selectedViews)
 
   return (
     <div className={s.tasksItemWrapper}>
-      <div className={s.item}>
+      <div className={s.item} data-last={isLast} data-only={isOnly}>
         <div className={s.taskItemNumber}>
           <TaskItemNumber number={number} />
         </div>
 
-        <div className={s.taskItemTitle}>
-          <TaskItemTitle todolistId={todolistId} task={task} />
-        </div>
+        {visibleColumns.title && (
+          <div className={s.taskItemTitle}>
+            <TaskItemTitle todolistId={todolistId} task={task} />
+          </div>
+        )}
 
-        <div className={s.taskItemDate}>
-          <TaskItemDate date={task.addedDate} />
-        </div>
+        {visibleColumns.date && (
+          <div className={s.taskItemDate}>
+            <TaskItemDate date={task.addedDate} />
+          </div>
+        )}
 
-        <div className={s.taskItemStatus}>
-          <ChangeTaskStatus todolistId={todolistId} task={task} />
-        </div>
+        {visibleColumns.status && (
+          <div className={s.taskItemStatus}>
+            <ChangeTaskStatus todolistId={todolistId} task={task} />
+          </div>
+        )}
 
-        <div className={s.taskItemPriority}>
-          <ChangeTaskPriority todolistId={todolistId} task={task} />
-        </div>
+        {visibleColumns.priority && (
+          <div className={s.taskItemPriority}>
+            <ChangeTaskPriority todolistId={todolistId} task={task} />
+          </div>
+        )}
 
         <div className={s.taskItemDelete}>
           <MenuTask todolistId={todolistId} taskId={task.id} />

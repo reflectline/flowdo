@@ -10,6 +10,7 @@ export const ViewSettings = () => {
 
   const viewSettingsOptions = [
     { value: 'title', label: 'Title' },
+    { value: 'date', label: 'Date' },
     { value: 'status', label: 'Status' },
     { value: 'priority', label: 'Priority' },
   ]

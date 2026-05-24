@@ -1,9 +1,9 @@
 
 export const  TaskStatus = {
-    // New: 0,
+    New: 0,
     InProcess: 1,
     Completed: 2,
-    // Draft: 3,
+    Draft: 3,
 } as const
 
 export const TaskPriority = {

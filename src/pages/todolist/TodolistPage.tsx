@@ -7,14 +7,14 @@ import s from '@/pages/todolist/TodolistPage.module.scss'
 import { Tasks } from '@/widgets/tasks/ui/Tasks'
 import { useFilteredTasks } from '@/entities/task/lib/useFilteredTasks'
 import { useState } from 'react'
-import { DEFAULT_TASKS_PAGE, TASKS_PER_PAGE } from '@/entities/task/config/task.constants'
+import { DEFAULT_TASKS_PAGE, TASKS_PER_PAGE_15 } from '@/entities/task/config/task.constants'
 
 
 export const TodolistPage = () => {
   const { activeFilter, todolistId } = useRouteStateStrict()
-  const { data, isLoading: isLoadingTasks } = useGetTasks({ todolistId, page: DEFAULT_TASKS_PAGE, count: TASKS_PER_PAGE })
+  const { data, isLoading: isLoadingTasks } = useGetTasks({ todolistId, page: DEFAULT_TASKS_PAGE, count: TASKS_PER_PAGE_15 })
   const { data: todolist, isLoading: isLoadingTodolists } = useGetTodolist(todolistId)
-  const filteredTasks = useFilteredTasks(data?.tasks)
+  const  filteredTasks = useFilteredTasks(data?.tasks)
   const [page, setPage] = useState(1)
 
 
