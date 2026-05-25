@@ -4,10 +4,21 @@ import { ChevronsUpDown } from 'lucide-react'
 import icon from '@/shared/styles/icons.module.scss'
 import { SortContent } from '@/features/task/controls/sorts/sort-content/SortContent'
 import { sort } from '@/features/task/controls/sorts/lib/sort-options'
-import { useTaskSorts } from '@/features/task/controls/sorts/lib/ useTaskSorts'
+import type { SortAction, SortType } from '@/features/task/controls/sorts/lib/sort.types'
+import { useTasksFilters } from '@/shared/lib/hooks/useTasksFilters'
 
-export const PrioritySort = () => {
-  const { selectedPrioritySort, setPrioritySort } = useTaskSorts()
+export const PrioritySort = (props: SortType) => {
+  const { field, selected, onSelect } = props
+  const { toggleView } = useTasksFilters()
+
+  const handleSelect = (order: SortAction) => {
+    if (order === 'hide') {
+      toggleView(field)
+      return
+    }
+
+    onSelect(field, order)
+  }
 
   return (
     <Popover
@@ -18,7 +29,7 @@ export const PrioritySort = () => {
         </Button>
       }
     >
-      <SortContent options={sort} selected={selectedPrioritySort} onSelect={setPrioritySort} />
+      <SortContent options={sort} selected={selected} onSelect={handleSelect} />
     </Popover>
   )
 }

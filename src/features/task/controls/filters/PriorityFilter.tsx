@@ -4,11 +4,12 @@ import { CirclePlus } from 'lucide-react'
 import icon from '@/shared/styles/icons.module.scss'
 import { useTasksFilters } from '@/shared/lib/hooks/useTasksFilters'
 import {FilterContent} from '@/features/task/controls/filters/filter-content/FilterContent'
+import type {Option, PriorityFilterValue,} from '@/features/task/controls/lib/controls.types'
 
 export const PriorityFilter = () => {
   const { selectedPriorities, togglePriority } = useTasksFilters()
 
-   const priorityFilterOptions = [
+   const priorityFilterOptions: Option<PriorityFilterValue>[]  = [
     { value: 'low', label: 'Low' },
     { value: 'medium', label: 'Medium' },
     { value: 'high', label: 'High' },

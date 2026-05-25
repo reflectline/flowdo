@@ -16,7 +16,6 @@ type ChangeTaskStatusType = {
 export const ChangeTaskStatus = (props: ChangeTaskStatusType) => {
   const { todolistId, task } = props
   const { mutate: updateTask } = useUpdateTask()
-  // const [isCompleted, setIsCompleted] = useState(task.status === TaskStatus.Completed)
 
   const isCompleted = task.status === TaskStatus.Completed
 

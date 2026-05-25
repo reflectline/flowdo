@@ -2,7 +2,7 @@ import s from '@/features/task/controls/filters/filter-content/FilterContent.mod
 import { CircleCheck, Search, Timer, ArrowDown, ArrowRight, ArrowUp } from 'lucide-react'
 import { Checkbox } from '@/shared/ui/checkbox/Checkbox'
 import { useState } from 'react'
-import type {FilterContentType} from '@/features/task/controls/lib/types'
+import type {ContentType} from '@/features/task/controls/lib/controls.types'
 
 
 
@@ -14,7 +14,7 @@ const icons = {
   'high': ArrowUp,
 }
 
-export const FilterContent = (props: FilterContentType) => {
+export const FilterContent = <T extends string>(props: ContentType<T>) => {
   const { options, selected, onToggle } = props
   const [value, setValue] = useState('')
 

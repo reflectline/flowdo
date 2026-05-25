@@ -6,7 +6,7 @@ import { TaskItemDate } from '@/entities/task/ui/TaskItemDate'
 import { ChangeTaskStatus } from '@/features/task/actions/status-task/ChangeTaskStatus'
 import { ChangeTaskPriority } from '@/features/task/actions/priority-task/ChangeTaskPriority'
 import { MenuTask } from '@/features/task/actions/menu-task/MenuTask'
-import type { SelectedView } from '@/features/task/controls/lib/types'
+import type { SelectedView } from '@/features/task/controls/lib/controls.types'
 import { getVisibleColumns } from '@/features/task/controls/lib/getVisibleColumns'
 
 type TasksType = {
@@ -24,7 +24,11 @@ export const TaskItem = (props: TasksType) => {
 
   return (
     <div className={s.tasksItemWrapper}>
-      <div className={s.item} data-last={isLast} data-only={isOnly}>
+
+      <div className={s.item}
+           data-last={isLast}
+           data-only={isOnly}>
+
         <div className={s.taskItemNumber}>
           <TaskItemNumber number={number} />
         </div>

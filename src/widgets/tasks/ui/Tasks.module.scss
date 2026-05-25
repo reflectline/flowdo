@@ -54,12 +54,11 @@
 //}
 
 
-.empty{
+.emptyNoTasks{
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 
@@ -111,9 +110,9 @@
   flex: 0 0 $task-priority-width;
 }
 
-.empty{
+.emptyBlock{
   display: flex;
   align-items: center;
-  flex: 0 0 $fluid-11;
+  flex: 0 0 $fluid-12;
 
 }

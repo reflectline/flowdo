@@ -42,9 +42,3 @@ export type TaskStats = {
 
 
 
-export type TasksQueryResult = {
-  tasks: Task[]
-  stats: TaskStats
-  totalCount: number
-}
-

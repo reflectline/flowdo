@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router'
-import type {FilterKey, PriorityFilterValue, SelectedView, StatusFilterValue} from '@/features/task/controls/lib/types'
+import type {FilterKey, PriorityFilterValue, SelectedView, StatusFilterValue} from '@/features/task/controls/lib/controls.types'
 
 type FilterValueMap = {
   status: StatusFilterValue

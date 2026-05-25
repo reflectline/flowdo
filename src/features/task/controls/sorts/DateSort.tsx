@@ -4,10 +4,23 @@ import icon from '@/shared/styles/icons.module.scss'
 import { Popover } from '@/shared/ui/popover/Popover'
 import { SortContent } from '@/features/task/controls/sorts/sort-content/SortContent'
 import { sort } from '@/features/task/controls/sorts/lib/sort-options'
-import { useTaskSorts } from '@/features/task/controls/sorts/lib/ useTaskSorts'
+import type { SortAction, SortType } from '@/features/task/controls/sorts/lib/sort.types'
+import {useTasksFilters} from '@/shared/lib/hooks/useTasksFilters'
 
-export const DateSort = () => {
-  const {selectedDateSort, setDateSort,} = useTaskSorts()
+export const DateSort = (props: SortType) => {
+  const { field, selected, onSelect } = props
+  const { toggleView } = useTasksFilters()
+
+  const handleSelect = (order: SortAction) => {
+    if (order === 'hide') {
+      toggleView(field)
+      return
+    }
+
+    onSelect(field, order)
+  }
+
+
 
   return (
     <Popover
@@ -18,7 +31,7 @@ export const DateSort = () => {
         </Button>
       }
     >
-      <SortContent options={sort} selected={selectedDateSort} onSelect={setDateSort} />
+      <SortContent options={sort} selected={selected} onSelect={handleSelect} />
     </Popover>
   )
 }

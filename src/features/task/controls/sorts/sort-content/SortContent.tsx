@@ -16,11 +16,7 @@ export const SortContent = (props: SortContentType) => {
 
           return (
             <Fragment key={option.value}>
-              {isHide && (
-                <li className={s.li}>
-                  <div className={s.divider} />
-                </li>
-              )}
+              {isHide && <div className={s.divider} />}
 
               <li className={s.li}>
                 <button

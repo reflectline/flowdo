@@ -42,6 +42,7 @@ export const ChangeTaskPriority = (props: ChangeTaskStatusType) => {
 
   return (
     <Popover
+      position={'absolute'}
       trigger={
         <PriorityBadge variant={currentPriority.variant}>
           <Dot style={{ transform: 'scale(3)' }} />

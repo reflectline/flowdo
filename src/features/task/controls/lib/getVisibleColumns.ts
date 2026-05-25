@@ -1,4 +1,4 @@
-import type { SelectedView } from '@/features/task/controls/lib/types'
+import type { SelectedView } from '@/features/task/controls/lib/controls.types.ts'
 
 
 export const getVisibleColumns = (selectedViews: SelectedView[]) => {

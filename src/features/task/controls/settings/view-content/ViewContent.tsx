@@ -1,8 +1,11 @@
 import s from '@/features/task/controls/settings/view-content/ViewContent.module.scss'
 import { Checkbox } from '@/shared/ui/checkbox/Checkbox'
-import type { FilterContentType } from '@/features/task/controls/lib/types'
+import type {ContentType} from '@/features/task/controls/lib/controls.types'
 
-export const ViewContent = (props: FilterContentType) => {
+
+
+
+export const ViewContent = <T extends string,>(props: ContentType<T>) => {
   const { options, selected, onToggle } = props
 
   return (

@@ -17,7 +17,7 @@ export const sort: SortOption[] = [
     value: 'hide',
     label: 'Hide',
   },
-]
+] as const
 
 export const iconsSort = {
   asc: ArrowUp,
