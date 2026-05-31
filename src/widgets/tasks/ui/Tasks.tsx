@@ -5,11 +5,12 @@ import s from '@/widgets/tasks/ui/Tasks.module.scss'
 import { useTasksFilters } from '@/shared/lib/hooks/useTasksFilters'
 import { Pagination } from '@/features/task/controls/pagination/Pagination'
 import { useTasksTable } from '@/entities/task/lib/useTasksTable'
+import type { MouseEvent } from 'react'
 
 type TasksType = {
   todolistId: string
   tasks: Task[]
-  resizeHandleProps: { onMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void }
+  resizeHandleProps: { onMouseDown: (e: MouseEvent<HTMLDivElement>) => void }
 }
 
 export const Tasks = (props: TasksType) => {

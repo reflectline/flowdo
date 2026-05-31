@@ -6,6 +6,7 @@ import { emptyTasksMessages } from '@/shared/config/messages'
 import { MIN_ITEMS_WITHOUT_BOTTOM_BORDER } from '@/entities/task/config/task.constants'
 import type { SelectedView } from '@/features/task/controls/lib/controls.types'
 import type { SortField, SortOrder } from '@/features/task/controls/sorts/lib/sort.types'
+import type { MouseEvent } from 'react'
 
 type TasksTableType = {
   todolistId: string
@@ -16,7 +17,7 @@ type TasksTableType = {
   setSort: (field: SortField) => void
   total: number
   start: number
-  resizeHandleProps: { onMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void }
+  resizeHandleProps: { onMouseDown: (e: MouseEvent<HTMLDivElement>) => void }
 }
 
 export const TasksList = (props: TasksTableType) => {

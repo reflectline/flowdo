@@ -42,10 +42,9 @@
   flex-direction: column;
   min-height: $tasks-list-min-height;
 
-  border: 1px solid var(--border);
-  border-radius: $fluid-3;
   background-color: var(--list-background);
-  overflow: visible;
+  border: 1px solid var(--border);
+  border-radius: $fluid-3 $fluid-3 $fluid-0 $fluid-3;
 }
 
 .list{
