@@ -9,10 +9,11 @@ import { useTasksTable } from '@/entities/task/lib/useTasksTable'
 type TasksType = {
   todolistId: string
   tasks: Task[]
+  resizeHandleProps: { onMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void }
 }
 
 export const Tasks = (props: TasksType) => {
-  const { todolistId, tasks } = props
+  const { todolistId, tasks, resizeHandleProps } = props
   const { selectedViews } = useTasksFilters()
   const {tasks: tableTasks, sorting, pagination} = useTasksTable(tasks)
 
@@ -29,6 +30,7 @@ export const Tasks = (props: TasksType) => {
           setSort={sorting.setSort}
           total={tableTasks.total}
           start={tableTasks.rowNumberStart}
+          resizeHandleProps={resizeHandleProps}
         />
       </div>
 

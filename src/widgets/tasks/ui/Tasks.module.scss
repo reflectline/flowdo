@@ -37,13 +37,15 @@
 }
 
 .tasksListWrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: $tasks-list-min-height;
-  overflow: auto;
+
   border: 1px solid var(--border);
   border-radius: $fluid-3;
   background-color: var(--list-background);
+  overflow: visible;
 }
 
 .list{
@@ -58,6 +60,29 @@
   align-items: center;
   justify-content: center;
 }
+
+.resizeHandle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: $fluid-4;
+  height: $fluid-4;
+  cursor: ew-resize;
+
+}
+.resizeHandle::before {
+  content: '';
+  position: absolute;
+  right: -5%;
+  bottom: -5%;
+  width: $fluid-2;
+  height: $fluid-2;
+  border-right: 1px solid var(--muted-foreground);
+  border-bottom: 1px solid var(--muted-foreground);
+
+}
+
+
 
 .tasksHeaderWrapper{
   display: flex;

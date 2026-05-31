@@ -16,20 +16,23 @@ type TasksTableType = {
   setSort: (field: SortField) => void
   total: number
   start: number
+  resizeHandleProps: { onMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void }
 }
 
 export const TasksList = (props: TasksTableType) => {
-  const { todolistId, tasks, selectedViews, sortField, sortOrder, setSort,total,  start  } = props
+  const { todolistId, tasks, selectedViews, sortField, sortOrder, setSort,total,  start , resizeHandleProps } = props
 
 
   return (
     <div className={s.tasksListWrapper}>
+
       <TasksHeader
         setSort={setSort}
         sortField={sortField}
         sortOrder={sortOrder}
         selectedViews={selectedViews}
       />
+
       <div className={s.list}>
         {tasks?.map((task: Task, index: number) => {
           const isLast = index === tasks.length - 1 && tasks.length > MIN_ITEMS_WITHOUT_BOTTOM_BORDER
@@ -49,6 +52,11 @@ export const TasksList = (props: TasksTableType) => {
         })}
         {tasks.length === 0 && <p className={s.emptyNoTasks}>{emptyTasksMessages['no-tasks']}</p>}
       </div>
+
+      <div
+        className={s.resizeHandle}
+        {...resizeHandleProps}
+      />
     </div>
   )
 }
