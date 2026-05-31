@@ -1,4 +1,4 @@
-import { useDeleteTask } from '@/entities/task/api/task.queries'
+import { useCreateTask, useDeleteTask } from '@/entities/task/api/task.queries'
 import { Ellipsis } from 'lucide-react'
 import s from '@/entities/task/ui/Task.module.scss'
 import { Popover } from '@/shared/ui/popover/Popover'
@@ -11,6 +11,7 @@ import type {KeyboardEvent} from 'react'
 type MenuTaskType = {
   todolistId: string
   taskId: string
+  taskTitle: string
 }
 export type menuOptionsType = {
   value: string
@@ -18,7 +19,8 @@ export type menuOptionsType = {
 }
 
 export const MenuTask = (props: MenuTaskType) => {
-  const { todolistId, taskId } = props
+  const { todolistId, taskId, taskTitle } = props
+  const { mutate: createTask } = useCreateTask()
   const { mutate: deleteTask } = useDeleteTask()
 
   const menuOptions: menuOptionsType[] = [
@@ -28,7 +30,7 @@ export const MenuTask = (props: MenuTaskType) => {
 
   const onClickHandler = (value: string) => {
     if (value==='delete') deleteTask({ todolistId, taskId })
-    if (value==='copy') console.log('copy')
+    if (value==='copy') createTask({ todolistId: todolistId, title: taskTitle })
   }
   const onKeyDownHandler = (e: KeyboardEvent<HTMLDivElement>) =>{
     if (e.key === 'Delete') {
@@ -38,7 +40,6 @@ export const MenuTask = (props: MenuTaskType) => {
 
   return (
     <Popover
-      position={'absolute'}
       align={'left'}
       trigger={
         <MenuBadge>
@@ -46,7 +47,19 @@ export const MenuTask = (props: MenuTaskType) => {
         </MenuBadge>
       }
     >
-      <MenuContent options={menuOptions} onClick={onClickHandler} onKeyDownHandler={onKeyDownHandler}/>
+      {(close) => (
+        <MenuContent
+          options={menuOptions}
+          onClick={(value) => {
+            onClickHandler(value)
+            close()
+          }}
+          onKeyDownHandler={(value) => {
+            onKeyDownHandler(value)
+            close()
+          }}
+        />
+      )}
     </Popover>
   )
 }

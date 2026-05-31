@@ -69,7 +69,10 @@ export const TasksHeader = (props: TasksHeaderType) => {
         </div>
       )}
 
-      <div className={s.emptyBlock}/>
+      <div className={s.resetWrapper}>
+
+      </div>
+
     </div>
   )
 }

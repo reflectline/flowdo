@@ -15,8 +15,7 @@ export const PriorityContent = (props: ActionContentType) => {
   return (
     <div className={s.popover}>
       <ul className={s.list}>
-        {options?.map((option) => {
-          return (
+        {options?.map((option) => (
             <li key={option.label} className={s.li}>
               <button type="button"
                       className={s.item}
@@ -33,7 +32,7 @@ export const PriorityContent = (props: ActionContentType) => {
               </button>
             </li>
           )
-        })}
+        )}
       </ul>
     </div>
   )

@@ -1,0 +1,59 @@
+@use '@/app/styles/variables' as *;
+
+
+.paginationWrapper {
+  display: flex;
+  justify-content: space-between;
+  min-width: $fluid-8;
+}
+
+.paginationTotal{
+  display: flex;
+  font-size: $font-14;
+  color: var(--muted-foreground);
+
+}
+
+.paginationContent{
+  display: inline-flex;
+  flex-direction: row;
+  font-size: $font-14;
+  gap: $fluid-12;
+}
+
+.pageSize{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $fluid-2;
+}
+
+.totalPages{
+  display: flex;
+  align-items: center;
+}
+
+.navigations{
+  display: flex;
+  align-items: center;
+  gap: $fluid-2;
+}
+
+.buttonNavigation{
+
+  display: flex;
+  justify-content: center;
+  width:$fluid-8;
+  height: $fluid-8;
+
+  border: 1px solid var(--border);
+  border-radius: $fluid-2;
+  color: var(--foreground);
+
+  transition: opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  &:hover{
+    background-color: var(--accent);
+  }
+
+
+}

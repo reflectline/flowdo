@@ -1,12 +1,10 @@
 import type { Task } from '@/entities/task/lib/task.types'
 import { Loader } from 'lucide-react'
 import circleCheck from '@/shared/assets/icons/circleCheck.svg'
-import { Popover } from '@/shared/ui/popover/Popover'
 import { TaskStatus } from '@/shared/api/enums'
-import { PriorityContent } from '@/features/task/actions/priority-task/priority-content/PriorityContent'
 import { useUpdateTask } from '@/entities/task/api/task.queries'
 import { createTaskModel } from '@/features/task/actions/lib/createTaskModel'
-import {StatusBadge} from '@/shared/ui/badges/StatusBadge'
+import { StatusBadge } from '@/shared/ui/badges/StatusBadge'
 
 type ChangeTaskStatusType = {
   todolistId: string
@@ -29,16 +27,9 @@ export const ChangeTaskStatus = (props: ChangeTaskStatusType) => {
   }
 
   return (
-    <Popover
-      disabled
-      trigger={
-        <StatusBadge variant={isCompleted ? 'done' : 'process'} onClick={changeTaskStatusHandler}>
-          {isCompleted ? <img src={circleCheck} alt="circleCheck" /> : <Loader />}
-          {isCompleted ? 'Done' : 'In Process'}
-        </StatusBadge>
-      }
-    >
-      <PriorityContent />
-    </Popover>
+    <StatusBadge variant={isCompleted ? 'done' : 'process'} onClick={changeTaskStatusHandler}>
+      {isCompleted ? <img src={circleCheck} alt="circleCheck" /> : <Loader />}
+      {isCompleted ? 'Done' : 'In Process'}
+    </StatusBadge>
   )
 }

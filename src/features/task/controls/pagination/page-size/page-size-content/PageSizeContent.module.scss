@@ -1,0 +1,40 @@
+@use '@/app/styles/variables' as *;
+
+.pageSizeContentWrapper{
+  display: flex;
+  flex-direction: column;
+  min-width: $popover-width-sort;
+  margin-top: $fluid-1;
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  border-radius: $fluid-2;
+  padding: $fluid-1 $fluid-1;
+}
+
+.pageSizeContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.btnPageSize{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $fluid-2 $fluid-2;
+  font-size: $font-14;
+  border-radius: $sem-fluid-6;
+  color: var(--foreground);
+
+  cursor: pointer;
+  &:hover{
+    background-color: var(--accent);
+  }
+  svg{
+    width: $fluid-4;
+    height: $fluid-4;
+    flex-shrink: 0;
+  }
+  transition: background-color 0.2s ease;
+}

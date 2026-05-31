@@ -55,6 +55,17 @@
     animation: doneAppear 0.35s ease;
   }
 }
+@keyframes rotate {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
+
+@keyframes doneAppear {
+  0% {opacity: 0;transform: scale(0.7);}
+  70% {transform: scale(1.08);}
+  100% {opacity: 1;transform: scale(1);}
+}
+
 
 
 
@@ -76,20 +87,31 @@
 
 
 
+.select{
+  font-size: $font-14;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $fluid-2 $fluid-3;
+  gap: $fluid-3;
+  border: 1px solid var(--border);
+  border-radius: $fluid-2;
+  width: calc($fluid-9 * 2);
+  background: var(--input);
+  color: var(--foreground);
+  cursor: pointer;
 
-
-
-
-@keyframes rotate {
-  from {transform: rotate(0deg)}
-  to {transform: rotate(360deg)}
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, width 0.1s ease;
+  &:hover {background: var(--accent)}
 }
 
-@keyframes doneAppear {
-  0% {opacity: 0;transform: scale(0.7);}
-  70% {transform: scale(1.08);}
-  100% {opacity: 1;transform: scale(1);}
+.selectBadgeArrow{
+  color: var(--muted-foreground);
+  width: $fluid-4;
+  height: $fluid-4;
+  flex-shrink: 0;
 }
+
 
 
 

@@ -34,7 +34,7 @@ export type UpdateTaskModel = {
 
 export type TaskStats = {
   total: number
-  status: number
+  completed: number
   percent: number
   oldestDate: string | null
   latestDate: string | null

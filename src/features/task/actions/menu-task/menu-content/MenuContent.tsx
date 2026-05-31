@@ -23,22 +23,32 @@ export const MenuContent = (props: MenuContentType) => {
 
 
   return (
-    <div className={s.popover} onKeyDown={onKeyDownHandler} ref={ref} tabIndex={0}>
+    <div
+      ref={ref}
+      tabIndex={0}
+      className={s.popover}
+      onKeyDown={onKeyDownHandler}
+    >
       <ul className={s.list}>
         {options?.map((option) => {
-          const last = option?.value === 'delete'
+          const isDelete = option.value === 'delete'
+
           return (
-            <div key={option.label}>
-              {last && <div className={s.driver}/>}
-              <li  className={s.li}>
-
-                <button type="button" className={last? s.itemDelete : s.itemDef} onClick={() => onClick?.(option.value)}>
-                  {option.label}
-                  {last && <span className={s.itemDeleteHint}>⌘⌫</span>}
-                </button>
-              </li>
-            </div>
-
+            <li
+              key={option.value}
+              className={s.item}
+              data-divider={isDelete}
+            >
+              <button
+                type="button"
+                className={s.button}
+                data-delete={isDelete}
+                onClick={() => onClick?.(option.value)}
+              >
+                <span>{option.label}</span>
+                {isDelete && <span className={s.shortcut}>⌘⌫</span>}
+              </button>
+            </li>
           )
         })}
       </ul>

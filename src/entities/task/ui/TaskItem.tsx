@@ -58,8 +58,9 @@ export const TaskItem = (props: TasksType) => {
         )}
 
         <div className={s.taskItemDelete}>
-          <MenuTask todolistId={todolistId} taskId={task.id} />
+          <MenuTask todolistId={todolistId} taskId={task.id} taskTitle={task.title}  />
         </div>
+
       </div>
     </div>
   )

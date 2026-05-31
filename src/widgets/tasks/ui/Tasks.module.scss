@@ -3,8 +3,15 @@
 .tasksWrapper {
   display: flex;
   flex-direction: column;
+  gap: $fluid-6;
+}
+.content{
+  display: flex;
+  flex-direction: column;
   gap: $fluid-4;
 }
+
+
 
 .toolbar {
   display: flex;
@@ -45,22 +52,12 @@
   flex-direction: column;
 }
 
-//.pagination {
-//  display: flex;
-//  justify-content: flex-end;
-//  padding: $fluid-4;
-//  border-top: 1px solid var(--border);
-//  background: var(--background);
-//}
-
-
 .emptyNoTasks{
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 .tasksHeaderWrapper{
   display: flex;
@@ -110,9 +107,8 @@
   flex: 0 0 $task-priority-width;
 }
 
-.emptyBlock{
+.resetWrapper{
   display: flex;
   align-items: center;
   flex: 0 0 $fluid-12;
-
 }

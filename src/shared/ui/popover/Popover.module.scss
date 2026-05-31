@@ -1,22 +1,13 @@
 @use '@/app/styles/variables' as *;
 
 
-.popover.relative{
-  position: relative;
-}
-.popover.absolute{
-  position: absolute;
+@use '@/app/styles/variables' as *;
+
+.trigger {
+  display: inline-flex;
 }
 
 .content {
-  position: absolute;
-  z-index: 10;
-}
-
-.left .content {
-  right: 0;
-}
-
-.right .content {
-  left: 0;
+  position: fixed;
+  z-index: 9999;
 }

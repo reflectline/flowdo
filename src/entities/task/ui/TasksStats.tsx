@@ -12,8 +12,8 @@ export const TasksStats = (props: TasksStatsType) => {
   const { todoName, stats } = props
 
   const total = stats.total === 1 ? '1 task' : `${stats.total} tasks`
-  const completed = `${stats.status} completed`
-  const remaining = `${stats.total - stats.status} remaining`
+  const completed = `${stats.completed} completed`
+  const remaining = `${stats.total - stats.completed} remaining`
   const percent = stats.percent
   const statsList = [total, completed, remaining]
 

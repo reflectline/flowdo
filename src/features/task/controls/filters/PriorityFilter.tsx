@@ -24,7 +24,18 @@ export const PriorityFilter = () => {
         </Button>
       }
     >
-      <FilterContent options={priorityFilterOptions} selected={selectedPriorities} onToggle={togglePriority} />
+      {close =>
+        <FilterContent
+          options={priorityFilterOptions}
+          selected={selectedPriorities}
+          onToggle={value => {
+             togglePriority(value)
+            close()
+           }
+        }
+        />
+      }
+
     </Popover>
   )
 }

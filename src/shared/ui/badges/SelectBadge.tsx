@@ -1,22 +1,22 @@
 import { cn } from '@/shared/lib/utils'
 import s from '@/shared/ui/badges/Badges.module.scss'
 import type { ReactNode } from 'react'
-import {Dot} from 'lucide-react'
+import {ChevronDown} from 'lucide-react'
 
 type PriorityBadgeType = {
   children?: ReactNode
-  variant?: 'high' |  'medium' | 'low' | 'urgently' | 'later' | 'pageSize'
+  variant?: 'pageSize'
   onClick?: () => void
 }
 
-export const PriorityBadge = (props: PriorityBadgeType) => {
+export const SelectBadge = (props: PriorityBadgeType) => {
   const { children, variant = 'process', onClick } = props
 
 
   return (
-    <button type="button" onClick={onClick} className={cn(s.badge, s[variant])}>
-      <Dot style={{ transform: 'scale(3)' }} />
+    <button type="button" onClick={onClick} className={cn(s.select, s[variant])}>
       {children}
+      <ChevronDown className={s.selectBadgeArrow}/>
     </button>
   )
 }

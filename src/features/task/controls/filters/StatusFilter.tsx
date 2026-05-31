@@ -23,7 +23,16 @@ export const StatusFilter = () => {
         </Button>
       }
     >
-      <FilterContent options={statusFilterOptions} selected={selectedStatuses} onToggle={toggleStatus} />
+      {(close) => (
+        <FilterContent
+          options={statusFilterOptions}
+          selected={selectedStatuses}
+          onToggle={(value) => {
+            toggleStatus(value)
+            close()
+          }}
+        />
+      )}
     </Popover>
   )
 }

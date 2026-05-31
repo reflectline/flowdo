@@ -1,0 +1,1 @@
+export const PAGE_SIZE_OPTIONS = [15, 25, 35, 50] as const

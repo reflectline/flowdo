@@ -1,3 +1,4 @@
+import icon from '@/shared/styles/icons.module.scss'
 import { Trash } from 'lucide-react'
 import {useDeleteTodolist} from '@/entities/todolist/api/todolist.queries'
 import {IconButton} from '@/shared/ui/icon-button/IconButton'
@@ -16,6 +17,6 @@ export const DeleteTodolist = (props: DeleteTodolistType)=> {
   }
 
   return(
-    <IconButton icon={<Trash />} size={'lg'} onClick={handleSubmit}/>
+    <IconButton icon={<Trash className={icon.deleteHover}/>} size={'lg'} onClick={handleSubmit}/>
   )
 }

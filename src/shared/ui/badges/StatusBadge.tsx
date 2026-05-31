@@ -14,6 +14,7 @@ export const StatusBadge = (props: StatusBadgeProps) => {
 
   return (
     <button type="button" onClick={onClick} className={cn(s.badge, s[variant])}>
+
       {children}
     </button>
   )

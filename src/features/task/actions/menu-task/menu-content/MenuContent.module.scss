@@ -1,14 +1,14 @@
 @use '@/app/styles/variables' as *;
 
-
 .popover {
   min-width: $task-status-width;
   margin-top: $fluid-1;
+
   background-color: var(--input);
+
   border: 1px solid var(--border);
   border-radius: $fluid-2;
 }
-
 
 .list {
   display: flex;
@@ -16,62 +16,41 @@
 
   font-size: $font-14;
 }
-.li{
+
+.item {
+  list-style: none;
   padding: $fluid-1;
-  list-style-type: none;
-}
-.driver{
-  width: 100%;
-  height: 1px;
-  border-bottom: 1px solid var(--border);
-}
 
-.itemDef {
-  width: 100%;
-  color: var(--foreground);
-  display: flex;
-  align-items: center;
-
-
-  height: $fluid-8h;
-  border-radius: $sem-fluid-6;
-  padding-left: $fluid-2;
-  cursor: pointer;
-
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: var(--accent);
+  &[data-divider='true'] {
+    border-top: 1px solid var(--border);
   }
 }
 
-.itemDelete{
+.button {
+  width: 100%;
+  height: $fluid-8h;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  color: var(--destructive);
 
-
-  height: $fluid-8h;
-  border-radius: $sem-fluid-6;
   padding: $fluid-2;
-  cursor: pointer;
+  border-radius: $sem-fluid-6;
+  color: var(--foreground);
 
+  cursor: pointer;
   transition: background-color 0.2s ease;
 
   &:hover {
     background-color: var(--accent);
   }
+
+  &[data-delete='true'] {
+    color: var(--destructive);
+  }
 }
-.itemDeleteHint{
-  display: flex;
-  align-items: center;
+
+.shortcut {
   color: var(--muted-foreground);
   font-weight: $medium;
-  &:hover {
-    background-color: var(--accent);
-  }
-
 }
-

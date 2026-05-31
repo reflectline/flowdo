@@ -7,10 +7,10 @@ type TodolistStatsType = {
 }
 
 export const TodolistStats = (props: TodolistStatsType) => {
-  const { total, status, oldestDate, percent } = props.stats
+  const { total, completed, oldestDate, percent } = props.stats
 
   const sum = total === 1 ? '1 task' : `${total} tasks`
-  const done = `${status} done`
+  const done = `${completed} done`
   const days = oldestDate ? formatDaysAgoShort(oldestDate) : '0 d.'
   const interest = `${percent}%`
   const statsList  = [sum, done, days]

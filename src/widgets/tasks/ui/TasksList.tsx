@@ -3,24 +3,24 @@ import { TaskItem } from '@/entities/task/ui/TaskItem'
 import s from '@/widgets/tasks/ui/Tasks.module.scss'
 import { TasksHeader } from '@/widgets/tasks/ui/TasksHeader'
 import { emptyTasksMessages } from '@/shared/config/messages'
-import { MIN_ITEMS_WITHOUT_BOTTOM_BORDER, TASKS_PER_PAGE_15 } from '@/entities/task/config/task.constants'
+import { MIN_ITEMS_WITHOUT_BOTTOM_BORDER } from '@/entities/task/config/task.constants'
 import type { SelectedView } from '@/features/task/controls/lib/controls.types'
-import { useSortedTasks } from '@/entities/task/lib/useSortedTasks'
+import type { SortField, SortOrder } from '@/features/task/controls/sorts/lib/sort.types'
 
 type TasksTableType = {
   todolistId: string
   tasks: Task[]
   selectedViews: SelectedView[]
-  page: number
+  sortField: SortField | null
+  sortOrder: SortOrder | null
+  setSort: (field: SortField) => void
+  total: number
+  start: number
 }
 
 export const TasksList = (props: TasksTableType) => {
-  const { todolistId, tasks, selectedViews, page } = props
-  const { sortedTasks, setSort, sortField, sortOrder } = useSortedTasks(tasks)
+  const { todolistId, tasks, selectedViews, sortField, sortOrder, setSort,total,  start  } = props
 
-  const start = (page - 1) * TASKS_PER_PAGE_15
-  const end = start + TASKS_PER_PAGE_15
-  const visibleTasks = sortedTasks.slice(start, end)
 
   return (
     <div className={s.tasksListWrapper}>
@@ -31,16 +31,16 @@ export const TasksList = (props: TasksTableType) => {
         selectedViews={selectedViews}
       />
       <div className={s.list}>
-        {visibleTasks?.map((task: Task, index: number) => {
-          const isLast = index === visibleTasks.length - 1 && visibleTasks.length > MIN_ITEMS_WITHOUT_BOTTOM_BORDER
-          const isOnly = visibleTasks.length === 1
+        {tasks?.map((task: Task, index: number) => {
+          const isLast = index === tasks.length - 1 && tasks.length > MIN_ITEMS_WITHOUT_BOTTOM_BORDER
+          const isOnly = tasks.length === 1
 
           return (
             <TaskItem
               key={task.id}
               todolistId={todolistId}
               task={task}
-              number={start + index + 1}
+              number={total - (start + index)}
               selectedViews={selectedViews}
               isLast={isLast}
               isOnly={isOnly}

@@ -1,5 +1,4 @@
 import type { Task } from '@/entities/task/lib/task.types'
-import { Dot } from 'lucide-react'
 import { Popover } from '@/shared/ui/popover/Popover'
 import { TaskPriority } from '@/shared/api/enums'
 import { PriorityContent } from '@/features/task/actions/priority-task/priority-content/PriorityContent'
@@ -41,16 +40,21 @@ export const ChangeTaskPriority = (props: ChangeTaskStatusType) => {
   }
 
   return (
-    <Popover
-      position={'absolute'}
-      trigger={
-        <PriorityBadge variant={currentPriority.variant}>
-          <Dot style={{ transform: 'scale(3)' }} />
-          {currentPriority.label}
-        </PriorityBadge>
-      }
-    >
-      <PriorityContent options={priorityOptions} selected={currentPriority.value} onToggle={changeTaskStatusHandler} />
+    <Popover trigger={
+      <PriorityBadge variant={currentPriority.variant}>
+        {currentPriority.label}
+      </PriorityBadge>}>
+
+      {(close) => (
+        <PriorityContent
+          options={priorityOptions}
+          selected={currentPriority.value}
+          onToggle={(value) => {
+            changeTaskStatusHandler(value)
+            close()
+          }}
+        />
+      )}
     </Popover>
   )
 }

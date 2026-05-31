@@ -21,8 +21,7 @@ export const useGetTasks = ({todolistId, page = DEFAULT_TASKS_PAGE, count = DEFA
     select: (data) => {
       return {
         tasks: data.items,
-        stats: getTaskStats(data.items),
-        totalCount: data.totalCount,
+        stats: getTaskStats(data),
       }
     },
     retry: 1,

@@ -33,7 +33,16 @@ export const TitleSort = (props: SortType) => {
         </Button>
       }
     >
-      <SortContent options={sort} selected={selected} onSelect={handleSelect} />
+      {(close) => (
+        <SortContent
+          options={sort}
+          selected={selected}
+          onSelect={(value) => {
+            handleSelect(value)
+            close()
+          }}
+        />
+      )}
     </Popover>
   )
 }

@@ -7,6 +7,7 @@ type IconButtonType ={
   size?: 'sm'| 'md' | 'lg'
   className?: string
   onClick?: () => void
+  disabled?: boolean
 }
 
 export const IconButton = (props: IconButtonType) => {

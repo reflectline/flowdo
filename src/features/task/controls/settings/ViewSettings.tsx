@@ -25,7 +25,16 @@ export const ViewSettings = () => {
         </Button>
       }
     >
-      <ViewContent options={viewSettingsOptions} selected={selectedViews} onToggle={toggleView} />
+      {(close) => (
+        <ViewContent
+          options={viewSettingsOptions}
+          selected={selectedViews}
+          onToggle={(value) => {
+            toggleView(value)
+            close()
+          }}
+        />
+      )}
     </Popover>
   )
 }
