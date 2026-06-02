@@ -51,7 +51,7 @@ export const TasksList = (props: TasksTableType) => {
             />
           )
         })}
-        {tasks.length === 0 && <p className={s.emptyNoTasks}>{emptyTasksMessages['no-tasks']}</p>}
+        {tasks.length === 0 && <p className={s.emptyTasks}>{emptyTasksMessages['no-tasks']}</p>}
       </div>
 
       <div

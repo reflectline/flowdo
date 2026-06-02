@@ -5,16 +5,17 @@ import { filterTodolists, type TodolistWithStats } from '@/features/todolist/fil
 import { useTodolistsTasksStats } from '@/widgets/todolists/model/useTodolistsTasksStats'
 import { emptyTodolistsMessages } from '@/shared/config/messages'
 import { ErrorPage } from '@/pages/error/ErrorPage'
+import {TodolistCardSkeleton} from '@/shared/ui/skeleton/TodolistCardSkeleton'
 
 export const Todolists = () => {
   const { todolists, isLoading } = useTodolistsTasksStats()
   const { currentBreadcrumb, activeFilter } = useBreadcrumbs()
 
   if (!activeFilter) return <ErrorPage />
-  if (isLoading) return <div>Loading...</div>
-
   const filtered = filterTodolists(todolists, activeFilter)
 
+
+  if (isLoading) return <TodolistCardSkeleton/>
   return (
     <section className={s.todolistsWrapper}>
       <h2 className={s.path}>{currentBreadcrumb.label}</h2>
@@ -24,7 +25,7 @@ export const Todolists = () => {
           <TodolistItem key={item.id} todolist={item} />
         ))}
       </div>
-      {filtered.length === 0 && <p className={s.empty}>{emptyTodolistsMessages[activeFilter]}</p>}
+      {filtered.length === 0 && <p className={s.emptyTodolists}>{emptyTodolistsMessages[activeFilter]}</p>}
 
     </section>
   )

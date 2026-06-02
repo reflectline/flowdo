@@ -1,6 +1,6 @@
 import { instance } from '@/shared/api/instance'
 import type { BaseResponse } from '@/shared/api/types'
-import type {Todolist} from '@/entities/todolist/lib/todolist.types.ts'
+import type {Todolist} from '@/entities/todolist/lib/todolist.types'
 
 
 

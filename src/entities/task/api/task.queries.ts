@@ -11,7 +11,7 @@ type UseGetTasksType = {
 }
 export const useGetTasks = ({todolistId, page = DEFAULT_TASKS_PAGE, count = DEFAULT_TASKS_COUNT,}: UseGetTasksType) => {
   return useQuery({
-    queryKey: ['tasks', todolistId],
+    queryKey: ['tasks', todolistId, { page, count }],
     enabled: !!todolistId,
 
     queryFn: async () => {
@@ -53,9 +53,11 @@ export const useUpdateTask = () => {
 
     onMutate: async ({ todolistId, taskId, model }) => {
       await queryClient.cancelQueries({queryKey: ['tasks', todolistId]})
-      const previousData = queryClient.getQueryData<GetTasksResponse<Task[]>>(['tasks', todolistId])
+      const previousData = queryClient.getQueriesData<GetTasksResponse<Task[]>>({
+        queryKey: ['tasks', todolistId],
+      })
 
-      queryClient.setQueryData<GetTasksResponse<Task[]>>(['tasks', todolistId], (old) => {
+      queryClient.setQueriesData<GetTasksResponse<Task[]>>(  { queryKey: ['tasks', todolistId] }, (old) => {
         if (!old) return old
         return {
           ...old, items: (old.items ?? []).map((task: Task) => task.id === taskId ? { ...task, ...model } : task),
@@ -66,9 +68,9 @@ export const useUpdateTask = () => {
     },
 
     onError: (_error, _variables, context) => {
-      if (context?.previousData) {
-        queryClient.setQueryData(['tasks', context.todolistId], context.previousData)
-      }
+      context?.previousData.forEach(([key, data]) => {
+        queryClient.setQueryData(key, data)
+      })
     },
 
   })
@@ -84,24 +86,23 @@ export const useDeleteTask = () => {
 
     onMutate: async ({ todolistId, taskId }) => {
       await queryClient.cancelQueries({ queryKey: ['tasks', todolistId] })
-      const previousData = queryClient.getQueryData<GetTasksResponse<Task[]>>(['tasks', todolistId])
-
-      queryClient.setQueryData<GetTasksResponse<Task[]>>(['tasks', todolistId], (old) => {
-        if (!old) return old
-        return {
-          ...old,
-          items: old.items.filter((task: Task) => (task.id !== taskId)),
+      const previousData = queryClient.getQueriesData<GetTasksResponse<Task[]>>({queryKey: ['tasks', todolistId],})
+      queryClient.setQueriesData<GetTasksResponse<Task[]>>({ queryKey: ['tasks', todolistId] }, (old) => {
+          if (!old) return old
+          return {
+            ...old, items: old.items.filter((task) => task.id !== taskId)
+          }
         }
-      })
+      )
 
       return { previousData, todolistId }
     },
 
     onError: (_error, _variables, context) => {
-      if (context?.previousData) {
-        queryClient.setQueryData(['tasks', context.todolistId], context.previousData)
-      }
-    },
+      context?.previousData.forEach(([key, data]) => {
+        queryClient.setQueryData(key, data)
+      })
+    }
 
   })
 }

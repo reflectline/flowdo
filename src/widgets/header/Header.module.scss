@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  min-height: $fluid-14h;
+  min-height: $fluid-14;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +66,7 @@
   align-items: center;
   width: 100%;
   padding: 0 $fluid-10;
-  min-height: $fluid-14h;
+  min-height: $fluid-14;
   border-bottom: 1px solid var(--border);
   background-color: var(--background);
 }

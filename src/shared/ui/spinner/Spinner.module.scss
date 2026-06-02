@@ -1,0 +1,22 @@
+@use '@/app/styles/variables' as *;
+
+
+.spinner{
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+
+  border-radius: 50%;
+
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.md{
+  width:$fluid-9;
+  height:$fluid-9;
+}

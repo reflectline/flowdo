@@ -1,0 +1,133 @@
+@use '@/app/styles/variables' as *;
+
+%shimmer {
+  position: relative;
+  background-color: var(--skeleton);
+  border-radius: $fluid-2;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+                    120deg,
+                    transparent,
+                    var(--skeleton-line),
+                    transparent
+    );
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+.statsContent{
+  display: flex;
+  flex-direction: column;
+  gap: $fluid-3;
+}
+.introWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: $fluid-3;
+
+}
+.splitWrapper{
+  display: flex;
+  align-items: center;
+  font-size: $font-14;
+  gap: $fluid-4;
+}
+
+.title {
+  @extend %shimmer;
+  margin-top: $fluid-1;
+  width: 20%;
+  height: $fluid-6;
+}
+
+.splitItem {
+  @extend %shimmer;
+  width: 25%;
+  height: $fluid-4;
+}
+
+.lastUpdate {
+  @extend %shimmer;
+  width: 25%;
+  height: $fluid-4;
+}
+
+.line {
+  @extend %shimmer;
+  margin-top: $fluid-0;
+  width: 100%;
+  height: $fluid-2;
+}
+
+.contentWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: $fluid-4;
+}
+.tableWrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.toolbarInput {
+  @extend %shimmer;
+  width: 28%;
+  height: $fluid-8;
+}
+.toolbarAdd {
+  @extend %shimmer;
+  width: 11%;
+  height: $fluid-8;
+}
+.tableTasks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: $tasks-list-min-height;
+
+  border-radius: $fluid-3;
+  background-color: var(--skeleton);
+
+
+}
+
+
+
+.todolistsWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: $fluid-4;
+}
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($card-width, 1fr));
+  gap: $fluid-4;
+}
+
+.path{
+  @extend %shimmer;
+  width: 18%;
+  height: $fluid-8;
+}
+.card{
+  @extend %shimmer;
+  width: 100%;
+  height: $card-height;
+  background-color: var(--card);
+
+  border-radius: $fluid-3;
+}

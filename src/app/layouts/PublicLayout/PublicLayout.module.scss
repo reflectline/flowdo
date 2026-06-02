@@ -5,18 +5,8 @@
   flex-direction: column;
   flex: 1;
   background-color: #000000;
-  padding-top: $fluid-14h;
-  min-height: calc(100vh - $fluid-14h); // контент без хедера
+  padding-top: $fluid-14;
+  min-height: calc(100vh - $fluid-14);
   overflow-y: auto;
-
-
-  //height: calc(100vh - $spacing-14h);
-  //overflow-y: auto;
-  //scrollbar-width: none;
-  //-ms-overflow-style: none;
-  //&::-webkit-scrollbar {
-  //  display: none;
-  //}
-
 }
 

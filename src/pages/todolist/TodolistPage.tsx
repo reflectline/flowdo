@@ -8,6 +8,8 @@ import { Tasks } from '@/widgets/tasks/ui/Tasks'
 import { useFilteredTasks } from '@/entities/task/lib/useFilteredTasks'
 import { DEFAULT_TASKS_COUNT, DEFAULT_TASKS_PAGE } from '@/entities/task/config/task.constants'
 import { useResizable } from '@/shared/lib/hooks/useResizable'
+import {TasksStatsSkeleton} from '@/shared/ui/skeleton/TasksStatsSkeleton'
+import {TasksSkeleton} from '@/shared/ui/skeleton/TasksSkeleton'
 
 export const TodolistPage = () => {
   const { activeFilter, todolistId } = useRouteStateStrict()
@@ -20,10 +22,22 @@ export const TodolistPage = () => {
   const filteredTasks = useFilteredTasks(data?.tasks)
   const { containerRef, containerStyle, resizeHandleProps } = useResizable()
 
-  if (isLoadingTasks || isLoadingTodolists) return <div>Loading...</div>
-  if (!todolist || !todolistId || !activeFilter || !data) {
-    return <ErrorPage />
+
+
+
+  if (isLoadingTasks || isLoadingTodolists) {
+    return (
+      <section className={s.page}>
+        <div ref={containerRef} className={s.resizable} style={containerStyle}>
+          <TasksStatsSkeleton />
+          <TasksSkeleton />
+        </div>
+      </section>
+    )
   }
+
+  if (!activeFilter || !todolist || !data) return <ErrorPage />
+
 
   return (
     <section className={s.page}>

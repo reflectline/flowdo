@@ -18,7 +18,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: $fluid-14h;
+  height: $fluid-14;
   font-size: $font-16;
   font-weight: $medium;
   border-bottom: 1px solid var(--border);
@@ -63,7 +63,7 @@
   display: flex;
   align-items: center;
   padding-left: $filter-gap;
-  height: $fluid-8h;
+  height: $fluid-8;
   gap: $fluid-2;
 
   color: var(--foreground);

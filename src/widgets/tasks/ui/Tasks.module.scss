@@ -53,11 +53,12 @@
   flex-direction: column;
 }
 
-.emptyNoTasks{
+.emptyTasks{
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: $font-16;
 }
 
 .resizeHandle {
