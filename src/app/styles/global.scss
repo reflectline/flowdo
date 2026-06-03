@@ -81,3 +81,13 @@ input:-webkit-autofill:focus {
   outline-offset: 2px;
   border-radius: 8px;
 }
+
+::selection {
+  background-color: var(--secondary-foreground);
+  color: var(--background);
+}
+
+::-moz-selection {
+  background-color: var(--secondary-foreground);
+  color: var(--background);
+}
