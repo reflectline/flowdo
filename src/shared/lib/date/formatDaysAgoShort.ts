@@ -1,5 +1,5 @@
 import {differenceInDays} from 'date-fns'
-import {parseUtcDate} from '@/shared/lib/dates/parseUtcDate';
+import {parseUtcDate} from '@/shared/lib/date/parseUtcDate';
 
 export const formatDaysAgoShort = (date: string) => {
   const diff = differenceInDays(new Date(), parseUtcDate(date))

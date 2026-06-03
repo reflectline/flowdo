@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes } from 'react'
+import { type InputHTMLAttributes, useId } from 'react'
 import { cn } from '@/shared/lib/utils'
 import s from '@/shared/ui/checkbox/Checkbox.module.scss'
 import {Check} from 'lucide-react'
@@ -11,7 +11,8 @@ type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> & {
 export const Checkbox = (props: CheckboxProps) => {
   const { size = 'md', variant= 'filter', className, id, ...rest } = props
 
-  const checkboxId = id ?? crypto.randomUUID()
+  const generatedId = useId()
+  const checkboxId = id ?? generatedId
 
   return (
     <span className={cn(s.root, s[variant], className)}>

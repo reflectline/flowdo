@@ -2,7 +2,8 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { authApi } from './auth.api'
 import { useNavigate } from 'react-router-dom'
 import { path } from '@/app/providers/router/path'
-import { tokenStorage } from '@/shared/lib/token'
+import {tokenStorage} from '@/features/auth/lib/token-storage'
+
 
 
 export const useLogin = () => {

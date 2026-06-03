@@ -8,7 +8,7 @@ export const useRouteStateStrict = () => {
   const parsedTodoId = validateTodolistId.safeParse(todolistId)
 
 
-  if (!activeFilter || !todolistId ) {
+  if (!activeFilter || !parsedTodoId.success) {
     throw new Error('Invalid todolist route')
   }
 

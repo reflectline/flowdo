@@ -7,6 +7,8 @@ type HeaderProps = {
 }
 
 export const Header = ({ variant }: HeaderProps) => {
-    if (variant === 'welcome') return <HeaderWelcome />
-    if (variant === 'app') return <HeaderApp />
+
+  return variant === 'welcome'
+    ? <HeaderWelcome />
+    : <HeaderApp />
 }

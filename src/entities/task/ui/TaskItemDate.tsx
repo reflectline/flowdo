@@ -1,4 +1,4 @@
-import { parseUtcDate } from '@/shared/lib/dates/parseUtcDate'
+import { parseUtcDate } from '@/shared/lib/date/parseUtcDate'
 import s from '@/entities/task/ui/Task.module.scss'
 import { Calendar } from 'lucide-react'
 import icon from '@/shared/styles/icons.module.scss'

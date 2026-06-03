@@ -9,8 +9,6 @@
 body {
   font-family:'Geist', system-ui, sans-serif;
   color: var(--foreground);
-  //background-color: var(--background);
-  //color: black;
   background-color: #000000;
   min-height: 100vh;
   margin: 0;
@@ -71,16 +69,6 @@ input:-webkit-autofill:focus {
 
 }
 
-//@media (min-width: 2000px) {
-//  html {
-//    font-size: 20px; /* все rem увеличатся пропорционально */
-//  }
-//}
-//@media (min-width: 3000px) {
-//  html {
-//    font-size: 28px; /* все rem увеличатся пропорционально */
-//  }
-//}
 
 :where(
   button,

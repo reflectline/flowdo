@@ -2,8 +2,8 @@
 import { useEffect, useRef } from 'react'
 
 interface EyeFollowProps {
-    size?: number // размер SVG
-    pupilRadius?: number // радиус движения зрачка
+    size?: number
+    pupilRadius?: number
 }
 
 export const EyeFollow= ({ size, pupilRadius = 4 }: EyeFollowProps) => {
@@ -31,7 +31,7 @@ export const EyeFollow= ({ size, pupilRadius = 4 }: EyeFollowProps) => {
                 dy = Math.sin(angle) * pupilRadius
             }
 
-            // плавное следование с requestAnimationFrame
+
             const pupil = pupilRef.current
             const currentTransform = pupil.getAttribute('transform')
             const match = currentTransform?.match(/translate\(([-\d.]+), ([-\d.]+)\)/)

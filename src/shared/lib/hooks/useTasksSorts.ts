@@ -29,9 +29,6 @@ export const useTasksSort = () => {
       return
     }
 
-    // fallback (на всякий случай)
-    nextParams.delete('sortField')
-    nextParams.delete('sortOrder')
     setSearchParams(nextParams)
   }
 

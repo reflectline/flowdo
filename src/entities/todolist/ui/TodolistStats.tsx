@@ -1,4 +1,4 @@
-import { formatDaysAgoShort } from '@/shared/lib/dates/formatDaysAgoShort'
+import { formatDaysAgoShort } from '@/shared/lib/date/formatDaysAgoShort'
 import type { TaskStats } from '@/entities/task/lib/task.types'
 import s from '@/entities/todolist/ui/Todolist.module.scss'
 

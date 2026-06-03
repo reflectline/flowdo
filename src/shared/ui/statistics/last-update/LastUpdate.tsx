@@ -1,5 +1,5 @@
 import { formatDistanceToNowStrict } from 'date-fns'
-import { parseUtcDate } from '@/shared/lib/dates/parseUtcDate'
+import { parseUtcDate } from '@/shared/lib/date/parseUtcDate'
 import s from '@/shared/ui/statistics/last-update/LastUpdate.module.scss'
 import { cn } from '@/shared/lib/utils'
 
