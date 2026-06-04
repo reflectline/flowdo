@@ -5,7 +5,7 @@ import {Loader} from '@/shared/ui/loader/Loader'
 
 
 export const ProtectedRoute = () => {
-    const {user, isAuthenticated,isLoading,isFetching } = useAuth()
+    const {user, isAuthenticated,isLoading } = useAuth()
 
 
     if (!user && isLoading) return (<Loader/>)
