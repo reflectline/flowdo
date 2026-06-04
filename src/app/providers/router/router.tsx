@@ -10,6 +10,7 @@ import { PublicRoute } from '@/app/guards/PublicRoute'
 import { TodolistPage } from '@/pages/todolist/TodolistPage'
 
 export const router = createBrowserRouter([
+
   {
     element: <PublicLayout />,
     children: [{ index: true, element: <WelcomePage /> }],
@@ -37,4 +38,12 @@ export const router = createBrowserRouter([
   },
 
   { path: '*', element: <ErrorPage /> },
-])
+],
+
+  {
+    basename: import.meta.env.BASE_URL,
+  }
+
+)
+
+// basename: import.meta.env.BASE_ROUTE_URL,
