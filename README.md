@@ -1,73 +1,122 @@
-# React + TypeScript + Vite
+# 🚀 FlowDo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern task management application built with **React**, **TypeScript**, **TanStack Query**, and **Feature-Sliced Design (FSD)**.
 
-Currently, two official plugins are available:
+FlowDo helps users organize tasks across multiple todo lists, track progress, manage priorities, and focus on what matters with a clean and responsive interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🌐 **Live Demo:** [YOUR_DEPLOY_LINK]
+#### If the app doesn't load, try using a VPN.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+### Todo Lists
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Create and delete todo lists
+* View aggregated statistics for each list
+* Filter lists by status:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+    * All Lists
+    * Today
+    * In Process
+    * Done
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Tasks
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Create, edit, and delete tasks
+* Change task status
+* Set task priority
+* Sort tasks by:
+
+    * Title
+    * Date
+    * Status
+    * Priority
+* Filter tasks by status and priority
+
+### User Experience
+
+* Dark / Light theme support
+* Responsive layout
+* Pagination
+* Configurable table view
+* Dynamic breadcrumbs navigation
+* Optimistic and cached server state handling
+
+---
+
+## 🏗 Architecture
+
+The project follows **Feature-Sliced Design (FSD)** principles.
+
+Structure is organized into layers:
+
+```text
+src/
+├── app/
+├── pages/
+├── widgets/
+├── features/
+├── entities/
+└── shared/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠 Tech Stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Core:** React 19, TypeScript, Vite
+- **State:** Redux Toolkit, TanStack Query
+- **Routing:** React Router
+- **Forms & Validation:** React Hook Form, Zod
+- **Styling:** SCSS Modules, CSS Variables, Responsive Design
+- **Networking:** Axios
+- **UI & Animations:** Lucide React, Framer Motion
+---
+
+## 📊 Functionality
+
+### Dashboard
+
+Displays all available todo lists with automatically calculated statistics:
+
+* Total tasks
+* Completed tasks
+* Active tasks
+* Progress information
+
+### Task Table
+
+Supports:
+
+* Sorting
+* Filtering
+* Pagination
+* Dynamic column visibility
+
+### Navigation
+
+Dynamic breadcrumbs are generated based on the current route and selected todo list.
+
+---
+
+## 🚀 Getting Started
+
+### Installation
+
+```bash
+git clone YOUR_REPOSITORY_URL
+cd flowdo
+npm install
+npm run dev
 ```
+
+### Build
+
+```bash
+npm run build
+npm run preview
+```
+---
+
