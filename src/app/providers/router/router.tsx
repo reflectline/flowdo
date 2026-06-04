@@ -41,6 +41,6 @@ export const router = createBrowserRouter([
 ],
 
   {
-    basename: '/flowdo/',
+    basename: import.meta.env.BASE_URL,
   }
 )

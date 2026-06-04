@@ -22,6 +22,7 @@ export const LoginForm = () => {
   })
 
   const onSubmit: SubmitHandler<LoginInputsType> = (data) => {
+    console.log('🔥 LOGIN VIA AXIOS')
     login(data, { onSuccess: () => form.reset() })
   }
 
