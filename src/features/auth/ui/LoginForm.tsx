@@ -14,8 +14,8 @@ export const LoginForm = () => {
   const form = useForm<LoginInputsType>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: 'hunzah9@mail.ru',
-      password: '92Q33yC!79pEVPH',
+      email: 'free@samuraijs.com',
+      password: 'free',
       rememberMe: false,
     },
     mode: 'onBlur',
@@ -34,10 +34,3 @@ export const LoginForm = () => {
     </form>
   )
 }
-
-
-// defaultValues: {
-//     email: 'free@samuraijs.com',
-//         password: 'free',
-//         rememberMe: false,
-// },

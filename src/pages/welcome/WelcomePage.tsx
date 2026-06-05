@@ -3,8 +3,7 @@ import s from '@/pages/welcome/WelcomePage.module.scss'
 import { Link } from 'react-router-dom'
 import { path } from '@/app/providers/router/path'
 import arrow from '@/shared/assets/icons/arrow.svg'
-// import previewApp from '@/shared/assets/picture/previewApp.png'
-import test from '@/shared/assets/picture/test.png'
+import previewApp from '@/shared/assets/image/previewApp.png'
 import { StarsBackground } from '@/shared/ui/effects/stars/StarsBackground'
 import { motion, useMotionValue } from 'framer-motion'
 import { fadeDown, fadeUp } from '@/shared/animation/variants'
@@ -49,7 +48,7 @@ export const WelcomePage = () => {
                         <div className={s.borderEffect}>
                             <div className={s.mask}>
                                 <div className={s.beam} />
-                                <img src={test} alt="previewApp" className={s.previewApp} />
+                                <img src={previewApp} alt="previewApp" className={s.previewApp} />
                             </div>
                         </div>
                     </motion.div>
