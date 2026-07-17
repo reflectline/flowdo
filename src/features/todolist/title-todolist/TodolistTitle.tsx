@@ -13,7 +13,6 @@ export const TodolistTitle = (props: TodolistTitleType) => {
 
   const handleSubmit = (newTitle: string)=> {
     updateTodolistTitle({ id, title: newTitle })
-    console.log(newTitle)
   }
   return (
       <EditableSpan  title={title} onSubmit={handleSubmit}/>

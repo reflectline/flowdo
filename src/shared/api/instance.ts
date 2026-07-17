@@ -11,7 +11,6 @@ export const instance = axios.create({
     'API-KEY': import.meta.env.VITE_API_KEY,
   },
 })
-console.log('BASE_URL:', import.meta.env.VITE_BASE_URL)
 
 instance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const token = tokenStorage.get()
